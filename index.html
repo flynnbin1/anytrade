@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AnyTrade — Trusted Tradespeople in North Dublin</title>
+  <meta name="description" content="AnyTrade provides electrical, plumbing, bathroom renovations, carpentry, painting, tiling, media walls, smart home and commercial services across North Dublin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ═══════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ═══════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════ */
+    :root {
+      --orange:      #F56E0F;
+      --orange-h:    #d45e0a;
+      --orange-light:#fff4ed;
+      --dark:        #111827;
+      --dark2:       #1f2937;
+      --mid:         #6b7280;
+      --light:       #f3f4f6;
+      --border:      #e5e7eb;
+      --white:       #ffffff;
+      --radius-sm:   6px;
+      --radius:      10px;
+      --radius-lg:   16px;
+      --shadow:      0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg:   0 12px 40px rgba(0,0,0,0.14);
+      --transition:  0.25s ease;
+    }
+
+    /* ═══════════════════════════════════════
+       UTILITIES
+    ═══════════════════════════════════════ */
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 14px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--orange);
+      border-radius: 2px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--orange-h); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,110,15,0.35); }
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+    .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+    .btn-dark {
+      background: var(--dark);
+      color: #fff;
+    }
+    .btn-dark:hover { background: var(--dark2); transform: translateY(-1px); }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ═══════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════ */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: transparent;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+    #nav.scrolled {
+      background: rgba(17,24,39,0.97);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--orange);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: #fff; }
+    .nav-logo-text {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo-text span { color: var(--orange); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-phone {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-phone svg { width: 15px; height: 15px; }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      padding: 16px 24px;
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .mobile-menu a:hover { color: var(--orange); }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--dark);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(17,24,39,0.96) 0%, rgba(17,24,39,0.75) 50%, rgba(17,24,39,0.88) 100%),
+        url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&q=80') center/cover no-repeat;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(245,110,15,0.12) 0%, transparent 60%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      padding: 120px 0 80px;
+      margin-left: 0;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,110,15,0.15);
+      border: 1px solid rgba(245,110,15,0.3);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--orange);
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero-tagline {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .hero-h1 {
+      font-size: clamp(40px, 6vw, 66px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 22px;
+    }
+    .hero-h1 em {
+      font-style: normal;
+      color: var(--orange);
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.65;
+      margin-bottom: 40px;
+      max-width: 540px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 44px;
+    }
+    .hero-actions .btn { font-size: 16px; padding: 16px 32px; }
+    .hero-checks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .hero-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
+    .hero-check svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      color: var(--orange);
+    }
+
+    /* ═══════════════════════════════════════
+       STATS BAR
+    ═══════════════════════════════════════ */
+    #stats {
+      background: #0d1117;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      divide: divide;
+    }
+    .stat-item {
+      padding: 32px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ═══════════════════════════════════════
+       SERVICES
+    ═══════════════════════════════════════ */
+    #services {
+      padding: 96px 0;
+      background: var(--light);
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-header .section-label { justify-content: center; }
+    .section-header h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .section-header p {
+      font-size: 17px;
+      color: var(--mid);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: var(--orange-light);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-icon svg {
+      width: 26px;
+      height: 26px;
+      color: var(--orange);
+    }
+    .service-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .service-card p {
+      font-size: 13.5px;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+    .service-card .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--orange);
+      transition: gap var(--transition);
+    }
+    .service-card:hover .service-link { gap: 8px; }
+
+    /* ═══════════════════════════════════════
+       HOW IT WORKS
+    ═══════════════════════════════════════ */
+    #how {
+      padding: 96px 0;
+      background: #fff;
+    }
+    .how-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .how-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .how-step {
+      display: flex;
+      gap: 20px;
+      padding-bottom: 36px;
+      position: relative;
+    }
+    .how-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 48px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--border), transparent);
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+    .step-content h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .step-content p {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+    /* WhatsApp chat mockup */
+    .chat-phone {
+      background: var(--dark);
+      border-radius: 36px;
+      padding: 14px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.2), 0 0 0 8px rgba(255,255,255,0.03);
+      max-width: 360px;
+      margin: 0 auto;
+    }
+    .chat-screen {
+      background: #e5ddd5;
+      border-radius: 26px;
+      overflow: hidden;
+    }
+    .chat-header {
+      background: #075E54;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .chat-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .chat-header-info { flex: 1; }
+    .chat-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .chat-status {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+    }
+    .chat-body {
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 320px;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c2bdb5' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .chat-msg {
+      max-width: 82%;
+      padding: 9px 13px;
+      border-radius: 12px;
+      font-size: 13px;
+      line-height: 1.45;
+      position: relative;
+    }
+    .chat-msg-time {
+      font-size: 10px;
+      opacity: 0.55;
+      text-align: right;
+      margin-top: 3px;
+    }
+    .msg-in {
+      background: #fff;
+      border-radius: 12px 12px 12px 2px;
+      align-self: flex-start;
+      color: #1a1a1a;
+    }
+    .msg-out {
+      background: #dcf8c6;
+      border-radius: 12px 12px 2px 12px;
+      align-self: flex-end;
+      color: #1a1a1a;
+    }
+    .chat-typing {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 14px;
+      background: #fff;
+      border-radius: 12px 12px 12px 2px;
+      align-self: flex-start;
+      width: 60px;
+    }
+    .chat-typing span {
+      width: 7px; height: 7px;
+      background: #999;
+      border-radius: 50%;
+      animation: typing 1.2s infinite;
+    }
+    .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+      30% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════
+       WHY ANYTRADE
+    ═══════════════════════════════════════ */
+    #why {
+      padding: 96px 0;
+      background: var(--dark);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .why-image {
+      position: relative;
+    }
+    .why-img-box {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #1f2937;
+    }
+    .why-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .why-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.2);
+      background: linear-gradient(145deg, #1f2937, #111827);
+    }
+    .why-img-placeholder svg { width: 48px; height: 48px; }
+    .why-img-placeholder span { font-size: 13px; }
+    .why-badge-float {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      background: var(--orange);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(245,110,15,0.4);
+    }
+    .why-badge-float .num {
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .why-badge-float .lbl {
+      font-size: 11px;
+      font-weight: 600;
+      opacity: 0.85;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+    .why-content .section-label { color: var(--orange); }
+    .why-content h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .why-content > p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .why-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .why-point {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .why-point:hover {
+      background: rgba(245,110,15,0.06);
+      border-color: rgba(245,110,15,0.25);
+    }
+    .why-point-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(245,110,15,0.15);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .why-point-icon svg { width: 18px; height: 18px; color: var(--orange); }
+    .why-point h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    .why-point p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════
+       REVIEWS
+    ═══════════════════════════════════════ */
+    #reviews {
+      padding: 96px 0;
+      background: var(--light);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: box-shadow var(--transition);
+    }
+    .review-card:hover { box-shadow: var(--shadow-lg); }
+    .review-stars {
+      display: flex;
+      gap: 3px;
+    }
+    .review-stars svg {
+      width: 17px;
+      height: 17px;
+      fill: #f59e0b;
+      color: #f59e0b;
+    }
+    .review-text {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.7;
+      flex: 1;
+    }
+    .review-text::before { content: '\201C'; }
+    .review-text::after  { content: '\201D'; }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .review-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .review-meta {
+      font-size: 12px;
+      color: var(--mid);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 2px;
+    }
+    .review-source {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--mid);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      border-radius: 100px;
+    }
+    .reviews-footer {
+      text-align: center;
+      margin-top: 48px;
+    }
+    .reviews-footer p {
+      font-size: 14px;
+      color: var(--mid);
+      margin-bottom: 16px;
+    }
+    .review-platforms {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    .platform-badge {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--mid);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 100px;
+      background: #fff;
+    }
+
+    /* ═══════════════════════════════════════
+       AREAS
+    ═══════════════════════════════════════ */
+    #areas {
+      padding: 96px 0;
+      background: #fff;
+    }
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 72px;
+      align-items: start;
+    }
+    .areas-left h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .areas-left > p {
+      font-size: 16px;
+      color: var(--mid);
+      margin-bottom: 32px;
+      line-height: 1.65;
+    }
+    .area-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .area-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 16px;
+      border-radius: 100px;
+      font-size: 13.5px;
+      font-weight: 600;
+      background: var(--light);
+      color: var(--dark);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+    }
+    .area-pill svg { width: 13px; height: 13px; color: var(--orange); }
+    .area-pill:hover {
+      background: var(--orange-light);
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+    .areas-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--mid);
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      border-left: 3px solid var(--orange);
+    }
+    .areas-note svg { width: 18px; height: 18px; color: var(--orange); flex-shrink: 0; margin-top: 1px; }
+    .contact-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .contact-card {
+      background: var(--light);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: border-color var(--transition);
+    }
+    .contact-card:hover { border-color: var(--orange); }
+    .contact-card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-card-icon svg { width: 20px; height: 20px; }
+    .contact-card-info { flex: 1; }
+    .contact-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--mid);
+      margin-bottom: 4px;
+    }
+    .contact-card-value {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .contact-card-sub {
+      font-size: 12px;
+      color: var(--mid);
+      margin-top: 2px;
+    }
+    .wa-card {
+      background: #e7f7ef;
+      border-color: #bbf0d0;
+    }
+    .wa-card .contact-card-icon { background: #25d366; }
+    .wa-card .contact-card-icon svg { color: #fff; }
+    .phone-card .contact-card-icon { background: var(--orange-light); }
+    .phone-card .contact-card-icon svg { color: var(--orange); }
+    .email-card .contact-card-icon { background: #eff6ff; }
+    .email-card .contact-card-icon svg { color: #3b82f6; }
+    .hours-card .contact-card-icon { background: var(--light); border: 1px solid var(--border); }
+    .hours-card .contact-card-icon svg { color: var(--mid); }
+
+    /* ═══════════════════════════════════════
+       QUOTE FORM
+    ═══════════════════════════════════════ */
+    #quote {
+      padding: 96px 0;
+      background: var(--dark);
+    }
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .quote-left .section-label { color: var(--orange); }
+    .quote-left h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .quote-left > p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .quote-promises {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .quote-promise {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .promise-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: rgba(245,110,15,0.12);
+      border: 1px solid rgba(245,110,15,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .promise-icon svg { width: 16px; height: 16px; color: var(--orange); }
+    .promise-text h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .promise-text p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.5;
+    }
+    .quote-form-wrap {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .form-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .form-sub {
+      font-size: 13.5px;
+      color: var(--mid);
+      margin-bottom: 28px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--mid);
+      margin-bottom: 7px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: #fff;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(245,110,15,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-group select { cursor: pointer; }
+    .upload-area {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .upload-area:hover, .upload-area.drag-over {
+      border-color: var(--orange);
+      background: var(--orange-light);
+    }
+    .upload-area svg { width: 28px; height: 28px; color: var(--mid); margin: 0 auto 8px; }
+    .upload-area p { font-size: 13px; color: var(--mid); }
+    .upload-area strong { color: var(--orange); }
+    .upload-filenames {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--orange);
+      font-weight: 500;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .form-submit:hover { background: var(--orange-h); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,110,15,0.35); }
+    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .form-success svg { width: 56px; height: 56px; color: #22c55e; margin: 0 auto 16px; }
+    .form-success h3 { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+    .form-success p { font-size: 15px; color: var(--mid); }
+    .form-privacy {
+      font-size: 11.5px;
+      color: var(--mid);
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
+    footer {
+      background: #0d1117;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 48px 0 28px;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ═══════════════════════════════════════
+       WHATSAPP FLOAT
+    ═══════════════════════════════════════ */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 56px;
+      height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+    }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+    .wa-tooltip {
+      position: absolute;
+      right: 68px;
+      background: var(--dark);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+    .wa-tooltip::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-right: none;
+      border-left-color: var(--dark);
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — TABLET (≤1024px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      /* Services: 2 columns */
+      .services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+      /* How It Works: stack vertically, chat below steps */
+      .how-grid { grid-template-columns: 1fr; gap: 48px; }
+      .chat-phone { max-width: 420px; margin: 0 auto; }
+
+      /* Why: hide photo, show 2-col points */
+      .why-grid { grid-template-columns: 1fr; gap: 40px; }
+      .why-image { display: none; }
+      .why-points { grid-template-columns: repeat(2, 1fr); }
+
+      /* Areas: stack left/right panels */
+      .areas-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      /* Quote form: stack left/right */
+      .quote-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      /* Reduce section padding */
+      #services, #how, #why, #reviews, #areas, #quote { padding: 72px 0; }
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — MOBILE (≤768px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 768px) {
+      /* Nav */
+      .nav-links, .nav-phone { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta .btn { display: none; }
+
+      /* Hero */
+      .hero-content { padding: 96px 0 56px; }
+      .hero-h1 { font-size: 36px; }
+      .hero-sub { font-size: 16px; }
+      .hero-badge { font-size: 12px; }
+      .hero-actions { flex-direction: column; gap: 12px; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .hero-checks { flex-wrap: wrap; gap: 12px; }
+
+      /* Stats: 2×2 grid */
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { padding: 24px 16px; }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.08); }
+      .stat-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.08); border-right: none; }
+      .stat-number { font-size: 30px; }
+
+      /* Services: 1 column */
+      .services-grid { grid-template-columns: 1fr; gap: 12px; }
+      .service-card { padding: 24px 20px; }
+
+      /* Section headings */
+      .section-header { margin-bottom: 36px; }
+      .section-header h2 { font-size: 26px; }
+
+      /* How It Works */
+      .how-grid { gap: 36px; }
+
+      /* Why */
+      .why-points { grid-template-columns: 1fr; gap: 12px; }
+      .why-content h2 { font-size: 28px; }
+
+      /* Reviews */
+      .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
+      .review-platforms { flex-direction: column; gap: 10px; }
+
+      /* Areas */
+      .areas-grid { gap: 36px; }
+      .areas-left h2 { font-size: 26px; }
+      .contact-cards { gap: 12px; }
+
+      /* Quote form */
+      .quote-grid { gap: 40px; }
+      .quote-left h2 { font-size: 28px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .quote-form-wrap { padding: 28px 20px; }
+      .quote-promises { gap: 14px; }
+
+      /* Footer */
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .footer-links { flex-direction: column; gap: 12px; }
+
+      /* Reduce section padding */
+      #services, #how, #why, #reviews, #areas, #quote { padding: 56px 0; }
+    }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE — SMALL MOBILE (≤480px)
+    ═══════════════════════════════════════ */
+    @media (max-width: 480px) {
+      .hero-h1 { font-size: 30px; }
+      .hero-checks { flex-direction: column; gap: 10px; }
+      .stat-number { font-size: 26px; }
+      .chat-phone { border-radius: 24px; padding: 10px; }
+      .area-pills { gap: 8px; }
+      .area-pill { font-size: 12.5px; padding: 7px 13px; }
+      .quote-form-wrap { border-radius: var(--radius); }
+      .wa-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+      .wa-float svg { width: 24px; height: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <span class="nav-logo-text">Any<span>Trade</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#how">How It Works</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#areas">Areas</a>
+        </div>
+        <div class="nav-cta">
+          <a href="tel:016917151" class="nav-phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92v2z"/></svg>
+            01 691 7151
+          </a>
+          <a href="#quote" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Get a Quote</a>
+        </div>
+        <div class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#services" onclick="toggleMenu()">Services</a>
+        <a href="#how" onclick="toggleMenu()">How It Works</a>
+        <a href="#reviews" onclick="toggleMenu()">Reviews</a>
+        <a href="#areas" onclick="toggleMenu()">Areas</a>
+        <a href="tel:016917151" onclick="toggleMenu()">Call: 01 691 7151</a>
+        <a href="#quote" onclick="toggleMenu()" style="color:var(--orange);">Get a Quote →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content reveal">
+        <div class="hero-badge">North Dublin's Trusted Trade Team</div>
+        <p class="hero-tagline">All Skills. One Number.</p>
+        <h1 class="hero-h1">Trusted Tradespeople<br>in <em>North Dublin</em></h1>
+        <p class="hero-sub">From a dripping tap to a full bathroom renovation — we have the right tradesperson for every job, with guaranteed quality and same-week availability.</p>
+        <div class="hero-actions">
+          <a href="#quote" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Get a Free Quote
+          </a>
+          <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <div class="hero-checks">
+          <div class="hero-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            No call-out fee
+          </div>
+          <div class="hero-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Same-week availability
+          </div>
+          <div class="hero-check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            All work fully guaranteed
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS BAR ═══ -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat-item reveal">
+          <div class="stat-number">200<span style="font-size:22px;opacity:0.7">+</span></div>
+          <div class="stat-label">Jobs / Month</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-number">36<span style="font-size:22px;opacity:0.7">+</span></div>
+          <div class="stat-label">Verified Reviews</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-number">8<span style="font-size:22px;opacity:0.7">+</span></div>
+          <div class="stat-label">Trades Covered</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-number">2<span style="font-size:22px;opacity:0.7">yr</span></div>
+          <div class="stat-label">Trading in Dublin</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">What We Do</div>
+        <h2>Every Trade. One Call.</h2>
+        <p>We cover the full range of home and commercial trade services across North Dublin — no job too big or too small.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3>Electrical</h3>
+          <p>Consumer unit upgrades, rewiring, sockets, lighting circuits, EV charger installation and certification.</p>
+          <span class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Plumbing</h3>
+          <p>Leak repairs, pipe fitting, boiler servicing, radiator installation, bathroom and kitchen plumbing.</p>
+          <span class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Bathroom Renovations</h3>
+          <p>Full design and fit-out, wet rooms, en-suite conversions, tiling, sanitaryware supply and fit.</p>
+          <span class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Carpentry</h3>
+          <p>Fitted wardrobes, kitchen fitting, skirting boards, doors, staircases, bespoke joinery and shelving.</p>
+          <span class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3>Painting &amp; Tiling</h3>
+          <p>Interior and exterior painting, floor and wall tiling, feature walls, professional finishes guaranteed.</p>
+          <span class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Media Walls</h3>
+          <p>Custom TV feature walls with integrated storage, lighting, and concealed cable management systems.</p>
+          <span class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
+          </div>
+          <h3>Smart Home</h3>
+          <p>Smart lighting, heating controls, security cameras, alarm systems and home automation setup.</p>
+          <span class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <h3>Commercial</h3>
+          <p>Office fit-outs, retail refurbishments, landlord maintenance packages and commercial property upkeep.</p>
+          <span class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section id="how">
+    <div class="container">
+      <div class="how-grid">
+        <div>
+          <div class="section-label reveal">Our Process</div>
+          <h2 style="font-size:clamp(26px,3.5vw,38px);font-weight:800;letter-spacing:-0.03em;color:var(--dark);margin-bottom:14px;line-height:1.2;" class="reveal">A quote in minutes,<br>not days</h2>
+          <p style="font-size:16px;color:var(--mid);margin-bottom:44px;line-height:1.7;" class="reveal">Send us a WhatsApp or fill in the form — we'll have a clear price back to you the same day. No call-out fees, no surprises.</p>
+          <div class="how-steps">
+            <div class="how-step reveal">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h3>Send photos &amp; description</h3>
+                <p>WhatsApp or upload photos of the job. The more detail the better — it helps us quote accurately first time.</p>
+              </div>
+            </div>
+            <div class="how-step reveal reveal-delay-1">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h3>Receive your estimate</h3>
+                <p>We review and send back a clear, itemised estimate — usually within a few hours during business hours.</p>
+              </div>
+            </div>
+            <div class="how-step reveal reveal-delay-2">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h3>Approve &amp; confirm</h3>
+                <p>Happy with the price? Simply say yes. We'll agree a time that suits you — often same week.</p>
+              </div>
+            </div>
+            <div class="how-step reveal reveal-delay-3">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h3>Job done, guaranteed</h3>
+                <p>Our tradesperson arrives on time, does the job to a high standard, and cleans up after themselves.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="chat-phone">
+            <div class="chat-screen">
+              <div class="chat-header">
+                <div class="chat-avatar">AT</div>
+                <div class="chat-header-info">
+                  <div class="chat-name">AnyTrade</div>
+                  <div class="chat-status">online</div>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" style="opacity:0.7"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              </div>
+              <div class="chat-body">
+                <div class="chat-msg msg-in">
+                  Hi, I need a plumber — my bathroom tap is leaking badly. Based in Malahide.
+                  <div class="chat-msg-time">09:14 ✓✓</div>
+                </div>
+                <div class="chat-msg msg-out">
+                  Hi! Thanks for getting in touch 👋 Do you have a photo of the tap? Makes it easier for us to quote accurately.
+                  <div class="chat-msg-time">09:16 ✓✓</div>
+                </div>
+                <div class="chat-msg msg-in">
+                  <div style="background:#ccc;border-radius:8px;height:80px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#666;margin-bottom:4px;">📷 tap_photo.jpg</div>
+                  That's the one — it's been dripping for a week
+                  <div class="chat-msg-time">09:18 ✓✓</div>
+                </div>
+                <div class="chat-msg msg-out">
+                  Got it! That looks like a worn cartridge. We can have someone with you <strong>tomorrow afternoon</strong> — fix should take about an hour.<br><br><strong>Estimate: €85–€110</strong> (parts + labour)
+                  <div class="chat-msg-time">09:31 ✓✓</div>
+                </div>
+                <div class="chat-msg msg-in">
+                  Perfect, yes please! Tomorrow at 2pm works great 👍
+                  <div class="chat-msg-time">09:33 ✓✓</div>
+                </div>
+                <div class="chat-typing">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY ANYTRADE ═══ -->
+  <section id="why">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-image reveal">
+          <div class="why-img-box">
+            <div class="why-img-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>Team Photo</span>
+            </div>
+          </div>
+          <div class="why-badge-float">
+            <div class="num">36+</div>
+            <div class="lbl">5★ Reviews</div>
+          </div>
+        </div>
+        <div class="why-content">
+          <div class="section-label reveal">Why Choose Us</div>
+          <h2 class="reveal">One company.<br>Every trade.</h2>
+          <p class="reveal">Stop managing multiple contractors. With AnyTrade you get a single point of contact for every job in your home — saving you time, hassle, and money.</p>
+          <div class="why-points">
+            <div class="why-point reveal">
+              <div class="why-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <h4>Vetted &amp; Insured</h4>
+              <p>Every tradesperson is fully vetted, insured and background checked.</p>
+            </div>
+            <div class="why-point reveal reveal-delay-1">
+              <div class="why-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <h4>Fast Response</h4>
+              <p>Quotes back within hours. Most jobs scheduled same week.</p>
+            </div>
+            <div class="why-point reveal reveal-delay-2">
+              <div class="why-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              </div>
+              <h4>Transparent Pricing</h4>
+              <p>Clear estimates upfront — no hidden charges, ever.</p>
+            </div>
+            <div class="why-point reveal reveal-delay-3">
+              <div class="why-point-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z"/><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>
+              </div>
+              <h4>Guaranteed Quality</h4>
+              <p>All work is guaranteed. Not happy? We'll make it right.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REVIEWS ═══ -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Customer Reviews</div>
+        <h2>Trusted across North Dublin</h2>
+        <p>Don't take our word for it — here's what our customers say.</p>
+      </div>
+      <div class="reviews-grid">
+
+        <div class="review-card reveal">
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-text">Absolutely delighted with the bathroom renovation. The team were professional, tidy and finished ahead of schedule. The tiling is immaculate — so much better than I expected for the price.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#6366f1;">SC</div>
+            <div>
+              <div class="review-name">Sarah C.</div>
+              <div class="review-meta">
+                Malahide
+                <span class="review-source">Facebook</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-text">Used AnyTrade for a full rewire and consumer unit upgrade. Great communication throughout, competitive pricing, and the electrician was really knowledgeable. Already recommended to two neighbours in Swords.</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#059669;">DM</div>
+            <div>
+              <div class="review-name">David M.</div>
+              <div class="review-meta">
+                Swords
+                <span class="review-source">Bark.ie</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-text">Brilliant media wall — they handled the entire thing from design to installation. All cables hidden, lighting installed perfectly. Totally transformed our living room. Cannot recommend highly enough!</p>
+          <div class="review-author">
+            <div class="review-avatar" style="background:#dc2626;">LK</div>
+            <div>
+              <div class="review-name">Louise K.</div>
+              <div class="review-meta">
+                Portmarnock
+                <span class="review-source">Facebook</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="reviews-footer reveal">
+        <p>36+ verified reviews across our platforms</p>
+        <div class="review-platforms">
+          <div class="platform-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#1877f2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook
+          </div>
+          <div class="platform-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            Bark.ie
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AREAS ═══ -->
+  <section id="areas">
+    <div class="container">
+      <div class="areas-grid">
+        <div class="areas-left">
+          <div class="section-label reveal">Where We Work</div>
+          <h2 class="reveal">Covering all of<br>North Dublin</h2>
+          <p class="reveal">We're based in North Dublin and cover the surrounding areas. Not sure if we cover your area? Just give us a call.</p>
+          <div class="area-pills reveal">
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Malahide</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Swords</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Portmarnock</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Sutton</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Clontarf</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Artane</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Beaumont</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Santry</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Drumcondra</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Coolock</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Raheny</div>
+            <div class="area-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Finglas</div>
+          </div>
+          <div class="areas-note reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>Not on the list? We may still cover your area — call us on <strong>01 691 7151</strong> to check.</span>
+          </div>
+        </div>
+        <div class="contact-cards reveal reveal-delay-1">
+          <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="contact-card wa-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <div class="contact-card-label">Fastest Response</div>
+              <div class="contact-card-value">WhatsApp Us</div>
+              <div class="contact-card-sub">Typically reply within the hour</div>
+            </div>
+          </a>
+          <a href="tel:016917151" class="contact-card phone-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <div class="contact-card-label">Call Us</div>
+              <div class="contact-card-value">01 691 7151</div>
+              <div class="contact-card-sub">Mon–Fri 9am–6pm</div>
+            </div>
+          </a>
+          <a href="mailto:hello@anytrade.ie" class="contact-card email-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <div class="contact-card-label">Email</div>
+              <div class="contact-card-value">hello@anytrade.ie</div>
+              <div class="contact-card-sub">We reply same business day</div>
+            </div>
+          </a>
+          <div class="contact-card hours-card">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <div class="contact-card-label">Business Hours</div>
+              <div class="contact-card-value">Mon – Fri, 9am – 6pm</div>
+              <div class="contact-card-sub">Emergency call-outs available</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ QUOTE FORM ═══ -->
+  <section id="quote">
+    <div class="container">
+      <div class="quote-grid">
+        <div class="quote-left">
+          <div class="section-label reveal">Get a Quote</div>
+          <h2 class="reveal">Tell us about<br>your job</h2>
+          <p class="reveal">Fill in the form and we'll get back to you with a clear, no-obligation estimate — usually within a few hours.</p>
+          <div class="quote-promises">
+            <div class="quote-promise reveal">
+              <div class="promise-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="promise-text">
+                <h4>Same-day response</h4>
+                <p>We'll review and respond during business hours — no long waits.</p>
+              </div>
+            </div>
+            <div class="quote-promise reveal reveal-delay-1">
+              <div class="promise-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              </div>
+              <div class="promise-text">
+                <h4>No call-out fee</h4>
+                <p>Quotes are always free — we only charge when the work is done.</p>
+              </div>
+            </div>
+            <div class="quote-promise reveal reveal-delay-2">
+              <div class="promise-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div class="promise-text">
+                <h4>All work guaranteed</h4>
+                <p>We stand behind every job. If something isn't right, we fix it.</p>
+              </div>
+            </div>
+            <div class="quote-promise reveal reveal-delay-3">
+              <div class="promise-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div class="promise-text">
+                <h4>Vetted tradespeople</h4>
+                <p>Every person we send is background checked and fully insured.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="quote-form-wrap">
+            <div id="formContent">
+              <div class="form-title">Request a Free Quote</div>
+              <div class="form-sub">We'll get back to you within a few hours</div>
+              <form id="quoteForm" onsubmit="handleSubmit(event)" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="fname">Your Name *</label>
+                    <input type="text" id="fname" name="name" placeholder="e.g. John Murphy" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="fphone">Phone Number *</label>
+                    <input type="tel" id="fphone" name="phone" placeholder="e.g. 085 123 4567" required />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="farea">Area / Eircode *</label>
+                    <input type="text" id="farea" name="area" placeholder="e.g. Malahide / K36" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="fjob">Type of Job *</label>
+                    <select id="fjob" name="jobType" required>
+                      <option value="" disabled selected>Select a service...</option>
+                      <option>Electrical</option>
+                      <option>Plumbing</option>
+                      <option>Bathroom Renovation</option>
+                      <option>Carpentry</option>
+                      <option>Painting &amp; Tiling</option>
+                      <option>Media Wall</option>
+                      <option>Smart Home</option>
+                      <option>Commercial</option>
+                      <option>Other / Multiple</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="fdesc">Job Description *</label>
+                  <textarea id="fdesc" name="description" rows="3" placeholder="Tell us what needs doing — the more detail, the more accurate your quote will be." required></textarea>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="ftime">Preferred Timeframe</label>
+                    <select id="ftime" name="timeframe">
+                      <option value="" disabled selected>When do you need it?</option>
+                      <option>As soon as possible</option>
+                      <option>Within a week</option>
+                      <option>Within a month</option>
+                      <option>Just planning ahead</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Photos (Optional)</label>
+                    <div class="upload-area" id="uploadArea" onclick="document.getElementById('ffiles').click()">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                      <p><strong>Click to upload</strong> or drag &amp; drop</p>
+                      <div class="upload-filenames" id="fileNames"></div>
+                    </div>
+                    <input type="file" id="ffiles" name="photos" multiple accept="image/*" style="display:none" onchange="showFiles(this)" />
+                  </div>
+                </div>
+                <button type="submit" class="form-submit" id="submitBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  Send My Quote Request
+                </button>
+                <p class="form-privacy">We'll only use your details to respond to your enquiry. No spam, ever.</p>
+              </form>
+            </div>
+            <div class="form-success" id="formSuccess">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <h3>Quote request sent!</h3>
+              <p>Thanks! We've received your request and will be in touch within a few hours during business hours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <span class="nav-logo-text">Any<span>Trade</span></span>
+        </a>
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#how">How It Works</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#areas">Areas</a>
+          <a href="tel:016917151">01 691 7151</a>
+          <a href="mailto:hello@anytrade.ie">hello@anytrade.ie</a>
+        </div>
+        <a href="#quote" class="btn btn-primary" style="padding:11px 22px;font-size:14px;">Get a Quote</a>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 AnyTrade. All rights reserved. North Dublin's multi-trade specialists.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ WHATSAPP FLOAT ═══ -->
+  <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+    <div class="wa-tooltip">Chat with us</div>
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ═══ JAVASCRIPT ═══ -->
+  <script>
+    // ── Nav scroll effect ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── Mobile menu ──
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+
+    // ── Scroll reveal ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── File upload display ──
+    function showFiles(input) {
+      const names = Array.from(input.files).map(f => f.name).join(', ');
+      document.getElementById('fileNames').textContent = names || '';
+    }
+
+    // Drag-and-drop styling
+    const uploadArea = document.getElementById('uploadArea');
+    if (uploadArea) {
+      uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
+      uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
+      uploadArea.addEventListener('drop', e => {
+        e.preventDefault();
+        uploadArea.classList.remove('drag-over');
+        const files = e.dataTransfer.files;
+        document.getElementById('ffiles').files = files;
+        showFiles(document.getElementById('ffiles'));
+      });
+    }
+
+    // ── Form submission ──
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('submitBtn');
+
+      // Basic validation
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(el => {
+        if (!el.value.trim()) {
+          el.style.borderColor = '#ef4444';
+          valid = false;
+          el.addEventListener('input', () => el.style.borderColor = '', { once: true });
+        }
+      });
+      if (!valid) return;
+
+      btn.disabled = true;
+      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg> Sending...';
+
+      // Placeholder — connect to Jobber / webhook / EmailJS
+      setTimeout(() => {
+        document.getElementById('formContent').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      }, 1200);
+    }
+
+    // Spin keyframe for loading icon
+    const style = document.createElement('style');
+    style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
