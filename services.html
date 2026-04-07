@@ -163,6 +163,14 @@
     .mobile-phone-link:hover{background:rgba(255,255,255,.1)}
     @media(max-width:768px){.nav-links,.nav-phone{display:none!important}.nav-hamburger{display:flex!important}.nav-cta .btn{display:none!important}}
     @media(min-width:769px){.mobile-overlay,.mobile-panel{display:none!important}.mobile-overlay.open,.mobile-panel.open{display:none!important}}
+  
+    /* === DROPDOWN: click-based (overrides hover rules) === */
+    .nav-dropdown-wrap:hover .nav-dropdown{opacity:0!important;pointer-events:none!important;transform:translateY(-8px)!important}
+    .nav-dropdown-wrap:hover .nav-dropdown-trigger svg{transform:none!important}
+    .nav-dropdown-wrap:hover .nav-dropdown-trigger{color:rgba(255,255,255,.8)!important}
+    .nav-dropdown-wrap.open .nav-dropdown{opacity:1!important;pointer-events:all!important;transform:translateY(0)!important}
+    .nav-dropdown-wrap.open .nav-dropdown-trigger svg{transform:rotate(180deg)!important}
+    .nav-dropdown-wrap.open .nav-dropdown-trigger{color:#fff!important}
   </style>
 </head>
 <body>
@@ -175,7 +183,7 @@
       </a>
       <div class="nav-links">
         <div class="nav-dropdown-wrap">
-          <button class="nav-dropdown-trigger">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <button class="nav-dropdown-trigger" onclick="toggleServicesDropdown(event)">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
           <div class="nav-dropdown">
             <a href="electrical.html"><span class="nd-icon"><i class="fa-solid fa-bolt"></i></span>Electrical</a>
             <a href="plumbing.html"><span class="nd-icon"><i class="fa-solid fa-droplet"></i></span>Plumbing</a>
@@ -375,6 +383,21 @@
       document.body.style.overflow = '';
     }
   });
+  
+  // Services desktop dropdown — click to open/close
+  function toggleServicesDropdown(e) {
+    e.stopPropagation();
+    document.querySelector('.nav-dropdown-wrap').classList.toggle('open');
+  }
+  // Close dropdown when clicking anywhere outside
+  document.addEventListener('click', function() {
+    var wrap = document.querySelector('.nav-dropdown-wrap');
+    if (wrap) wrap.classList.remove('open');
+  });
+  // Prevent clicks inside dropdown from bubbling and closing it immediately
+  var dd = document.querySelector('.nav-dropdown');
+  if (dd) dd.addEventListener('click', function(e) { e.stopPropagation(); });
+
   </script>
 </body>
 </html>
