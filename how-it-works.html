@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works — AnyTrade</title>
+  <meta name="description" content="See how AnyTrade makes getting a trade quote fast and simple. Send photos, get an estimate, book your slot — job done." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #1a1a1a; overflow-x: hidden; line-height: 1.6; }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    :root {
+      --orange:      #F56E0F;
+      --orange-h:    #d45e0a;
+      --orange-light:#fff4ed;
+      --dark:        #111827;
+      --dark2:       #1f2937;
+      --mid:         #6b7280;
+      --light:       #f3f4f6;
+      --border:      #e5e7eb;
+      --white:       #ffffff;
+      --radius-sm:   6px;
+      --radius:      10px;
+      --radius-lg:   16px;
+      --shadow:      0 4px 24px rgba(0,0,0,0.08);
+      --shadow-lg:   0 12px 40px rgba(0,0,0,0.14);
+      --transition:  0.25s ease;
+    }
+
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 14px;
+    }
+    .section-label::before { content: ''; display: block; width: 20px; height: 2px; background: var(--orange); border-radius: 2px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: var(--radius-sm); font-size: 15px; font-weight: 600;
+      cursor: pointer; border: none; transition: all var(--transition); white-space: nowrap; font-family: 'Inter', sans-serif;
+    }
+    .btn-primary { background: var(--orange); color: #fff; }
+    .btn-primary:hover { background: var(--orange-h); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,110,15,0.35); }
+    .btn-secondary { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.35); }
+    .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── NAV ── */
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(17,24,39,0.97); backdrop-filter: blur(14px); box-shadow: 0 2px 20px rgba(0,0,0,0.25); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo-icon { width: 36px; height: 36px; background: var(--orange); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
+    .nav-logo-icon svg { width: 20px; height: 20px; fill: #fff; }
+    .nav-logo-text { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+    .nav-logo-text span { color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); transition: color var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+    .nav-phone { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); display: flex; align-items: center; gap: 6px; }
+    .nav-phone svg { width: 15px; height: 15px; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
+    .mobile-menu { display: none; flex-direction: column; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { padding: 16px 24px; font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.85); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .mobile-menu a:hover { color: var(--orange); }
+
+    /* ── PAGE HERO (shorter than homepage) ── */
+    .page-hero {
+      position: relative; background: var(--dark); padding: 140px 0 80px; overflow: hidden;
+    }
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(17,24,39,0.97) 0%, rgba(17,24,39,0.82) 60%, rgba(17,24,39,0.95) 100%),
+        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600&q=80') center/cover no-repeat;
+    }
+    .page-hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 15% 50%, rgba(245,110,15,0.1) 0%, transparent 65%);
+    }
+    .page-hero-content { position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(245,110,15,0.15); border: 1px solid rgba(245,110,15,0.3);
+      padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 600;
+      color: var(--orange); letter-spacing: 0.04em; margin-bottom: 24px;
+    }
+    .hero-badge::before { content: ''; width: 7px; height: 7px; background: var(--orange); border-radius: 50%; animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
+    .page-hero h1 { font-size: clamp(36px,5vw,58px); font-weight: 900; letter-spacing: -0.03em; color: #fff; line-height: 1.08; margin-bottom: 18px; }
+    .page-hero h1 em { font-style: normal; color: var(--orange); }
+    .page-hero p { font-size: 18px; color: rgba(255,255,255,0.62); line-height: 1.65; max-width: 560px; margin-bottom: 32px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-actions .btn { font-size: 16px; padding: 15px 30px; }
+
+    /* ── STEPS SECTION ── */
+    #steps { padding: 96px 0; background: #fff; }
+    .steps-intro { text-align: center; margin-bottom: 72px; }
+    .steps-intro h2 { font-size: clamp(28px,4vw,42px); font-weight: 800; letter-spacing: -0.03em; color: var(--dark); margin-bottom: 14px; }
+    .steps-intro p { font-size: 17px; color: var(--mid); max-width: 520px; margin: 0 auto; }
+
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .steps-grid::before {
+      content: ''; position: absolute; top: 56px; left: 12.5%; right: 12.5%; height: 2px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-light)); z-index: 0;
+    }
+    .step-card { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+    .step-circle {
+      width: 72px; height: 72px; border-radius: 50%; background: var(--orange);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 28px;
+      font-size: 26px; font-weight: 900; color: #fff; box-shadow: 0 6px 24px rgba(245,110,15,0.35);
+      position: relative;
+    }
+    .step-circle::after {
+      content: ''; position: absolute; inset: -5px; border-radius: 50%;
+      border: 2px solid rgba(245,110,15,0.25);
+    }
+    .step-card h3 { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 10px; letter-spacing: -0.01em; }
+    .step-card p { font-size: 14px; color: var(--mid); line-height: 1.6; }
+    .step-card .step-icon {
+      width: 40px; height: 40px; border-radius: var(--radius); background: var(--orange-light);
+      display: flex; align-items: center; justify-content: center; margin: 16px auto 0;
+    }
+    .step-card .step-icon svg { width: 20px; height: 20px; color: var(--orange); }
+
+    /* ── CHAT SECTION ── */
+    #chat-demo { padding: 96px 0; background: var(--light); }
+    .chat-demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .chat-demo-text h2 { font-size: clamp(26px,3.5vw,40px); font-weight: 800; letter-spacing: -0.03em; color: var(--dark); margin-bottom: 14px; line-height: 1.2; }
+    .chat-demo-text > p { font-size: 16px; color: var(--mid); margin-bottom: 32px; line-height: 1.7; }
+    .chat-perks { display: flex; flex-direction: column; gap: 16px; }
+    .chat-perk { display: flex; align-items: flex-start; gap: 14px; }
+    .chat-perk-icon { width: 38px; height: 38px; border-radius: var(--radius-sm); background: var(--orange-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .chat-perk-icon svg { width: 18px; height: 18px; color: var(--orange); }
+    .chat-perk-text h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 3px; }
+    .chat-perk-text p { font-size: 13px; color: var(--mid); }
+
+    /* WhatsApp mock */
+    .chat-phone {
+      background: var(--dark); border-radius: 36px; padding: 14px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.18), 0 0 0 8px rgba(255,255,255,0.04);
+      max-width: 400px; margin: 0 auto;
+    }
+    .chat-screen { background: #e5ddd5; border-radius: 26px; overflow: hidden; }
+    .chat-header { background: #075E54; padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
+    .chat-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; color: #fff; flex-shrink: 0; }
+    .chat-header-info { flex: 1; }
+    .chat-name { font-size: 14px; font-weight: 600; color: #fff; }
+    .chat-status { font-size: 11px; color: rgba(255,255,255,0.7); }
+    .chat-body {
+      padding: 16px 12px; display: flex; flex-direction: column; gap: 8px; min-height: 380px;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23c2bdb5' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .chat-msg { max-width: 84%; padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.5; position: relative; }
+    .chat-msg-time { font-size: 10px; opacity: 0.55; text-align: right; margin-top: 4px; }
+    .msg-in { background: #fff; border-radius: 12px 12px 12px 2px; align-self: flex-start; color: #1a1a1a; }
+    .msg-out { background: #dcf8c6; border-radius: 12px 12px 2px 12px; align-self: flex-end; color: #1a1a1a; }
+    .chat-img-preview { background: #ccc; border-radius: 8px; height: 90px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #666; margin-bottom: 5px; gap: 6px; }
+    .chat-typing { display: flex; align-items: center; gap: 4px; padding: 10px 14px; background: #fff; border-radius: 12px 12px 12px 2px; align-self: flex-start; width: 60px; }
+    .chat-typing span { width: 7px; height: 7px; background: #999; border-radius: 50%; animation: typing 1.2s infinite; }
+    .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+    .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing { 0%,60%,100%{transform:translateY(0);opacity:.4} 30%{transform:translateY(-5px);opacity:1} }
+    .chat-date-divider { text-align: center; font-size: 11px; color: #aaa; background: rgba(0,0,0,0.06); padding: 4px 12px; border-radius: 100px; align-self: center; margin: 4px 0; }
+
+    /* ── FAQ ── */
+    #faq { padding: 96px 0; background: #fff; }
+    .faq-grid { display: grid; grid-template-columns: 360px 1fr; gap: 80px; align-items: start; }
+    .faq-left h2 { font-size: clamp(26px,3.5vw,38px); font-weight: 800; letter-spacing: -0.03em; color: var(--dark); margin-bottom: 14px; line-height: 1.2; }
+    .faq-left p { font-size: 15px; color: var(--mid); line-height: 1.7; margin-bottom: 28px; }
+    .faq-left .btn { font-size: 14px; padding: 12px 22px; }
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-question {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; cursor: pointer; gap: 16px;
+    }
+    .faq-question h3 { font-size: 16px; font-weight: 600; color: var(--dark); line-height: 1.4; }
+    .faq-toggle {
+      width: 32px; height: 32px; border-radius: 50%; background: var(--light); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all var(--transition);
+    }
+    .faq-toggle svg { width: 14px; height: 14px; color: var(--mid); transition: transform var(--transition); }
+    .faq-item.open .faq-toggle { background: var(--orange); border-color: var(--orange); }
+    .faq-item.open .faq-toggle svg { color: #fff; transform: rotate(45deg); }
+    .faq-answer { display: none; padding: 0 0 20px; font-size: 14.5px; color: var(--mid); line-height: 1.7; }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* ── CTA SECTION ── */
+    #cta { padding: 96px 0; background: var(--dark); position: relative; overflow: hidden; }
+    #cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(245,110,15,0.1) 0%, transparent 60%);
+    }
+    .cta-inner { position: relative; z-index: 1; text-align: center; max-width: 640px; margin: 0 auto; }
+    .cta-inner h2 { font-size: clamp(28px,4vw,44px); font-weight: 900; letter-spacing: -0.03em; color: #fff; margin-bottom: 16px; line-height: 1.15; }
+    .cta-inner p { font-size: 17px; color: rgba(255,255,255,0.55); margin-bottom: 36px; line-height: 1.65; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .cta-actions .btn { font-size: 15px; padding: 15px 30px; }
+    .cta-note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.3); }
+
+    /* ── FOOTER ── */
+    footer { background: #0d1117; border-top: 1px solid rgba(255,255,255,0.06); padding: 48px 0 28px; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; margin-bottom: 36px; }
+    .footer-links { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 500; transition: color var(--transition); }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; text-align: center; font-size: 12.5px; color: rgba(255,255,255,0.25); }
+
+    /* ── WA FLOAT ── */
+    .wa-float { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 56px; height: 56px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.45); transition: transform var(--transition), box-shadow var(--transition); }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+    .wa-tooltip { position: absolute; right: 68px; background: var(--dark); color: #fff; font-size: 13px; font-weight: 600; padding: 8px 14px; border-radius: var(--radius-sm); white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity var(--transition); }
+    .wa-tooltip::after { content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); border: 6px solid transparent; border-right: none; border-left-color: var(--dark); }
+    .wa-float:hover .wa-tooltip { opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+      .steps-grid::before { display: none; }
+      .chat-demo-grid { grid-template-columns: 1fr; gap: 48px; }
+      .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+      .chat-phone { max-width: 420px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-phone { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta .btn { display: none; }
+      .page-hero { padding: 110px 0 60px; }
+      .page-hero h1 { font-size: 34px; }
+      .page-hero p { font-size: 16px; }
+      .hero-actions { flex-direction: column; gap: 12px; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      #steps, #chat-demo, #faq, #cta { padding: 60px 0; }
+      .steps-grid { grid-template-columns: 1fr; gap: 36px; }
+      .step-card { text-align: left; display: flex; gap: 20px; align-items: flex-start; }
+      .step-circle { margin: 0; flex-shrink: 0; width: 52px; height: 52px; font-size: 20px; }
+      .step-card .step-icon { margin: 12px 0 0; }
+      .faq-grid { gap: 32px; }
+      .cta-actions { flex-direction: column; }
+      .cta-actions .btn { width: 100%; justify-content: center; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .footer-links { flex-direction: column; gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .page-hero h1 { font-size: 28px; }
+      .chat-phone { border-radius: 24px; padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <span class="nav-logo-text">Any<span>Trade</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html#services">Services</a>
+          <a href="how-it-works.html" class="active" style="color:#fff;">How It Works</a>
+          <a href="index.html#reviews">Reviews</a>
+          <a href="areas.html">Areas</a>
+        </div>
+        <div class="nav-cta">
+          <a href="tel:016917151" class="nav-phone">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            01 691 7151
+          </a>
+          <a href="get-a-quote.html" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Get a Quote</a>
+        </div>
+        <div class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#services" onclick="toggleMenu()">Services</a>
+        <a href="how-it-works.html" onclick="toggleMenu()">How It Works</a>
+        <a href="index.html#reviews" onclick="toggleMenu()">Reviews</a>
+        <a href="areas.html" onclick="toggleMenu()">Areas</a>
+        <a href="tel:016917151" onclick="toggleMenu()">Call: 01 691 7151</a>
+        <a href="get-a-quote.html" onclick="toggleMenu()" style="color:var(--orange);">Get a Quote →</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-content reveal">
+        <div class="hero-badge">Simple. Fast. Guaranteed.</div>
+        <h1>A Quote in <em>Minutes</em>,<br>Not Days</h1>
+        <p>No waiting around for call-backs. Send us a WhatsApp or fill in the form and we'll have a clear price back to you the same day — usually within a few hours.</p>
+        <div class="hero-actions">
+          <a href="get-a-quote.html" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Get a Free Quote
+          </a>
+          <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-STEP PROCESS -->
+  <section id="steps">
+    <div class="container">
+      <div class="steps-intro reveal">
+        <div class="section-label" style="justify-content:center;">The Process</div>
+        <h2>Four steps to a finished job</h2>
+        <p>We've made getting a tradesperson as straightforward as possible — from first contact to final invoice.</p>
+      </div>
+      <div class="steps-grid">
+
+        <div class="step-card reveal">
+          <div class="step-circle">1</div>
+          <h3>Send photos &amp; details</h3>
+          <p>WhatsApp us or fill in our online form. Attach a photo of the job if you can — it helps us give you an accurate price first time, without a site visit.</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+        </div>
+
+        <div class="step-card reveal reveal-delay-1">
+          <div class="step-circle">2</div>
+          <h3>Get your estimate fast</h3>
+          <p>We review your request and send back a clear, itemised estimate — typically within a few hours during business hours. No vague price ranges, no surprises.</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+        </div>
+
+        <div class="step-card reveal reveal-delay-2">
+          <div class="step-circle">3</div>
+          <h3>Book your slot</h3>
+          <p>Happy with the price? Just say yes. We'll confirm a time that suits you — most jobs are booked within the same week, often sooner.</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+        </div>
+
+        <div class="step-card reveal reveal-delay-3">
+          <div class="step-circle">4</div>
+          <h3>Job done, guaranteed</h3>
+          <p>Your tradesperson arrives on time, does the work to a high standard, and tidies up after themselves. All work is fully guaranteed — if something isn't right, we fix it.</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAT DEMO -->
+  <section id="chat-demo">
+    <div class="container">
+      <div class="chat-demo-grid">
+        <div>
+          <div class="section-label reveal">See It In Action</div>
+          <div class="chat-demo-text">
+            <h2 class="reveal">A real quote conversation,<br>start to finish</h2>
+            <p class="reveal">This is a typical WhatsApp exchange with one of our customers. From first message to confirmed booking — under 30 minutes.</p>
+          </div>
+          <div class="chat-perks">
+            <div class="chat-perk reveal">
+              <div class="chat-perk-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="chat-perk-text">
+                <h4>Replies within hours</h4>
+                <p>Not days. We're available Mon–Fri 9am–6pm and monitor WhatsApp throughout.</p>
+              </div>
+            </div>
+            <div class="chat-perk reveal reveal-delay-1">
+              <div class="chat-perk-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div class="chat-perk-text">
+                <h4>No hidden fees</h4>
+                <p>The estimate you receive is what you pay — no surprises on the final invoice.</p>
+              </div>
+            </div>
+            <div class="chat-perk reveal reveal-delay-2">
+              <div class="chat-perk-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div class="chat-perk-text">
+                <h4>Qualified tradespeople</h4>
+                <p>Everyone we send is vetted, insured and experienced — no cowboys.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="chat-phone">
+            <div class="chat-screen">
+              <div class="chat-header">
+                <div class="chat-avatar">AT</div>
+                <div class="chat-header-info">
+                  <div class="chat-name">AnyTrade</div>
+                  <div class="chat-status">online</div>
+                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white" style="opacity:0.7"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              </div>
+              <div class="chat-body">
+                <div class="chat-date-divider">Today</div>
+                <div class="chat-msg msg-in">
+                  Hi, looking to get a bathroom fully retiled — about 6m². Based in Clontarf. How much roughly?
+                  <div class="chat-msg-time">10:02 ✓✓</div>
+                </div>
+                <div class="chat-msg msg-out">
+                  Hi! Happy to help with that 👋 Can you send a few photos of the bathroom so I can see the layout and existing tiles?
+                  <div class="chat-msg-time">10:08 ✓✓</div>
+                </div>
+                <div class="chat-msg msg-in">
+                  <div class="chat-img-preview">📷 bathroom_1.jpg</div>
+                  <div class="chat-img-preview">📷 bathroom_2.jpg</div>
+                  There you go — old tiles need full strip and replace
+                  <div class="chat-msg-time">10:14 ✓✓</div>
+                </div>
+                <div class="chat-msg msg-out">
+                  Thanks, got them. Based on what I can see — strip out, prep, supply and fit new tiles to walls and floor.<br><br><strong>Estimate: €680–€820</strong> (tiles supplied, all labour included).<br><br>We could do Wednesday or Thursday this week if that suits?
+                  <div class="chat-msg-time">10:31 ✓✓</div>
+                </div>
+                <div class="chat-msg msg-in">
+                  That's great value, Wednesday works perfectly. What time?
+                  <div class="chat-msg-time">10:33 ✓✓</div>
+                </div>
+                <div class="chat-msg msg-out">
+                  Brilliant! Our tiler will be with you Wednesday at 9am. You'll get a reminder the evening before. See you then! 🙌
+                  <div class="chat-msg-time">10:35 ✓✓</div>
+                </div>
+                <div class="chat-typing"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-left reveal">
+          <div class="section-label">FAQ</div>
+          <h2>Common questions</h2>
+          <p>Can't find what you're looking for? Give us a call or send a WhatsApp and we'll answer any question.</p>
+          <a href="tel:016917151" class="btn btn-dark">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+            Call 01 691 7151
+          </a>
+        </div>
+        <div class="faq-list reveal reveal-delay-1">
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>How quickly do you respond to quote requests?</h3>
+              <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+            </div>
+            <div class="faq-answer">During business hours (Mon–Fri 9am–6pm) we typically respond within 2–4 hours. If you send a request in the evening or over the weekend, you'll hear from us first thing the next working day. WhatsApp is always the fastest route.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>Do you charge for quotes?</h3>
+              <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+            </div>
+            <div class="faq-answer">No — quotes are always completely free and there's no obligation to proceed. We don't charge a call-out fee either. We only charge once the work is agreed and completed.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>What areas do you cover?</h3>
+              <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+            </div>
+            <div class="faq-answer">We cover all of North Dublin including Malahide, Swords, Portmarnock, Sutton, Clontarf, Artane, Beaumont, Santry, Drumcondra, Coolock, Raheny and Finglas, as well as surrounding northside postcodes. Not sure if we cover your area? Just call us on 01 691 7151.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>Can you handle multiple jobs in one visit?</h3>
+              <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+            </div>
+            <div class="faq-answer">Absolutely — this is one of our biggest advantages. Because we cover multiple trades under one roof, we can send a single tradesperson for smaller combined jobs, or coordinate two specialists on the same day. Just describe everything you need in your quote request and we'll plan it accordingly.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFaq(this)">
+              <h3>Are your tradespeople qualified and insured?</h3>
+              <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+            </div>
+            <div class="faq-answer">Yes — every tradesperson we send is fully qualified in their trade, carries public liability insurance, and has been background checked by us before joining the AnyTrade network. For electrical work specifically, our electricians are RECI registered.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="section-label reveal" style="justify-content:center;">Ready to Start?</div>
+        <h2 class="reveal">Get your free quote<br>in minutes</h2>
+        <p class="reveal">Fill in the form or send us a WhatsApp with a photo of the job. No obligation, no call-out fee.</p>
+        <div class="cta-actions reveal">
+          <a href="get-a-quote.html" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Request a Free Quote
+          </a>
+          <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+        <p class="cta-note reveal">No call-out fee · Same-day response · All work guaranteed</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <span class="nav-logo-text">Any<span>Trade</span></span>
+        </a>
+        <div class="footer-links">
+          <a href="index.html#services">Services</a>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="index.html#reviews">Reviews</a>
+          <a href="areas.html">Areas</a>
+          <a href="tel:016917151">01 691 7151</a>
+          <a href="mailto:hello@anytradesman.ie">hello@anytradesman.ie</a>
+        </div>
+        <a href="get-a-quote.html" class="btn btn-primary" style="padding:11px 22px;font-size:14px;">Get a Quote</a>
+      </div>
+      <div class="footer-bottom">&copy; 2025 AnyTrade. All rights reserved. North Dublin's multi-trade specialists.</div>
+    </div>
+  </footer>
+
+  <!-- WA FLOAT -->
+  <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+    <div class="wa-tooltip">Chat with us</div>
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
