@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Electrical Services in North Dublin — AnyTrade</title>
-  <meta name="description" content="Qualified electricians in North Dublin. Fault finding, consumer unit upgrades, rewiring, sockets, lighting, EV chargers and more. Free quotes from AnyTrade."/>
+  <title>Electrician North Dublin — AnyTrade</title>
+  <meta name="description" content="RECI registered electricians covering all of North Dublin. Consumer units, rewires, EV chargers, sockets, lighting and more. Free quotes."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;font-size:16px}
@@ -27,7 +28,9 @@
     .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
     .reveal.visible{opacity:1;transform:none}
     .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
-    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,.97);backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25)}
+
+    /* NAV */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
     .nav-logo{display:flex;align-items:center;gap:10px}
     .nav-logo-icon{width:36px;height:36px;background:var(--orange);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center}
@@ -46,8 +49,11 @@
     .mobile-menu.open{display:flex}
     .mobile-menu a{padding:16px 24px;font-size:15px;font-weight:500;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06)}
     .mobile-menu a:hover{color:var(--orange)}
-    .page-hero{position:relative;background:var(--dark);padding:140px 0 80px;overflow:hidden}
+
+    /* HERO */
+    .page-hero{position:relative;background:var(--dark);padding:140px 0 90px;overflow:hidden}
     .page-hero-bg{position:absolute;inset:0}
+    .page-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.22}
     .page-hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 15% 50%,rgba(245,110,15,.1) 0%,transparent 65%)}
     .page-hero-content{position:relative;z-index:2}
     .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,110,15,.15);border:1px solid rgba(245,110,15,.3);padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;color:var(--orange);letter-spacing:.04em;margin-bottom:24px}
@@ -57,80 +63,167 @@
     .page-hero h1 em{font-style:normal;color:var(--orange)}
     .page-hero .hero-sub{font-size:17px;color:rgba(255,255,255,.62);line-height:1.65;max-width:560px;margin-bottom:32px}
     .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
-    .hero-actions .btn{font-size:15px;padding:14px 28px}
-    .svc-cta{padding:96px 0;background:var(--dark);position:relative;overflow:hidden}
-    .svc-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(245,110,15,.1) 0%,transparent 60%)}
-    .cta-inner{position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto}
-    .cta-inner h2{font-size:clamp(26px,4vw,42px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:16px;line-height:1.15}
-    .cta-inner>p{font-size:16px;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:1.65}
-    .cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-    .cta-note{margin-top:18px;font-size:13px;color:rgba(255,255,255,.3)}
+
+    /* TRUST BAR */
+    .trust-bar{background:#1f2937;padding:36px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .trust-bar-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+    .trust-stat-value{font-size:32px;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1}
+    .trust-stat-value span{color:#F56E0F}
+    .trust-stat-label{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px;font-weight:500}
+
+    /* WHAT'S INCLUDED */
+    .included-section{padding:80px 0;background:#f3f4f6}
+    .included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+    .included-item{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:22px;display:flex;align-items:flex-start;gap:14px;transition:all .25s ease}
+    .included-item:hover{box-shadow:0 8px 32px rgba(0,0,0,.1);border-color:rgba(245,110,15,.2);transform:translateY(-2px)}
+    .included-icon{width:40px;height:40px;border-radius:8px;background:#fff4ed;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:#F56E0F}
+    .included-text h4{font-size:14px;font-weight:700;color:#111827;margin-bottom:3px}
+    .included-text p{font-size:13px;color:#6b7280;line-height:1.45}
+
+    /* HOW IT WORKS */
+    .how-section{padding:80px 0;background:#fff}
+    .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .how-steps{display:flex;flex-direction:column}
+    .how-step{display:flex;gap:20px;padding-bottom:36px;position:relative}
+    .how-step:not(:last-child)::after{content:'';position:absolute;left:19px;top:48px;bottom:0;width:2px;background:linear-gradient(to bottom,#e5e7eb,transparent)}
+    .how-step-num{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:#F56E0F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;margin-top:2px}
+    .how-step-content h3{font-size:17px;font-weight:700;color:#111827;margin-bottom:6px;letter-spacing:-.01em}
+    .how-step-content p{font-size:14px;color:#6b7280;line-height:1.6}
+
+    /* CHAT MOCKUP */
+    .chat-phone{background:#111827;border-radius:36px;padding:14px;box-shadow:0 24px 60px rgba(0,0,0,.2),0 0 0 8px rgba(255,255,255,.03);max-width:360px;margin:0 auto}
+    .chat-screen{background:#e5ddd5;border-radius:26px;overflow:hidden}
+    .chat-header{background:#075E54;padding:14px 16px;display:flex;align-items:center;gap:12px}
+    .chat-avatar{width:38px;height:38px;border-radius:50%;background:#F56E0F;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff}
+    .chat-header-info{flex:1}
+    .chat-name{font-size:14px;font-weight:600;color:#fff}
+    .chat-status{font-size:11px;color:rgba(255,255,255,.7)}
+    .chat-body{padding:16px 12px;display:flex;flex-direction:column;gap:8px;min-height:300px;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c2bdb5' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    .chat-msg{max-width:82%;padding:9px 13px;border-radius:12px;font-size:13px;line-height:1.45;position:relative}
+    .chat-msg-time{font-size:10px;opacity:.55;text-align:right;margin-top:3px}
+    .msg-in{background:#fff;border-radius:12px 12px 12px 2px;align-self:flex-start;color:#1a1a1a}
+    .msg-out{background:#dcf8c6;border-radius:12px 12px 2px 12px;align-self:flex-end;color:#1a1a1a}
+    .chat-typing{display:flex;align-items:center;gap:4px;padding:10px 14px;background:#fff;border-radius:12px 12px 12px 2px;align-self:flex-start;width:60px}
+    .chat-typing span{width:7px;height:7px;background:#999;border-radius:50%;animation:chat-bounce 1.2s infinite}
+    .chat-typing span:nth-child(2){animation-delay:.2s}
+    .chat-typing span:nth-child(3){animation-delay:.4s}
+    @keyframes chat-bounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+
+    /* PHOTO GALLERY */
+    .gallery-section{padding:80px 0;background:#f3f4f6}
+    .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
+    .gallery-placeholder{aspect-ratio:4/3;background:#fff;border:2px dashed #F56E0F;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#9ca3af}
+    .gallery-placeholder i{font-size:32px;color:#F56E0F;opacity:.4}
+    .gallery-placeholder span{font-size:13px;font-weight:600;color:#6b7280}
+    .gallery-note{text-align:center;margin-top:20px;font-size:13px;color:#6b7280}
+    .gallery-note a{color:#F56E0F;font-weight:600}
+
+    /* WHY CHOOSE */
+    .why-section{padding:80px 0;background:#fff}
+    .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+    .why-item{display:flex;gap:16px;padding:24px;border:1px solid #e5e7eb;border-radius:12px;transition:all .25s ease}
+    .why-item:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);border-color:rgba(245,110,15,.25)}
+    .why-tick{width:36px;height:36px;border-radius:50%;background:#fff4ed;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:#F56E0F;margin-top:2px}
+    .why-content h4{font-size:15px;font-weight:700;color:#111827;margin-bottom:4px}
+    .why-content p{font-size:13.5px;color:#6b7280;line-height:1.55}
+
+    /* RELATED SERVICES */
+    .related-section{padding:80px 0;background:#111827}
+    .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+    .related-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:28px;transition:all .25s ease}
+    .related-card:hover{background:rgba(245,110,15,.06);border-color:rgba(245,110,15,.3);transform:translateY(-2px)}
+    .related-card-icon{width:44px;height:44px;background:rgba(245,110,15,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px;color:#F56E0F}
+    .related-card h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .related-card p{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.55;margin-bottom:16px}
+    .related-link{font-size:13px;font-weight:600;color:#F56E0F;display:inline-flex;align-items:center;gap:4px;transition:gap .25s ease}
+    .related-card:hover .related-link{gap:8px}
+
+    /* QUOTE FORM */
+    .quote-section{padding:80px 0;background:#111827;position:relative;overflow:hidden}
+    .quote-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 20% 50%,rgba(245,110,15,.08) 0%,transparent 60%)}
+    .quote-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;position:relative;z-index:1}
+    .quote-left h2{font-size:clamp(26px,3.5vw,38px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:16px;line-height:1.2}
+    .quote-left>p{font-size:15px;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:1.65}
+    .quote-trust{display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+    .quote-trust-item{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.7)}
+    .quote-trust-item i{color:#F56E0F;width:16px}
+    .quote-next h4{font-size:14px;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:16px;text-transform:uppercase;letter-spacing:.06em}
+    .quote-next-steps{display:flex;flex-direction:column;gap:14px}
+    .quote-next-step{display:flex;align-items:flex-start;gap:14px}
+    .quote-next-num{width:28px;height:28px;border-radius:50%;background:#F56E0F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+    .quote-next-step p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.5}
+    .quote-form-card{background:#fff;border-radius:16px;padding:36px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+    .quote-form-card h3{font-size:20px;font-weight:800;color:#111827;margin-bottom:24px;letter-spacing:-.02em}
+    .form-group{margin-bottom:18px}
+    .form-group label{display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:#111827;background:#fff;transition:border-color .25s ease;outline:none}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#F56E0F;box-shadow:0 0 0 3px rgba(245,110,15,.1)}
+    .form-group textarea{resize:vertical;min-height:100px}
+    .file-upload-area{border:2px dashed #e5e7eb;border-radius:8px;padding:24px;text-align:center;cursor:pointer;transition:border-color .25s ease;background:#f9fafb;display:block}
+    .file-upload-area:hover{border-color:#F56E0F}
+    .file-upload-area i{font-size:24px;color:#9ca3af;display:block;margin-bottom:8px}
+    .file-upload-area p{font-size:13px;color:#6b7280}
+    .file-upload-area span{font-size:12px;color:#9ca3af;display:block;margin-top:4px}
+    .btn-submit{width:100%;padding:16px;background:#F56E0F;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;transition:all .25s ease;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px}
+    .btn-submit:hover{background:#d45e0a;transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,110,15,.35)}
+
+    /* CTA STRIP */
+    .cta-strip{padding:64px 0;background:#F56E0F;text-align:center}
+    .cta-strip h2{font-size:clamp(24px,3.5vw,36px);font-weight:900;color:#fff;letter-spacing:-.02em;margin-bottom:12px}
+    .cta-strip-phone{display:inline-block;font-size:clamp(28px,4vw,44px);font-weight:900;color:#fff;letter-spacing:-.02em;margin:12px 0 20px;transition:opacity .2s}
+    .cta-strip-phone:hover{opacity:.85}
+    .cta-strip-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+    .btn-wa{background:#25d366;color:#fff;border:none;padding:14px 28px;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .25s;text-decoration:none}
+    .btn-wa:hover{background:#1da852;transform:translateY(-1px)}
+    .btn-dark-outline{background:rgba(0,0,0,.2);color:#fff;border:2px solid rgba(255,255,255,.4);padding:14px 28px;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .25s;text-decoration:none}
+    .btn-dark-outline:hover{background:rgba(0,0,0,.3);border-color:#fff}
+    .cta-strip-note{font-size:13px;color:rgba(255,255,255,.7)}
+
+    /* FOOTER */
     footer{background:#0d1117;border-top:1px solid rgba(255,255,255,.06);padding:48px 0 28px}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:36px}
     .footer-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
     .footer-links a{font-size:13px;color:rgba(255,255,255,.45);font-weight:500;transition:color var(--transition)}
     .footer-links a:hover{color:rgba(255,255,255,.8)}
     .footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;text-align:center;font-size:12.5px;color:rgba(255,255,255,.25)}
+
+    /* WA FLOAT */
     .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform var(--transition)}
     .wa-float:hover{transform:scale(1.1)}
     .wa-float svg{width:28px;height:28px;fill:#fff}
     .wa-tooltip{position:absolute;right:68px;background:var(--dark);color:#fff;font-size:13px;font-weight:600;padding:8px 14px;border-radius:var(--radius-sm);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--transition)}
     .wa-tooltip::after{content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-right:none;border-left-color:var(--dark)}
     .wa-float:hover .wa-tooltip{opacity:1}
-    .jobs-section{padding:80px 0;background:#fff}
-    .jobs-section.grey{background:var(--light)}
-    .section-intro{text-align:center;max-width:640px;margin:0 auto 52px}
+
+    /* SECTION INTRO */
+    .section-intro{text-align:center;max-width:640px;margin:0 auto}
     .section-intro h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.03em;color:var(--dark);margin-bottom:12px}
     .section-intro p{font-size:16px;color:var(--mid);line-height:1.65}
-    .jobs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .job-item{display:flex;align-items:flex-start;gap:16px;padding:22px;background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);transition:all var(--transition)}
-    .jobs-section.grey .job-item{background:#fff}
-    .job-item:hover{box-shadow:var(--shadow-lg);border-color:rgba(245,110,15,.2);transform:translateY(-2px)}
-    .job-icon{width:44px;height:44px;border-radius:var(--radius);background:var(--orange-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .job-icon svg{width:20px;height:20px;color:var(--orange)}
-    .job-text h3{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:5px}
-    .job-text p{font-size:13.5px;color:var(--mid);line-height:1.55}
-    .why-section{padding:80px 0;background:var(--dark)}
-    .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
-    .why-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);padding:28px;transition:border-color var(--transition),background var(--transition)}
-    .why-card:hover{background:rgba(245,110,15,.06);border-color:rgba(245,110,15,.25)}
-    .why-card-icon{width:40px;height:40px;background:rgba(245,110,15,.15);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-    .why-card-icon svg{width:20px;height:20px;color:var(--orange)}
-    .why-card h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
-    .why-card p{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.55}
-    .why-header h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:10px}
-    .why-header p{font-size:15px;color:rgba(255,255,255,.5);max-width:520px;line-height:1.65}
-    .photos-section{padding:80px 0;background:var(--light)}
-    .photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
-    .photo-placeholder{aspect-ratio:4/3;background:linear-gradient(145deg,#e5e7eb,#d1d5db);border-radius:var(--radius-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#9ca3af;border:2px dashed #d1d5db}
-    .photo-placeholder svg{width:36px;height:36px}
-    .photo-placeholder span{font-size:13px;font-weight:500}
-    .process-section{padding:80px 0;background:#fff}
-    .process-steps{display:flex;flex-direction:column;gap:0;max-width:720px;margin:0 auto;margin-top:48px}
-    .process-step{display:flex;gap:24px;padding-bottom:36px;position:relative}
-    .process-step:not(:last-child)::after{content:'';position:absolute;left:19px;top:48px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--border),transparent)}
-    .step-num{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;margin-top:2px}
-    .step-content h3{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:6px;letter-spacing:-.01em}
-    .step-content p{font-size:14px;color:var(--mid);line-height:1.6}
-    .pricing-section{padding:80px 0;background:var(--light)}
-    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-    .pricing-card{background:#fff;border-radius:var(--radius-lg);padding:32px 28px;border:1px solid var(--border);transition:all var(--transition)}
-    .pricing-card:hover{box-shadow:var(--shadow-lg);border-color:rgba(245,110,15,.2)}
-    .pricing-card.featured{border-color:var(--orange);position:relative}
-    .pricing-card.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:100px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
-    .pricing-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mid);margin-bottom:8px}
-    .pricing-price{font-size:36px;font-weight:900;letter-spacing:-.03em;color:var(--dark);margin-bottom:4px}
-    .pricing-price span{font-size:14px;font-weight:500;color:var(--mid)}
-    .pricing-desc{font-size:14px;color:var(--mid);line-height:1.6;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border)}
-    .pricing-list{display:flex;flex-direction:column;gap:8px}
-    .pricing-list li{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--mid)}
-    .pricing-list li svg{width:14px;height:14px;color:var(--orange);flex-shrink:0}
-    @media(max-width:768px){.nav-links,.nav-phone{display:none}.nav-hamburger{display:flex}.nav-cta .btn{display:none}.page-hero{padding:100px 0 56px}.hero-actions{flex-direction:column;gap:12px}.hero-actions .btn{width:100%;justify-content:center}.jobs-section,.why-section,.photos-section,.process-section,.pricing-section{padding:56px 0}.jobs-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr}.svc-cta{padding:60px 0}.cta-btns{flex-direction:column;align-items:stretch}.cta-btns .btn{justify-content:center}.footer-inner{flex-direction:column;align-items:flex-start;gap:20px}.footer-links{flex-direction:column;gap:12px}}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){.included-grid{grid-template-columns:repeat(2,1fr)}.how-grid{gap:48px}}
+    @media(max-width:768px){
+      .nav-links,.nav-phone{display:none}.nav-hamburger{display:flex}.nav-cta .btn{display:none}
+      .page-hero{padding:100px 0 56px}.hero-actions{flex-direction:column;gap:12px}.hero-actions .btn{width:100%;justify-content:center}
+      .trust-bar-inner{grid-template-columns:repeat(2,1fr)}
+      .included-grid{grid-template-columns:1fr}
+      .how-grid{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:1fr}
+      .why-grid{grid-template-columns:1fr}
+      .related-grid{grid-template-columns:1fr}
+      .quote-grid{grid-template-columns:1fr}
+      .cta-strip-btns{flex-direction:column;align-items:center}
+      .footer-inner{flex-direction:column;align-items:flex-start;gap:20px}
+      .footer-links{flex-direction:column;gap:12px}
+      .included-section,.how-section,.gallery-section,.why-section,.related-section,.quote-section{padding:56px 0}
+      .cta-strip{padding:48px 0}
+    }
   </style>
 </head>
 <body>
 
-<nav id="nav">
+<!-- NAV -->
+<nav id="nav" style="background:rgba(17,24,39,.97);backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25);">
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
@@ -138,13 +231,16 @@
         <span class="nav-logo-text">Any<span>Trade</span></span>
       </a>
       <div class="nav-links">
-        <a href="services.html" class="active" style="color:#fff;">Services</a>
+        <a href="services.html">Services</a>
         <a href="how-it-works.html">How It Works</a>
         <a href="index.html#reviews">Reviews</a>
         <a href="areas.html">Areas</a>
       </div>
       <div class="nav-cta">
-        <a href="tel:016917151" class="nav-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>01 691 7151</a>
+        <a href="tel:016917151" class="nav-phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          01 691 7151
+        </a>
         <a href="get-a-quote.html" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Get a Quote</a>
       </div>
       <div class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></div>
@@ -155,209 +251,466 @@
       <a href="index.html#reviews" onclick="toggleMenu()">Reviews</a>
       <a href="areas.html" onclick="toggleMenu()">Areas</a>
       <a href="tel:016917151" onclick="toggleMenu()">Call: 01 691 7151</a>
-      <a href="get-a-quote.html" onclick="toggleMenu()" style="color:var(--orange);">Get a Quote →</a>
+      <a href="get-a-quote.html" onclick="toggleMenu()" style="color:var(--orange);">Get a Quote &rarr;</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- 1. HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&q=80" alt="Electrician working in North Dublin" style="width:100%;height:100%;object-fit:cover;opacity:.22;"/>
+    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&q=80" alt="Electrician working in North Dublin"/>
   </div>
   <div class="container">
     <div class="page-hero-content">
       <div class="hero-badge">RECI Registered Electricians</div>
-      <h1>Electrical Services in <em>North Dublin</em></h1>
-      <p class="hero-sub">From a blown fuse to a full rewire — our qualified electricians are RECI registered, fully insured and cover all of North Dublin.</p>
+      <h1>Qualified Electricians in <em>North Dublin</em></h1>
+      <p class="hero-sub">From a tripped fuse to a full rewire &mdash; we&rsquo;re with you fast.</p>
       <div class="hero-actions">
-        <a href="get-a-quote.html" class="btn btn-primary">Get a Free Quote</a>
-        <a href="tel:016917151" class="btn btn-secondary">Call 01 691 7151</a>
+        <a href="#quote" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Get a Free Quote</a>
+        <a href="tel:016917151" class="btn btn-secondary"><i class="fa-solid fa-phone"></i> Call 01 691 7151</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- JOBS -->
-<section class="jobs-section grey">
+<!-- 2. TRUST BAR -->
+<section class="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <div class="reveal">
+        <div class="trust-stat-value"><span>RECI</span></div>
+        <div class="trust-stat-label">Registered &amp; Certified</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="trust-stat-value">Same <span>Day</span></div>
+        <div class="trust-stat-label">Emergency Call-Outs</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="trust-stat-value">10<span>yr</span></div>
+        <div class="trust-stat-label">Workmanship Guarantee</div>
+      </div>
+      <div class="reveal reveal-delay-3">
+        <div class="trust-stat-value">5<span>&#9733;</span></div>
+        <div class="trust-stat-label">Rated on Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHAT'S INCLUDED -->
+<section class="included-section">
   <div class="container">
     <div class="section-intro reveal">
       <div class="section-label">What We Cover</div>
       <h2>Electrical jobs we handle</h2>
-      <p>No job too big or too small. Here are the most common electrical jobs we quote and complete across North Dublin.</p>
+      <p>Our RECI registered electricians tackle every domestic electrical job &mdash; from a single socket to a full rewire. All work certified as standard.</p>
     </div>
-    <div class="jobs-grid">
-      <div class="job-item reveal">
-        <div class="job-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
-        <div class="job-text">
-          <h3>Fault Finding &amp; Diagnosis</h3>
-          <p>Tripping circuits, intermittent faults, RCD failures. We identify and fix the root cause quickly.</p>
+    <div class="included-grid">
+      <div class="included-item reveal">
+        <div class="included-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div class="included-text">
+          <h4>Consumer Unit Upgrades</h4>
+          <p>Full fuse board replacement, RCDs and AFDD protection fitted to spec</p>
         </div>
       </div>
-      <div class="job-item reveal reveal-delay-1">
-        <div class="job-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
-        </div>
-        <div class="job-text">
-          <h3>Sockets &amp; Outlets</h3>
-          <p>New socket installation, USB sockets, socket relocation and additional circuits in any room.</p>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon"><i class="fa-solid fa-plug"></i></div>
+        <div class="included-text">
+          <h4>Extra Sockets</h4>
+          <p>Double sockets, USB sockets and multi-gang outlets added anywhere in the house</p>
         </div>
       </div>
-      <div class="job-item reveal">
-        <div class="job-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <div class="job-text">
-          <h3>Lighting Circuits</h3>
-          <p>Downlighters, pendant lights, outdoor lighting, LED upgrades and emergency lighting installation.</p>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon"><i class="fa-solid fa-car-battery"></i></div>
+        <div class="included-text">
+          <h4>EV Charger Installation</h4>
+          <p>7kW home charger fitted and SEAI grant paperwork handled</p>
         </div>
       </div>
-      <div class="job-item reveal reveal-delay-1">
-        <div class="job-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-        </div>
-        <div class="job-text">
-          <h3>Consumer Unit Upgrades</h3>
-          <p>Modern RCD-protected consumer unit upgrades to meet current wiring regulations. Full test and certificate included.</p>
+      <div class="included-item reveal">
+        <div class="included-icon"><i class="fa-solid fa-lightbulb"></i></div>
+        <div class="included-text">
+          <h4>Lighting Installation</h4>
+          <p>Ceiling roses, downlights, LED strips, pendants and wall lights</p>
         </div>
       </div>
-      <div class="job-item reveal">
-        <div class="job-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div class="job-text">
-          <h3>New Build Wiring</h3>
-          <p>Full first and second fix wiring on new builds and extensions. We work with builders and project managers.</p>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon"><i class="fa-solid fa-house"></i></div>
+        <div class="included-text">
+          <h4>Full Rewire</h4>
+          <p>Complete domestic rewire with new consumer unit and RECI certificate issued</p>
         </div>
       </div>
-      <div class="job-item reveal reveal-delay-1">
-        <div class="job-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v5"/><line x1="14" y1="21" x2="14" y2="17"/><line x1="12" y1="19" x2="16" y2="19"/><circle cx="18" cy="19" r="3"/></svg>
-        </div>
-        <div class="job-text">
-          <h3>EV Charger Installation</h3>
-          <p>Home EV charger supply and installation. SEAI-approved units, full test and RECI certification provided.</p>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon"><i class="fa-solid fa-shower"></i></div>
+        <div class="included-text">
+          <h4>Bathroom Electrics</h4>
+          <p>Shaving lights, extractor fans, heated towel rails and shower isolator switches</p>
         </div>
       </div>
-      <div class="job-item reveal">
-        <div class="job-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <div class="included-item reveal">
+        <div class="included-icon"><i class="fa-solid fa-fire-extinguisher"></i></div>
+        <div class="included-text">
+          <h4>Smoke &amp; CO Alarms</h4>
+          <p>Mains-wired interconnected smoke, heat and CO detectors</p>
         </div>
-        <div class="job-text">
-          <h3>Outside &amp; Security Lighting</h3>
-          <p>Garden lighting, PIR security floodlights, dusk-to-dawn lights and external socket installation.</p>
+      </div>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon"><i class="fa-solid fa-wifi"></i></div>
+        <div class="included-text">
+          <h4>Data Points</h4>
+          <p>Cat6 Ethernet cabling, TV aerial points and home network outlets</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon"><i class="fa-solid fa-sun"></i></div>
+        <div class="included-text">
+          <h4>External Lighting</h4>
+          <p>Security lights, garden lighting, gate entry lights and outdoor sockets</p>
+        </div>
+      </div>
+      <div class="included-item reveal">
+        <div class="included-icon"><i class="fa-solid fa-fan"></i></div>
+        <div class="included-text">
+          <h4>Ceiling Fan Installation</h4>
+          <p>Supply and fit of ceiling fans with speed controls and remote kits</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon"><i class="fa-solid fa-toggle-on"></i></div>
+        <div class="included-text">
+          <h4>Dimmer Switches</h4>
+          <p>Leading edge and LED-compatible dimmer switches throughout</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon"><i class="fa-solid fa-certificate"></i></div>
+        <div class="included-text">
+          <h4>RECI Certificates</h4>
+          <p>Completion certificates issued on all notifiable work</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHY CHOOSE -->
-<section class="why-section">
+<!-- 4. HOW IT WORKS -->
+<section class="how-section">
   <div class="container">
-    <div class="why-header reveal">
-      <div class="section-label">Why AnyTrade for Electrical</div>
-      <h2>Qualified, certified, local</h2>
-      <p>Every electrical job we complete is carried out by a RECI-registered electrician and backed by a test certificate.</p>
-    </div>
-    <div class="why-grid">
-      <div class="why-card reveal">
-        <div class="why-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+    <div class="how-grid">
+      <div>
+        <div class="section-label reveal">How It Works</div>
+        <h2 class="reveal" style="font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.03em;color:var(--dark);margin-bottom:12px;">From first message to job done</h2>
+        <p class="reveal" style="font-size:16px;color:var(--mid);line-height:1.65;margin-bottom:40px;">Getting a quote is simple. WhatsApp us a photo, get a price, and we&rsquo;ll have an electrician with you &mdash; often the same day.</p>
+        <div class="how-steps">
+          <div class="how-step reveal">
+            <div class="how-step-num">1</div>
+            <div class="how-step-content">
+              <h3>Send us a WhatsApp</h3>
+              <p>Describe the job and send a photo of the fuse board, sockets, or area you need worked on. Takes 60 seconds.</p>
+            </div>
+          </div>
+          <div class="how-step reveal reveal-delay-1">
+            <div class="how-step-num">2</div>
+            <div class="how-step-content">
+              <h3>Get a written estimate</h3>
+              <p>We review your photos and reply with a clear, written price &mdash; usually within a few hours, not days.</p>
+            </div>
+          </div>
+          <div class="how-step reveal reveal-delay-2">
+            <div class="how-step-num">3</div>
+            <div class="how-step-content">
+              <h3>We confirm a time</h3>
+              <p>You pick a slot that suits. Emergency jobs are often same-day. Standard work is usually within the week.</p>
+            </div>
+          </div>
+          <div class="how-step reveal reveal-delay-3">
+            <div class="how-step-num">4</div>
+            <div class="how-step-content">
+              <h3>Job done, cert issued</h3>
+              <p>Our electrician attends, completes the work cleanly, and hands over your RECI certificate the same day.</p>
+            </div>
+          </div>
         </div>
-        <h3>RECI Registered</h3>
-        <p>All our electricians are registered with RECI, the national body for electrical contractors in Ireland.</p>
       </div>
-      <div class="why-card reveal reveal-delay-1">
-        <div class="why-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div class="reveal reveal-delay-1">
+        <div class="chat-phone">
+          <div class="chat-screen">
+            <div class="chat-header">
+              <div class="chat-avatar">AT</div>
+              <div class="chat-header-info">
+                <div class="chat-name">AnyTrade Electrical</div>
+                <div class="chat-status">Online</div>
+              </div>
+            </div>
+            <div class="chat-body">
+              <div class="chat-msg msg-in">
+                Hi, my fuse board keeps tripping &mdash; it&rsquo;s happened 3 times today. We&rsquo;re in Swords. Really worried.
+                <div class="chat-msg-time">09:22 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-msg msg-out">
+                Hi there &#128075; Don&rsquo;t worry &mdash; we can sort that out. Can you tell me which breaker is tripping? Is it labelled?
+                <div class="chat-msg-time">09:24 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-msg msg-in">
+                It just says &lsquo;Ring Main 1&rsquo; &mdash; trips when we use the kettle and microwave at same time
+                <div class="chat-msg-time">09:26 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-msg msg-out">
+                That sounds like an overloaded circuit &mdash; very common. Could you send a quick photo of the fuse board? We can have an electrician with you <strong>this afternoon</strong>.
+                <div class="chat-msg-time">09:28 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-msg msg-in">
+                <div style="background:#e0e0e0;border-radius:8px;padding:8px 10px;display:flex;align-items:center;gap:8px;font-size:12px;color:#555;margin-bottom:4px;"><i class="fa-solid fa-image" style="color:#F56E0F;font-size:15px;"></i> Photo attached</div>
+                Here&rsquo;s the board &mdash; it&rsquo;s pretty old I think
+                <div class="chat-msg-time">09:31 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-msg msg-out">
+                Yes &mdash; that board is due an upgrade. <strong>Estimate: &euro;380&ndash;&euro;450</strong> for a full consumer unit replacement with RCD protection. All certs included. Does today at 3pm work?
+                <div class="chat-msg-time">09:35 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-typing"><span></span><span></span><span></span></div>
+            </div>
+          </div>
         </div>
-        <h3>Same-Week Availability</h3>
-        <p>Most jobs are scheduled within the same week. Emergency fault finding available.</p>
-      </div>
-      <div class="why-card reveal">
-        <div class="why-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-        </div>
-        <h3>Transparent Pricing</h3>
-        <p>Clear quotes before we start. No hidden charges on the final invoice — ever.</p>
-      </div>
-      <div class="why-card reveal reveal-delay-1">
-        <div class="why-card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-        </div>
-        <h3>Test Certificate Included</h3>
-        <p>Every job comes with a full test certificate for your insurance and peace of mind.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PHOTOS -->
-<section class="photos-section">
+<!-- 5. PHOTO GALLERY -->
+<section class="gallery-section">
   <div class="container">
     <div class="section-intro reveal">
       <div class="section-label">Our Work</div>
-      <h2>Before &amp; after photos</h2>
-      <p>Real jobs completed by our electricians across North Dublin.</p>
+      <h2>Electrical jobs &mdash; before &amp; after</h2>
+      <p>We document our work on every job. Photos coming soon &mdash; check our Facebook page in the meantime.</p>
     </div>
-    <div class="photo-grid">
-      <div class="photo-placeholder reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Consumer Unit Upgrade</span>
+    <div class="gallery-grid">
+      <div class="gallery-placeholder reveal">
+        <i class="fa-regular fa-image"></i>
+        <span>Before 1</span>
       </div>
-      <div class="photo-placeholder reveal reveal-delay-1">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>New Socket Installation</span>
+      <div class="gallery-placeholder reveal reveal-delay-1">
+        <i class="fa-regular fa-image"></i>
+        <span>After 1</span>
       </div>
-      <div class="photo-placeholder reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>EV Charger Install</span>
+      <div class="gallery-placeholder reveal">
+        <i class="fa-regular fa-image"></i>
+        <span>Before 2</span>
       </div>
-      <div class="photo-placeholder reveal reveal-delay-1">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Lighting Fit-Out</span>
+      <div class="gallery-placeholder reveal reveal-delay-1">
+        <i class="fa-regular fa-image"></i>
+        <span>After 2</span>
       </div>
     </div>
+    <p class="gallery-note reveal">Photos coming soon &mdash; check our <a href="https://facebook.com" target="_blank" rel="noopener">Facebook page</a> for latest work</p>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="svc-cta">
+<!-- 6. WHY CHOOSE -->
+<section class="why-section">
   <div class="container">
-    <div class="cta-inner reveal">
-      <div class="section-label" style="justify-content:center;">Get Started</div>
-      <h2>Need an electrician in North Dublin?</h2>
-      <p>Get a free quote today. No call-out fee, RECI-registered electricians, same-week availability.</p>
-      <div class="cta-btns">
-        <a href="get-a-quote.html" class="btn btn-primary">Get a Free Quote</a>
-        <a href="tel:016917151" class="btn btn-secondary">Call 01 691 7151</a>
+    <div class="section-intro reveal">
+      <div class="section-label">Why AnyTrade</div>
+      <h2>Why choose our electricians</h2>
+      <p>We&rsquo;re not a call centre. We&rsquo;re a local North Dublin electrical team with real accountability on every job.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item reveal">
+        <div class="why-tick"><i class="fa-solid fa-check"></i></div>
+        <div class="why-content">
+          <h4>RECI Certified on Every Job</h4>
+          <p>All electrical work completed by RECI registered electricians. Certificates issued as standard &mdash; required for insurance and selling your home.</p>
+        </div>
       </div>
-      <p class="cta-note">No call-out fee &middot; Free quotes &middot; Same-week availability</p>
+      <div class="why-item reveal reveal-delay-1">
+        <div class="why-tick"><i class="fa-solid fa-check"></i></div>
+        <div class="why-content">
+          <h4>EV Charger Grant Specialists</h4>
+          <p>We handle the SEAI Domestic Charging Grant paperwork so you get the full &euro;300 back with zero hassle.</p>
+        </div>
+      </div>
+      <div class="why-item reveal">
+        <div class="why-tick"><i class="fa-solid fa-check"></i></div>
+        <div class="why-content">
+          <h4>Same-Day Emergency Response</h4>
+          <p>Board tripping? Power out? We prioritise electrical emergencies and aim to be on-site the same day in North Dublin.</p>
+        </div>
+      </div>
+      <div class="why-item reveal reveal-delay-1">
+        <div class="why-tick"><i class="fa-solid fa-check"></i></div>
+        <div class="why-content">
+          <h4>One Tradesperson, Full Job</h4>
+          <p>No sub-contracting. The same electrician quotes, attends, and signs off your certificate.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- 7. RELATED SERVICES -->
+<section class="related-section">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="section-label">Other Services</div>
+      <h2 style="color:#fff;">Other trades we cover</h2>
+      <p style="color:rgba(255,255,255,.5);">AnyTrade handles multiple trades &mdash; so you can get everything done through one trusted team.</p>
+    </div>
+    <div class="related-grid">
+      <div class="related-card reveal">
+        <div class="related-card-icon"><i class="fa-solid fa-faucet"></i></div>
+        <h3>Plumbing</h3>
+        <p>Need a plumber too? We handle all plumbing work across North Dublin &mdash; leaks, boilers and bathrooms.</p>
+        <a href="plumbing.html" class="related-link">Learn more &rarr;</a>
+      </div>
+      <div class="related-card reveal reveal-delay-1">
+        <div class="related-card-icon"><i class="fa-solid fa-house-signal"></i></div>
+        <h3>Smart Home</h3>
+        <p>Wire your smart home properly. We install lighting circuits designed for Hue, Lutron and smart switches.</p>
+        <a href="smart-home.html" class="related-link">Learn more &rarr;</a>
+      </div>
+      <div class="related-card reveal reveal-delay-2">
+        <div class="related-card-icon"><i class="fa-solid fa-building"></i></div>
+        <h3>Commercial</h3>
+        <p>Commercial electrical work for pubs, offices and managed properties across North Dublin.</p>
+        <a href="commercial.html" class="related-link">Learn more &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. QUOTE FORM -->
+<section class="quote-section" id="quote">
+  <div class="container">
+    <div class="quote-grid">
+      <div class="quote-left reveal">
+        <h2>Get a Free Electrical Quote Today</h2>
+        <p>Fill in the form and we&rsquo;ll come back to you with a written estimate &mdash; usually within a few hours.</p>
+        <div class="quote-trust">
+          <div class="quote-trust-item"><i class="fa-solid fa-check"></i> RECI registered electricians</div>
+          <div class="quote-trust-item"><i class="fa-solid fa-check"></i> Free written estimate</div>
+          <div class="quote-trust-item"><i class="fa-solid fa-check"></i> Same-week slots available</div>
+          <div class="quote-trust-item"><i class="fa-solid fa-check"></i> Certs issued on all work</div>
+        </div>
+        <div class="quote-next">
+          <h4>What happens next</h4>
+          <div class="quote-next-steps">
+            <div class="quote-next-step">
+              <div class="quote-next-num">1</div>
+              <p>We review your photos and job description within a few hours.</p>
+            </div>
+            <div class="quote-next-step">
+              <div class="quote-next-num">2</div>
+              <p>You receive a clear written estimate by WhatsApp or email.</p>
+            </div>
+            <div class="quote-next-step">
+              <div class="quote-next-num">3</div>
+              <p>We confirm a time &mdash; often same week.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="quote-form-card">
+          <h3>Get a Free Electrical Quote</h3>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required/>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="08X XXX XXXX" required/>
+            </div>
+            <div class="form-group">
+              <label for="area">Area / Eircode</label>
+              <input type="text" id="area" name="area" placeholder="e.g. Swords, K67 X2P4"/>
+            </div>
+            <div class="form-group">
+              <label for="jobtype">Job Type</label>
+              <select id="jobtype" name="jobtype">
+                <option value="" disabled selected>Select job type</option>
+                <option>Consumer Unit Upgrade</option>
+                <option>Extra Sockets</option>
+                <option>EV Charger Installation</option>
+                <option>Full Rewire</option>
+                <option>Lighting Installation</option>
+                <option>Bathroom Electrics</option>
+                <option>Smoke Alarms</option>
+                <option>Data Points</option>
+                <option>External Lighting</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="description">Describe the job</label>
+              <textarea id="description" name="description" placeholder="Tell us what you need &mdash; the more detail the better"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="timeframe">Timeframe</label>
+              <select id="timeframe" name="timeframe">
+                <option value="" disabled selected>When do you need it done?</option>
+                <option>ASAP</option>
+                <option>This week</option>
+                <option>This month</option>
+                <option>Just planning</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Upload Photos (optional)</label>
+              <label for="photos" class="file-upload-area">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p>Click to upload or drag and drop</p>
+                <span>JPG, PNG or HEIC &mdash; up to 10MB each</span>
+                <input type="file" id="photos" name="photos" multiple accept="image/*" style="display:none"/>
+              </label>
+            </div>
+            <button type="submit" class="btn-submit"><i class="fa-solid fa-bolt"></i> Send Quote Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CTA STRIP -->
+<section class="cta-strip">
+  <div class="container">
+    <h2>Prefer to talk?</h2>
+    <a href="tel:016917151" class="cta-strip-phone">Call us on 01 691 7151</a>
+    <div class="cta-strip-btns">
+      <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="btn-wa"><i class="fa-brands fa-whatsapp" style="font-size:18px;"></i> WhatsApp Us</a>
+      <a href="#quote" class="btn-dark-outline"><i class="fa-solid fa-bolt"></i> Get a Free Quote</a>
+    </div>
+    <p class="cta-strip-note">Mon&ndash;Fri 9am&ndash;6pm, Sat 10am&ndash;2pm</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <a href="index.html" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="nav-logo-text">Any<span>Trade</span></span></a>
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+        <span class="nav-logo-text">Any<span>Trade</span></span>
+      </a>
       <div class="footer-links">
         <a href="services.html">Services</a>
         <a href="how-it-works.html">How It Works</a>
         <a href="index.html#reviews">Reviews</a>
         <a href="areas.html">Areas</a>
         <a href="tel:016917151">01 691 7151</a>
-        <a href="mailto:hello@anytradesman.ie">hello@anytradesman.ie</a>
+        <a href="mailto:hello@anytrade.ie">hello@anytrade.ie</a>
       </div>
       <a href="get-a-quote.html" class="btn btn-primary" style="padding:11px 22px;font-size:14px;">Get a Quote</a>
     </div>
-    <div class="footer-bottom">&copy; 2025 AnyTrade. All rights reserved. North Dublin's multi-trade specialists.</div>
+    <div class="footer-bottom">&copy; 2026 AnyTrade. All rights reserved. North Dublin&rsquo;s multi-trade specialists.</div>
   </div>
 </footer>
 
+<!-- WA FLOAT -->
 <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
   <div class="wa-tooltip">Chat with us</div>
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -367,6 +720,14 @@
   function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
   const observer=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  function handleSubmit(e){
+    e.preventDefault();
+    const btn=e.target.querySelector('.btn-submit');
+    btn.innerHTML='<i class="fa-solid fa-circle-check"></i> Request Sent!';
+    btn.style.background='#16a34a';
+    btn.disabled=true;
+    // TODO: connect to Jobber/webhook
+  }
 </script>
 </body>
 </html>

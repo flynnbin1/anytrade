@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Commercial Services North Dublin — AnyTrade</title>
-  <meta name="description" content="Commercial trade services across North Dublin. Electrical, plumbing, carpentry and fit-out work for pubs, offices, credit unions and property management companies. Free quotes."/>
+  <title>Commercial Trade Services North Dublin — AnyTrade</title>
+  <meta name="description" content="Multi-trade commercial services across North Dublin. Electrical, plumbing, fit-out and maintenance for pubs, offices, credit unions and property management. Free quotes."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;font-size:16px}
@@ -26,8 +27,10 @@
     .btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.08)}
     .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
     .reveal.visible{opacity:1;transform:none}
-    .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
-    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,.97);backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25)}
+    .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+
+    /* NAV */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
     .nav-logo{display:flex;align-items:center;gap:10px}
     .nav-logo-icon{width:36px;height:36px;background:var(--orange);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center}
@@ -39,15 +42,18 @@
     .nav-links a:hover{color:#fff}
     .nav-cta{display:flex;align-items:center;gap:16px}
     .nav-phone{font-size:14px;font-weight:600;color:rgba(255,255,255,.9);display:flex;align-items:center;gap:6px}
-    .nav-phone svg{width:15px;height:15px}
+    .nav-phone svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
     .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
     .nav-hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
     .mobile-menu{display:none;flex-direction:column;background:var(--dark);border-top:1px solid rgba(255,255,255,.08)}
     .mobile-menu.open{display:flex}
     .mobile-menu a{padding:16px 24px;font-size:15px;font-weight:500;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06)}
     .mobile-menu a:hover{color:var(--orange)}
-    .page-hero{position:relative;background:var(--dark);padding:140px 0 80px;overflow:hidden}
+
+    /* HERO */
+    .page-hero{position:relative;background:var(--dark);padding:140px 0 90px;overflow:hidden}
     .page-hero-bg{position:absolute;inset:0}
+    .page-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.22}
     .page-hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 15% 50%,rgba(245,110,15,.1) 0%,transparent 65%)}
     .page-hero-content{position:relative;z-index:2}
     .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,110,15,.15);border:1px solid rgba(245,110,15,.3);padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;color:var(--orange);letter-spacing:.04em;margin-bottom:24px}
@@ -57,71 +63,195 @@
     .page-hero h1 em{font-style:normal;color:var(--orange)}
     .page-hero .hero-sub{font-size:17px;color:rgba(255,255,255,.62);line-height:1.65;max-width:560px;margin-bottom:32px}
     .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
-    .hero-actions .btn{font-size:15px;padding:14px 28px}
-    .svc-cta{padding:96px 0;background:var(--dark);position:relative;overflow:hidden}
-    .svc-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(245,110,15,.1) 0%,transparent 60%)}
-    .cta-inner{position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto}
-    .cta-inner h2{font-size:clamp(26px,4vw,42px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:16px;line-height:1.15}
-    .cta-inner>p{font-size:16px;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:1.65}
-    .cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-    .cta-note{margin-top:18px;font-size:13px;color:rgba(255,255,255,.3)}
+
+    /* SECTION INTRO */
+    .section-intro{text-align:center;max-width:640px;margin:0 auto}
+    .section-intro h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.03em;color:var(--dark);margin-bottom:12px;line-height:1.2}
+    .section-intro p{font-size:16px;color:var(--mid);line-height:1.65}
+    .section-intro-light h2{color:#fff}
+    .section-intro-light p{color:rgba(255,255,255,.5)}
+
+    /* TRUST BAR */
+    .trust-bar{background:#1f2937;padding:36px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+    .trust-bar-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+    .trust-stat-value{font-size:28px;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1.1}
+    .trust-stat-value span{color:#F56E0F}
+    .trust-stat-label{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px;font-weight:500}
+
+    /* INCLUDED */
+    .included-section{padding:80px 0;background:#f3f4f6}
+    .included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+    .included-item{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:22px;display:flex;align-items:flex-start;gap:14px;transition:all .25s ease}
+    .included-item:hover{box-shadow:0 8px 32px rgba(0,0,0,.1);border-color:rgba(245,110,15,.2);transform:translateY(-2px)}
+    .included-icon{width:40px;height:40px;border-radius:8px;background:#fff4ed;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:#F56E0F}
+    .included-text h4{font-size:14px;font-weight:700;color:#111827;margin-bottom:3px}
+    .included-text p{font-size:13px;color:#6b7280;line-height:1.45}
+
+    /* HOW IT WORKS */
+    .how-section{padding:80px 0;background:#fff}
+    .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+    .how-steps{display:flex;flex-direction:column}
+    .how-step{display:flex;gap:20px;padding-bottom:36px;position:relative}
+    .how-step:not(:last-child)::after{content:'';position:absolute;left:19px;top:48px;bottom:0;width:2px;background:linear-gradient(to bottom,#e5e7eb,transparent)}
+    .how-step-num{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:#F56E0F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;margin-top:2px}
+    .how-step-content h3{font-size:17px;font-weight:700;color:#111827;margin-bottom:6px}
+    .how-step-content p{font-size:14px;color:#6b7280;line-height:1.6}
+
+    /* CHAT MOCKUP */
+    .chat-phone{background:#111827;border-radius:36px;padding:14px;box-shadow:0 24px 60px rgba(0,0,0,.2),0 0 0 8px rgba(255,255,255,.03);max-width:360px;margin:0 auto}
+    .chat-screen{background:#e5ddd5;border-radius:26px;overflow:hidden}
+    .chat-header{background:#075E54;padding:14px 16px;display:flex;align-items:center;gap:12px}
+    .chat-avatar{width:38px;height:38px;border-radius:50%;background:#F56E0F;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;color:#fff}
+    .chat-header-info{flex:1}
+    .chat-name{font-size:14px;font-weight:600;color:#fff}
+    .chat-status{font-size:11px;color:rgba(255,255,255,.7)}
+    .chat-body{padding:16px 12px;display:flex;flex-direction:column;gap:8px;min-height:320px;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c2bdb5' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    .chat-msg{max-width:82%;padding:9px 13px;border-radius:12px;font-size:13px;line-height:1.45}
+    .chat-msg-time{font-size:10px;opacity:.55;text-align:right;margin-top:3px}
+    .msg-in{background:#fff;border-radius:12px 12px 12px 2px;align-self:flex-start;color:#1a1a1a}
+    .msg-out{background:#dcf8c6;border-radius:12px 12px 2px 12px;align-self:flex-end;color:#1a1a1a}
+    .chat-typing{display:flex;align-items:center;gap:4px;padding:10px 14px;background:#fff;border-radius:12px 12px 12px 2px;align-self:flex-start;width:60px}
+    .chat-typing span{width:7px;height:7px;background:#999;border-radius:50%;animation:chat-bounce 1.2s infinite}
+    .chat-typing span:nth-child(2){animation-delay:.2s}
+    .chat-typing span:nth-child(3){animation-delay:.4s}
+    @keyframes chat-bounce{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+
+    /* GALLERY */
+    .gallery-section{padding:80px 0;background:#f3f4f6}
+    .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
+    .gallery-placeholder{aspect-ratio:4/3;background:#fff;border:2px dashed #F56E0F;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+    .gallery-placeholder i{font-size:32px;color:#F56E0F;opacity:.4}
+    .gallery-placeholder span{font-size:13px;font-weight:600;color:#6b7280}
+    .gallery-note{text-align:center;margin-top:20px;font-size:13px;color:#6b7280}
+    .gallery-note a{color:#F56E0F;font-weight:600}
+
+    /* WHY CHOOSE */
+    .why-section{padding:80px 0;background:#fff}
+    .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}
+    .why-item{display:flex;gap:16px;padding:24px;border:1px solid #e5e7eb;border-radius:12px;transition:all .25s ease}
+    .why-item:hover{box-shadow:0 8px 32px rgba(0,0,0,.08);border-color:rgba(245,110,15,.25)}
+    .why-tick{width:36px;height:36px;border-radius:50%;background:#fff4ed;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px;color:#F56E0F;margin-top:2px}
+    .why-content h4{font-size:15px;font-weight:700;color:#111827;margin-bottom:4px}
+    .why-content p{font-size:13.5px;color:#6b7280;line-height:1.55}
+
+    /* RELATED */
+    .related-section{padding:80px 0;background:#111827}
+    .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+    .related-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:28px;transition:all .25s ease}
+    .related-card:hover{background:rgba(245,110,15,.06);border-color:rgba(245,110,15,.3);transform:translateY(-2px)}
+    .related-card-icon{width:44px;height:44px;background:rgba(245,110,15,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px;color:#F56E0F}
+    .related-card h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .related-card p{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.55;margin-bottom:16px}
+    .related-link{font-size:13px;font-weight:600;color:#F56E0F;display:inline-flex;align-items:center;gap:4px;transition:gap .25s}
+    .related-card:hover .related-link{gap:8px}
+
+    /* QUOTE FORM */
+    .quote-section{padding:80px 0;background:#111827;position:relative;overflow:hidden}
+    .quote-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 20% 50%,rgba(245,110,15,.08) 0%,transparent 60%)}
+    .quote-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start;position:relative;z-index:1}
+    .quote-left h2{font-size:clamp(26px,3.5vw,38px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:16px;line-height:1.2}
+    .quote-left>p{font-size:15px;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:1.65}
+    .quote-trust{display:flex;flex-direction:column;gap:12px;margin-bottom:36px}
+    .quote-trust-item{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.7)}
+    .quote-trust-item i{color:#F56E0F;width:16px}
+    .quote-next h4{font-size:14px;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:16px;text-transform:uppercase;letter-spacing:.06em}
+    .quote-next-steps{display:flex;flex-direction:column;gap:14px}
+    .quote-next-step{display:flex;align-items:flex-start;gap:14px}
+    .quote-next-num{width:28px;height:28px;border-radius:50%;background:#F56E0F;color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0}
+    .quote-next-step p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.5}
+    .quote-form-card{background:#fff;border-radius:16px;padding:36px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+    .quote-form-card h3{font-size:20px;font-weight:800;color:#111827;margin-bottom:24px}
+    .form-group{margin-bottom:18px}
+    .form-group label{display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px}
+    .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:#111827;background:#fff;transition:border-color .25s;outline:none}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#F56E0F;box-shadow:0 0 0 3px rgba(245,110,15,.1)}
+    .form-group textarea{resize:vertical;min-height:100px}
+    .file-upload-area{border:2px dashed #e5e7eb;border-radius:8px;padding:24px;text-align:center;cursor:pointer;transition:border-color .25s;background:#f9fafb}
+    .file-upload-area:hover{border-color:#F56E0F}
+    .file-upload-area i{font-size:24px;color:#9ca3af;display:block;margin-bottom:8px}
+    .file-upload-area p{font-size:13px;color:#6b7280}
+    .file-upload-area span{font-size:12px;color:#9ca3af}
+    .btn-submit{width:100%;padding:16px;background:#F56E0F;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;transition:all .25s;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px}
+    .btn-submit:hover{background:#d45e0a;transform:translateY(-1px)}
+
+    /* CTA STRIP */
+    .cta-strip{padding:64px 0;background:#F56E0F;text-align:center}
+    .cta-strip h2{font-size:clamp(24px,3.5vw,36px);font-weight:900;color:#fff;margin-bottom:12px}
+    .cta-strip-phone{display:inline-block;font-size:clamp(28px,4vw,44px);font-weight:900;color:#fff;margin:12px 0 20px;text-decoration:none}
+    .cta-strip-phone:hover{opacity:.85}
+    .cta-strip-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+    .btn-wa{background:#25d366;color:#fff;padding:14px 28px;border-radius:6px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:all .25s}
+    .btn-wa:hover{background:#1da852;transform:translateY(-1px)}
+    .cta-strip-note{font-size:13px;color:rgba(255,255,255,.7)}
+
+    /* FOOTER */
     footer{background:#0d1117;border-top:1px solid rgba(255,255,255,.06);padding:48px 0 28px}
     .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:36px}
     .footer-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
     .footer-links a{font-size:13px;color:rgba(255,255,255,.45);font-weight:500;transition:color var(--transition)}
     .footer-links a:hover{color:rgba(255,255,255,.8)}
     .footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;text-align:center;font-size:12.5px;color:rgba(255,255,255,.25)}
+
+    /* WA FLOAT */
     .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform var(--transition)}
     .wa-float:hover{transform:scale(1.1)}
     .wa-float svg{width:28px;height:28px;fill:#fff}
     .wa-tooltip{position:absolute;right:68px;background:var(--dark);color:#fff;font-size:13px;font-weight:600;padding:8px 14px;border-radius:var(--radius-sm);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--transition)}
     .wa-tooltip::after{content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-right:none;border-left-color:var(--dark)}
     .wa-float:hover .wa-tooltip{opacity:1}
-    .clients-section{padding:80px 0;background:var(--light)}
-    .section-intro{text-align:center;max-width:640px;margin:0 auto 52px}
-    .section-intro h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.03em;color:var(--dark);margin-bottom:12px}
-    .section-intro p{font-size:16px;color:var(--mid);line-height:1.65}
-    .client-types-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-    .client-type-card{background:#fff;border-radius:var(--radius-lg);padding:32px;border:1px solid var(--border);transition:all var(--transition)}
-    .client-type-card:hover{box-shadow:var(--shadow-lg);border-color:rgba(245,110,15,.2);transform:translateY(-2px)}
-    .client-type-icon{width:52px;height:52px;border-radius:var(--radius);background:var(--orange-light);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-    .client-type-icon svg{width:26px;height:26px;color:var(--orange)}
-    .client-type-card h3{font-size:18px;font-weight:800;color:var(--dark);margin-bottom:8px}
-    .client-type-card>p{font-size:14px;color:var(--mid);line-height:1.6;margin-bottom:16px}
-    .work-list{display:flex;flex-direction:column;gap:6px}
-    .work-list li{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--mid)}
-    .work-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
-    .why-commercial{padding:80px 0;background:#fff}
-    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-    .why-card{background:var(--light);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);transition:all var(--transition)}
-    .why-card:hover{box-shadow:var(--shadow-lg);border-color:rgba(245,110,15,.2)}
-    .why-icon{width:44px;height:44px;background:var(--orange-light);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-    .why-icon svg{width:22px;height:22px;color:var(--orange)}
-    .why-card h3{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:6px}
-    .why-card p{font-size:13.5px;color:var(--mid);line-height:1.55}
-    @media(max-width:768px){.nav-links,.nav-phone{display:none}.nav-hamburger{display:flex}.nav-cta .btn{display:none}.page-hero{padding:100px 0 56px}.hero-actions{flex-direction:column;gap:12px}.hero-actions .btn{width:100%;justify-content:center}.clients-section,.why-commercial{padding:56px 0}.client-types-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.svc-cta{padding:60px 0}.cta-btns{flex-direction:column;align-items:stretch}.cta-btns .btn{justify-content:center}.footer-inner{flex-direction:column;align-items:flex-start;gap:20px}.footer-links{flex-direction:column;gap:12px}}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){.included-grid{grid-template-columns:repeat(2,1fr)}.how-grid{gap:48px}}
+    @media(max-width:768px){
+      .nav-links,.nav-phone{display:none}
+      .nav-hamburger{display:flex}
+      .nav-cta .btn{display:none}
+      .page-hero{padding:100px 0 56px}
+      .hero-actions{flex-direction:column;gap:12px}
+      .hero-actions .btn{width:100%;justify-content:center}
+      .trust-bar-inner{grid-template-columns:repeat(2,1fr)}
+      .included-grid{grid-template-columns:1fr}
+      .how-grid{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:1fr}
+      .why-grid{grid-template-columns:1fr}
+      .related-grid{grid-template-columns:1fr}
+      .quote-grid{grid-template-columns:1fr}
+      .cta-strip-btns{flex-direction:column;align-items:center}
+      .included-section,.how-section,.gallery-section,.why-section,.related-section,.quote-section{padding:56px 0}
+      .cta-strip{padding:48px 0}
+      .footer-inner{flex-direction:column;align-items:flex-start;gap:20px}
+      .footer-links{flex-direction:column;gap:12px}
+    }
   </style>
 </head>
 <body>
 
-<nav id="nav">
+<!-- NAV -->
+<nav id="nav" style="background:rgba(17,24,39,.97);backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25);">
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
         <span class="nav-logo-text">Any<span>Trade</span></span>
       </a>
       <div class="nav-links">
-        <a href="services.html" class="active" style="color:#fff;">Services</a>
+        <a href="services.html">Services</a>
         <a href="how-it-works.html">How It Works</a>
         <a href="index.html#reviews">Reviews</a>
         <a href="areas.html">Areas</a>
       </div>
       <div class="nav-cta">
-        <a href="tel:016917151" class="nav-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>01 691 7151</a>
+        <a href="tel:016917151" class="nav-phone">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          01 691 7151
+        </a>
         <a href="get-a-quote.html" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Get a Quote</a>
       </div>
-      <div class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></div>
+      <div class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="services.html" onclick="toggleMenu()">Services</a>
@@ -129,159 +259,462 @@
       <a href="index.html#reviews" onclick="toggleMenu()">Reviews</a>
       <a href="areas.html" onclick="toggleMenu()">Areas</a>
       <a href="tel:016917151" onclick="toggleMenu()">Call: 01 691 7151</a>
-      <a href="get-a-quote.html" onclick="toggleMenu()" style="color:var(--orange);">Get a Quote →</a>
+      <a href="get-a-quote.html" onclick="toggleMenu()" style="color:var(--orange);">Get a Quote &#8594;</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- 1. HERO -->
 <section class="page-hero">
   <div class="page-hero-bg">
-    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80" alt="Commercial office fit-out in North Dublin" style="width:100%;height:100%;object-fit:cover;opacity:.22;"/>
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80" alt="Commercial office space in North Dublin"/>
   </div>
   <div class="container">
     <div class="page-hero-content">
       <div class="hero-badge">Commercial &amp; Contract Work</div>
-      <h1>Commercial Services <em>North Dublin</em></h1>
-      <p class="hero-sub">Multi-trade commercial work for businesses across North Dublin. One contractor, all trades — electrical, plumbing, carpentry, painting and fit-out work completed on schedule.</p>
+      <h1>Commercial Services in <em>North Dublin</em></h1>
+      <p class="hero-sub">One contractor. Every trade. On time, every time.</p>
       <div class="hero-actions">
-        <a href="get-a-quote.html" class="btn btn-primary">Get a Commercial Quote</a>
-        <a href="tel:016917151" class="btn btn-secondary">Call 01 691 7151</a>
+        <a href="#quote" class="btn btn-primary">
+          <i class="fa-solid fa-bolt"></i> Get a Free Quote
+        </a>
+        <a href="tel:016917151" class="btn btn-secondary">
+          <i class="fa-solid fa-phone"></i> Call 01 691 7151
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CLIENT TYPES -->
-<section class="clients-section">
+<!-- 2. TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <div class="reveal">
+        <div class="trust-stat-value">All <span>Trades</span></div>
+        <div class="trust-stat-label">In-House</div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="trust-stat-value">Fully <span>Insured</span></div>
+        <div class="trust-stat-label">Insured &amp; Certified</div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="trust-stat-value">Out-of-<span>Hours</span></div>
+        <div class="trust-stat-label">Work Available</div>
+      </div>
+      <div class="reveal reveal-delay-3">
+        <div class="trust-stat-value"><span>Account</span></div>
+        <div class="trust-stat-label">Contracts Available</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. WHAT'S INCLUDED -->
+<section class="included-section">
   <div class="container">
     <div class="section-intro reveal">
-      <div class="section-label">Who We Work With</div>
-      <h2>Types of commercial work we do</h2>
-      <p>We work with a wide range of commercial clients across North Dublin — from owner-managed businesses to large property management companies.</p>
+      <div class="section-label">What's Included</div>
+      <h2>Commercial trade services we cover</h2>
+      <p>From a single reactive callout to a full fit-out or ongoing maintenance contract &#8212; we are the single point of contact for every trade on your premises.</p>
     </div>
-    <div class="client-types-grid">
-      <div class="client-type-card reveal">
-        <div class="client-type-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><line x1="9" y1="22" x2="9" y2="12"/><line x1="15" y1="12" x2="15" y2="22"/><line x1="9" y1="12" x2="15" y2="12"/></svg>
+    <div class="included-grid">
+      <div class="included-item reveal">
+        <div class="included-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div class="included-text">
+          <h4>Commercial Electrical</h4>
+          <p>Full commercial electrical fit-outs, lighting upgrades and rewires with RECI certification</p>
         </div>
-        <h3>Pubs &amp; Hospitality</h3>
-        <p>Refits, maintenance and urgent repairs for pubs, restaurants and hospitality venues. We understand the pressure of getting back open quickly.</p>
-        <ul class="work-list">
-          <li>Bar electrical and lighting upgrades</li>
-          <li>Cellar plumbing and drainage</li>
-          <li>Joinery, partitions and fit-out</li>
-          <li>Tiling and floor works</li>
-          <li>Out-of-hours emergency repairs</li>
-        </ul>
       </div>
-      <div class="client-type-card reveal reveal-delay-1">
-        <div class="client-type-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon"><i class="fa-solid fa-droplet"></i></div>
+        <div class="included-text">
+          <h4>Commercial Plumbing</h4>
+          <p>Commercial plumbing systems, pipework, drainage and emergency callouts</p>
         </div>
-        <h3>Offices &amp; Retail</h3>
-        <p>Fit-outs, reconfigurations and maintenance for office buildings, retail units and commercial premises of all sizes.</p>
-        <ul class="work-list">
-          <li>Partitioning and stud walls</li>
-          <li>Data and power point installation</li>
-          <li>Lighting design and installation</li>
-          <li>Painting and decoration</li>
-          <li>Suspended ceilings and floors</li>
-        </ul>
       </div>
-      <div class="client-type-card reveal">
-        <div class="client-type-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon"><i class="fa-solid fa-hammer"></i></div>
+        <div class="included-text">
+          <h4>Office Fit-Out Carpentry</h4>
+          <p>Partition walls, stud walls, suspended ceilings, office furniture fitting and joinery</p>
         </div>
-        <h3>Credit Unions &amp; Banks</h3>
-        <p>Trusted contractor to financial institutions across North Dublin for maintenance, refurbishment and fit-out work carried out to the highest standard.</p>
-        <ul class="work-list">
-          <li>Branch refurbishment and fit-out</li>
-          <li>Access control and cabling</li>
-          <li>Signage and feature wall installation</li>
-          <li>Ongoing maintenance contracts</li>
-          <li>Fully insured and vetted team</li>
-        </ul>
       </div>
-      <div class="client-type-card reveal reveal-delay-1">
-        <div class="client-type-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div class="included-item reveal">
+        <div class="included-icon"><i class="fa-solid fa-paint-roller"></i></div>
+        <div class="included-text">
+          <h4>Commercial Painting</h4>
+          <p>Large-scale interior and exterior painting for commercial premises</p>
         </div>
-        <h3>Property Management</h3>
-        <p>Reliable multi-trade support for management companies and letting agents across North Dublin residential and commercial estates.</p>
-        <ul class="work-list">
-          <li>Reactive maintenance and callouts</li>
-          <li>Void property make-ready</li>
-          <li>Common area maintenance</li>
-          <li>Planned preventative maintenance</li>
-          <li>Single point of contact for all trades</li>
-        </ul>
+      </div>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon"><i class="fa-solid fa-border-all"></i></div>
+        <div class="included-text">
+          <h4>Commercial Tiling</h4>
+          <p>Floor and wall tiling for commercial kitchens, bathrooms and public areas</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon"><i class="fa-solid fa-beer-mug-empty"></i></div>
+        <div class="included-text">
+          <h4>Pub &amp; Bar Maintenance</h4>
+          <p>Reactive and planned maintenance for licensed premises &#8212; electrics, plumbing and joinery</p>
+        </div>
+      </div>
+      <div class="included-item reveal">
+        <div class="included-icon"><i class="fa-solid fa-building"></i></div>
+        <div class="included-text">
+          <h4>Office Maintenance</h4>
+          <p>Ongoing maintenance contracts for office buildings &#8212; single call, all trades</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon"><i class="fa-solid fa-key"></i></div>
+        <div class="included-text">
+          <h4>Void Property Make-Ready</h4>
+          <p>Full make-ready service for empty properties: cleaning, painting, repairs and reinstatement</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <div class="included-text">
+          <h4>Reactive Emergency Callouts</h4>
+          <p>Same-day emergency response for burst pipes, electrical faults and break-ins</p>
+        </div>
+      </div>
+      <div class="included-item reveal">
+        <div class="included-icon"><i class="fa-solid fa-signal"></i></div>
+        <div class="included-text">
+          <h4>Data &amp; Power Infrastructure</h4>
+          <p>Structured cabling, server room power and data point installation</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-1">
+        <div class="included-icon"><i class="fa-solid fa-person-shelter"></i></div>
+        <div class="included-text">
+          <h4>Common Area Maintenance</h4>
+          <p>Stairwell lighting, car park repairs, external lighting and communal area upkeep</p>
+        </div>
+      </div>
+      <div class="included-item reveal reveal-delay-2">
+        <div class="included-icon"><i class="fa-solid fa-file-contract"></i></div>
+        <div class="included-text">
+          <h4>Planned Maintenance Contracts</h4>
+          <p>Scheduled PPM visits covering all trades &#8212; single invoice, single point of contact</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHY -->
-<section class="why-commercial">
+<!-- 4. HOW IT WORKS -->
+<section class="how-section">
+  <div class="container">
+    <div class="how-grid">
+      <!-- Steps -->
+      <div class="reveal">
+        <div class="section-label">How It Works</div>
+        <h2 style="font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.03em;color:#111827;margin-bottom:12px;line-height:1.2;">One call covers every trade on your premises</h2>
+        <p style="font-size:15px;color:#6b7280;margin-bottom:40px;line-height:1.65;">No juggling multiple contractors. We field the right tradespeople for every job &#8212; reactive or planned &#8212; and keep you updated throughout.</p>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="how-step-num">1</div>
+            <div class="how-step-content">
+              <h3>Contact us with the job details</h3>
+              <p>Call, WhatsApp or fill in the form. Tell us what needs doing and where &#8212; photos help us estimate faster and more accurately.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-step-num">2</div>
+            <div class="how-step-content">
+              <h3>We assess and quote &#8212; usually same day</h3>
+              <p>For most jobs we can quote from photos and a description. For larger fit-outs we'll do a free site visit and produce a detailed written estimate.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-step-num">3</div>
+            <div class="how-step-content">
+              <h3>We schedule around your trading hours</h3>
+              <p>We work early mornings, evenings and weekends to minimise disruption. For urgent jobs we aim for same-day or next-day attendance.</p>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="how-step-num">4</div>
+            <div class="how-step-content">
+              <h3>Single invoice, all trades signed off</h3>
+              <p>Every job is completed, signed off and invoiced as one. For ongoing contracts, you get a single monthly statement covering all works.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- WhatsApp Mockup -->
+      <div class="reveal reveal-delay-2">
+        <div class="chat-phone">
+          <div class="chat-screen">
+            <div class="chat-header">
+              <div class="chat-avatar">AT</div>
+              <div class="chat-header-info">
+                <div class="chat-name">AnyTrade</div>
+                <div class="chat-status">online</div>
+              </div>
+            </div>
+            <div class="chat-body">
+              <div class="chat-msg msg-in">
+                Hi &#8212; I run a pub in Swords and I need a few things sorted before the weekend. Extractor fan in the kitchen has packed in and there's a dripping tap at the bar that's driving me mad. Any chance of Friday?
+                <div class="chat-msg-time">09:00 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-msg msg-out">
+                Hi! We can definitely get those sorted this week &#128075; Friday works &#8212; can you tell me roughly what type of extractor fan? Commercial canopy or a standard wall-mounted unit?
+                <div class="chat-msg-time">09:03 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-msg msg-in">
+                Wall-mounted commercial unit &#8212; it just stopped working yesterday. And the bar tap is the cold feed on the right-hand side
+                <div class="chat-msg-time">09:05 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-msg msg-out">
+                Got it. Likely a motor or capacitor on the extractor &#8212; usually a quick fix or swap-out. Bar tap sounds like a washer or valve seat. We'll send an electrician and plumber together to get both done in one visit. <strong>Estimate: &#8364;220&#8211;&#8364;320</strong> for both jobs. Friday morning work?
+                <div class="chat-msg-time">09:10 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-msg msg-in">
+                Friday morning is perfect &#8212; we open at 12 so ideally finished before then
+                <div class="chat-msg-time">09:11 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-msg msg-out">
+                No problem &#8212; we'll be there at <strong>8am</strong> and have it all done well before opening. We'll text to confirm Thursday evening. &#128077;
+                <div class="chat-msg-time">09:13 &#10003;&#10003;</div>
+              </div>
+              <div class="chat-typing"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. PHOTO GALLERY -->
+<section class="gallery-section">
   <div class="container">
     <div class="section-intro reveal">
-      <div class="section-label">Why AnyTrade Commercial</div>
-      <h2>What sets us apart for commercial clients</h2>
-      <p>We know commercial work has different demands. Here's what you can expect when you work with us.</p>
+      <div class="section-label">Our Work</div>
+      <h2>Commercial projects across North Dublin</h2>
+      <p>From pub refurbishments in Swords to office fit-outs in Santry &#8212; we deliver clean, professional work on time and on budget.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-placeholder reveal">
+        <i class="fa-solid fa-image"></i>
+        <span>Before 1</span>
+      </div>
+      <div class="gallery-placeholder reveal reveal-delay-1">
+        <i class="fa-solid fa-image"></i>
+        <span>After 1</span>
+      </div>
+      <div class="gallery-placeholder reveal reveal-delay-2">
+        <i class="fa-solid fa-image"></i>
+        <span>Before 2</span>
+      </div>
+      <div class="gallery-placeholder reveal reveal-delay-3">
+        <i class="fa-solid fa-image"></i>
+        <span>After 2</span>
+      </div>
+    </div>
+    <p class="gallery-note reveal">Photos coming soon &#8212; check our <a href="https://facebook.com" target="_blank" rel="noopener">Facebook page</a> for latest work</p>
+  </div>
+</section>
+
+<!-- 6. WHY CHOOSE -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="section-label">Why AnyTrade</div>
+      <h2>Why North Dublin businesses choose us</h2>
+      <p>We understand that commercial premises can't afford downtime. We work fast, work clean and get it right first time.</p>
     </div>
     <div class="why-grid">
-      <div class="why-card reveal">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      <div class="why-item reveal">
+        <div class="why-tick"><i class="fa-solid fa-check"></i></div>
+        <div class="why-content">
+          <h4>Single Invoice for All Trades</h4>
+          <p>Electrician, plumber, carpenter and painter &#8212; one job, one quote, one invoice. No managing multiple contractors.</p>
         </div>
-        <h3>One Team, All Trades</h3>
-        <p>No coordinating multiple contractors. Our electricians, plumbers, carpenters and painters work together under one job, one invoice.</p>
       </div>
-      <div class="why-card reveal reveal-delay-1">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div class="why-item reveal reveal-delay-1">
+        <div class="why-tick"><i class="fa-solid fa-check"></i></div>
+        <div class="why-content">
+          <h4>Out-of-Hours Work Available</h4>
+          <p>We work early mornings, evenings and weekends to ensure your business doesn't lose trading hours.</p>
         </div>
-        <h3>Minimal Disruption</h3>
-        <p>We work around your business hours. Early starts, late finishes or weekend work arranged to keep your operations running.</p>
       </div>
-      <div class="why-card reveal reveal-delay-2">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="why-item reveal">
+        <div class="why-tick"><i class="fa-solid fa-check"></i></div>
+        <div class="why-content">
+          <h4>Fully Insured &amp; Certified</h4>
+          <p>Public liability, employers' liability, RECI electrical certification and Gas Safe registration all in place.</p>
         </div>
-        <h3>Fully Insured</h3>
-        <p>Public liability and employers' liability insurance in place. RECI registered electricians. All works certified and compliant.</p>
+      </div>
+      <div class="why-item reveal reveal-delay-1">
+        <div class="why-tick"><i class="fa-solid fa-check"></i></div>
+        <div class="why-content">
+          <h4>Maintenance Contract Available</h4>
+          <p>Set up a rolling maintenance contract and get priority response, fixed rates and a single account manager.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="svc-cta">
+<!-- 7. RELATED SERVICES -->
+<section class="related-section">
   <div class="container">
-    <div class="cta-inner reveal">
-      <div class="section-label" style="justify-content:center;">Get Started</div>
-      <h2>Have a commercial project in North Dublin?</h2>
-      <p>Call us or send over the details and we'll arrange a site visit to assess the work and provide a detailed written quote.</p>
-      <div class="cta-btns">
-        <a href="get-a-quote.html" class="btn btn-primary">Get a Commercial Quote</a>
-        <a href="tel:016917151" class="btn btn-secondary">Call 01 691 7151</a>
+    <div class="section-intro section-intro-light reveal">
+      <div class="section-label">Related Services</div>
+      <h2>Individual trades available separately</h2>
+      <p>Need just one specific trade? We cover all of them individually too &#8212; with the same reliability and same-day quoting.</p>
+    </div>
+    <div class="related-grid">
+      <div class="related-card reveal">
+        <div class="related-card-icon"><i class="fa-solid fa-bolt"></i></div>
+        <h3>Electrical</h3>
+        <p>RECI-registered commercial electrical work &#8212; fit-outs, maintenance and certification.</p>
+        <a href="electrical.html" class="related-link">Learn more &#8594;</a>
       </div>
-      <p class="cta-note">All trades &middot; Fully insured &middot; North Dublin</p>
+      <div class="related-card reveal reveal-delay-1">
+        <div class="related-card-icon"><i class="fa-solid fa-droplet"></i></div>
+        <h3>Plumbing</h3>
+        <p>Commercial plumbing from emergency callouts to full system installs.</p>
+        <a href="plumbing.html" class="related-link">Learn more &#8594;</a>
+      </div>
+      <div class="related-card reveal reveal-delay-2">
+        <div class="related-card-icon"><i class="fa-solid fa-paint-roller"></i></div>
+        <h3>Painting &amp; Tiling</h3>
+        <p>Commercial painting and tiling for fit-outs, refurbishments and common areas.</p>
+        <a href="painting-tiling.html" class="related-link">Learn more &#8594;</a>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- 8. QUOTE FORM -->
+<section class="quote-section" id="quote">
+  <div class="container">
+    <div class="quote-grid">
+      <div class="quote-left reveal">
+        <div class="section-label">Free Quote</div>
+        <h2>Get a Free Commercial Quote Today</h2>
+        <p>Describe the job and site location &#8212; we'll have a written estimate back to you, usually the same day.</p>
+        <div class="quote-trust">
+          <div class="quote-trust-item"><i class="fa-solid fa-check"></i> All trades in-house</div>
+          <div class="quote-trust-item"><i class="fa-solid fa-check"></i> Fully insured and certified</div>
+          <div class="quote-trust-item"><i class="fa-solid fa-check"></i> Out-of-hours available</div>
+          <div class="quote-trust-item"><i class="fa-solid fa-check"></i> Maintenance contracts available</div>
+        </div>
+        <div class="quote-next">
+          <h4>What happens next</h4>
+          <div class="quote-next-steps">
+            <div class="quote-next-step">
+              <div class="quote-next-num">1</div>
+              <p>Describe the job and site location &#8212; photos help us estimate accurately.</p>
+            </div>
+            <div class="quote-next-step">
+              <div class="quote-next-num">2</div>
+              <p>We provide a written estimate, usually same day.</p>
+            </div>
+            <div class="quote-next-step">
+              <div class="quote-next-num">3</div>
+              <p>For urgent jobs, we aim for same-day or next-day attendance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="quote-form-card">
+          <h3>Get a Free Commercial Quote</h3>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="cm-name">Your Name</label>
+              <input type="text" id="cm-name" name="name" placeholder="Mary O'Brien" required/>
+            </div>
+            <div class="form-group">
+              <label for="cm-phone">Phone Number</label>
+              <input type="tel" id="cm-phone" name="phone" placeholder="087 123 4567" required/>
+            </div>
+            <div class="form-group">
+              <label for="cm-email">Email Address</label>
+              <input type="email" id="cm-email" name="email" placeholder="mary@yourbusiness.ie"/>
+            </div>
+            <div class="form-group">
+              <label for="cm-site">Site / Business Address</label>
+              <input type="text" id="cm-site" name="site" placeholder="e.g. Swords, Santry, Drumcondra"/>
+            </div>
+            <div class="form-group">
+              <label for="cm-job">Job Type</label>
+              <select id="cm-job" name="job-type">
+                <option value="">Select a service...</option>
+                <option>Reactive Maintenance</option>
+                <option>Commercial Electrical</option>
+                <option>Commercial Plumbing</option>
+                <option>Office Fit-Out</option>
+                <option>Pub/Bar Maintenance</option>
+                <option>Void Property Make-Ready</option>
+                <option>Painting &amp; Decoration</option>
+                <option>Commercial Tiling</option>
+                <option>Maintenance Contract</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cm-details">Describe the job</label>
+              <textarea id="cm-details" name="details" placeholder="Tell us what needs doing, the size of the premises and any access requirements. The more detail the better."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Photos (optional)</label>
+              <div class="file-upload-area" onclick="document.getElementById('cm-photos').click()">
+                <i class="fa-solid fa-camera"></i>
+                <p>Tap to attach photos of the area or issue</p>
+                <span>JPG, PNG or HEIC &#8212; up to 10MB each</span>
+                <input type="file" id="cm-photos" name="photos" multiple accept="image/*" style="display:none"/>
+              </div>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i class="fa-solid fa-paper-plane"></i> Send My Enquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CTA STRIP -->
+<section class="cta-strip">
+  <div class="container">
+    <h2>Prefer to talk?</h2>
+    <a href="tel:016917151" class="cta-strip-phone">01 691 7151</a>
+    <div class="cta-strip-btns">
+      <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="btn-wa">
+        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+      </a>
+      <a href="#quote" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">Get a Quote Online</a>
+    </div>
+    <p class="cta-strip-note">Mon&#8211;Fri 8am&#8211;6pm &middot; Sat 9am&#8211;4pm &middot; Out-of-hours available for emergencies</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <a href="index.html" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="nav-logo-text">Any<span>Trade</span></span></a>
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+        <span class="nav-logo-text">Any<span>Trade</span></span>
+      </a>
       <div class="footer-links">
         <a href="services.html">Services</a>
         <a href="how-it-works.html">How It Works</a>
         <a href="index.html#reviews">Reviews</a>
         <a href="areas.html">Areas</a>
         <a href="tel:016917151">01 691 7151</a>
-        <a href="mailto:hello@anytradesman.ie">hello@anytradesman.ie</a>
+        <a href="mailto:hello@anytrade.ie">hello@anytrade.ie</a>
       </div>
       <a href="get-a-quote.html" class="btn btn-primary" style="padding:11px 22px;font-size:14px;">Get a Quote</a>
     </div>
@@ -289,6 +722,7 @@
   </div>
 </footer>
 
+<!-- WA FLOAT -->
 <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
   <div class="wa-tooltip">Chat with us</div>
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -296,7 +730,8 @@
 
 <script>
   function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
-  const observer=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  function handleSubmit(e){e.preventDefault();alert('Thanks! We\'ll be in touch shortly with your commercial quote.');e.target.reset()}
+  const observer=new IntersectionObserver((entries)=>{entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');observer.unobserve(el.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
