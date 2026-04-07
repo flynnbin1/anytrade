@@ -218,12 +218,72 @@
       .included-section,.how-section,.gallery-section,.why-section,.related-section,.quote-section{padding:56px 0}
       .cta-strip{padding:48px 0}
     }
+  
+    /* ═══ NAV — DROPDOWN + SLIDE-OUT REBUILD ═══ */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,.97)!important;backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .nav-logo-icon{width:36px;height:36px;background:#F56E0F;border-radius:6px;display:flex;align-items:center;justify-content:center}
+    .nav-logo-icon svg{width:20px;height:20px;fill:#fff}
+    .nav-logo-text{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em}
+    .nav-logo-text span{color:#F56E0F}
+    .nav-links{display:flex;align-items:center;gap:32px}
+    .nav-links>a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);transition:color .25s;text-decoration:none}
+    .nav-links>a:hover{color:#fff}
+    /* Dropdown */
+    .nav-dropdown-wrap{position:relative}
+    .nav-dropdown-trigger{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;font-family:inherit;padding:0;transition:color .25s}
+    .nav-dropdown-trigger:hover,.nav-dropdown-wrap:hover .nav-dropdown-trigger{color:#fff}
+    .nav-dropdown-trigger svg{transition:transform .25s}
+    .nav-dropdown-wrap:hover .nav-dropdown-trigger svg{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:calc(100% + 18px);left:-16px;background:#fff;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.18);min-width:248px;padding:6px 0;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .2s,transform .2s;z-index:100}
+    .nav-dropdown-wrap:hover .nav-dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+    .nav-dropdown::before{content:'';position:absolute;top:-6px;left:28px;width:12px;height:12px;background:#fff;transform:rotate(45deg);box-shadow:-2px -2px 5px rgba(0,0,0,.04)}
+    .nav-dropdown a{display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:13.5px;font-weight:500;color:#111827;transition:all .18s;border-left:3px solid transparent;text-decoration:none}
+    .nav-dropdown a:hover{background:#f9fafb;border-left-color:#F56E0F;color:#F56E0F}
+    .nd-icon{width:26px;height:26px;background:#fff4ed;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;color:#F56E0F;transition:all .18s}
+    .nav-dropdown a:hover .nd-icon{background:#F56E0F;color:#fff}
+    /* CTA */
+    .nav-cta{display:flex;align-items:center;gap:16px}
+    .nav-phone{font-size:14px;font-weight:600;color:rgba(255,255,255,.9);display:flex;align-items:center;gap:6px;text-decoration:none}
+    .nav-phone svg{width:15px;height:15px}
+    /* Hamburger */
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+    .nav-hamburger span{display:block;width:24px;height:2px;background:#F56E0F;border-radius:2px;transition:all .3s}
+    /* MOBILE OVERLAY */
+    .mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1001;cursor:pointer}
+    .mobile-overlay.open{display:block}
+    /* MOBILE PANEL */
+    .mobile-panel{position:fixed;top:0;right:0;bottom:0;width:min(340px,100vw);background:#111827;z-index:1002;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+    .mobile-panel.open{transform:translateX(0)}
+    .mobile-panel-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+    .mobile-close{width:36px;height:36px;background:rgba(255,255,255,.08);border:none;border-radius:50%;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1;font-family:inherit}
+    .mobile-close:hover{background:rgba(255,255,255,.16)}
+    .mobile-panel-links{flex:1;padding:8px 0;overflow-y:auto}
+    .mobile-panel-links>a{display:block;padding:14px 24px;font-size:15px;font-weight:500;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none;transition:color .2s}
+    .mobile-panel-links>a:hover{color:#F56E0F}
+    .mobile-accordion{border-bottom:1px solid rgba(255,255,255,.06)}
+    .mobile-accordion-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;font-size:15px;font-weight:500;color:rgba(255,255,255,.8);background:none;border:none;font-family:inherit;cursor:pointer;text-align:left;transition:color .2s}
+    .mobile-accordion-trigger:hover{color:#fff}
+    .mobile-accordion-trigger svg{transition:transform .3s;flex-shrink:0;color:rgba(255,255,255,.4)}
+    .mobile-accordion.open .mobile-accordion-trigger svg{transform:rotate(180deg)}
+    .mobile-accordion-content{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1);background:rgba(0,0,0,.2)}
+    .mobile-accordion.open .mobile-accordion-content{max-height:600px}
+    .mobile-accordion-content a{display:flex;align-items:center;gap:10px;padding:11px 24px 11px 28px;font-size:14px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;border-bottom:1px solid rgba(255,255,255,.04)}
+    .mobile-accordion-content a:hover{color:#F56E0F}
+    .mobile-accordion-content a i{color:#F56E0F;width:14px;font-size:12px}
+    .mobile-panel-footer{padding:20px 24px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:12px;flex-shrink:0}
+    .mobile-phone-link{display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px;font-weight:700;color:#fff;text-decoration:none;padding:12px;background:rgba(255,255,255,.06);border-radius:8px}
+    .mobile-phone-link i{color:#F56E0F}
+    .mobile-phone-link:hover{background:rgba(255,255,255,.1)}
+    @media(max-width:768px){.nav-links,.nav-phone{display:none!important}.nav-hamburger{display:flex!important}.nav-cta .btn{display:none!important}}
+    @media(min-width:769px){.mobile-overlay,.mobile-panel{display:none!important}.mobile-overlay.open,.mobile-panel.open{display:none!important}}
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="nav" style="background:rgba(17,24,39,.97);backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25);">
+<nav id="nav">
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
@@ -231,30 +291,71 @@
         <span class="nav-logo-text">Any<span>Trade</span></span>
       </a>
       <div class="nav-links">
-        <a href="services.html">Services</a>
+        <div class="nav-dropdown-wrap">
+          <button class="nav-dropdown-trigger">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="electrical.html"><span class="nd-icon"><i class="fa-solid fa-bolt"></i></span>Electrical</a>
+            <a href="plumbing.html"><span class="nd-icon"><i class="fa-solid fa-droplet"></i></span>Plumbing</a>
+            <a href="bathroom-renovations.html"><span class="nd-icon"><i class="fa-solid fa-bath"></i></span>Bathroom Renovations</a>
+            <a href="carpentry.html"><span class="nd-icon"><i class="fa-solid fa-hammer"></i></span>Carpentry</a>
+            <a href="painting-tiling.html"><span class="nd-icon"><i class="fa-solid fa-paint-roller"></i></span>Painting &amp; Tiling</a>
+            <a href="media-walls.html"><span class="nd-icon"><i class="fa-solid fa-tv"></i></span>Media Walls</a>
+            <a href="smart-home.html"><span class="nd-icon"><i class="fa-solid fa-house-signal"></i></span>Smart Home</a>
+            <a href="commercial.html"><span class="nd-icon"><i class="fa-solid fa-building"></i></span>Commercial</a>
+          </div>
+        </div>
         <a href="how-it-works.html">How It Works</a>
-        <a href="index.html#reviews">Reviews</a>
         <a href="areas.html">Areas</a>
+        <a href="index.html#reviews">Reviews</a>
       </div>
       <div class="nav-cta">
         <a href="tel:016917151" class="nav-phone">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
           01 691 7151
         </a>
         <a href="get-a-quote.html" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Get a Quote</a>
       </div>
-      <div class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></div>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="services.html" onclick="toggleMenu()">Services</a>
-      <a href="how-it-works.html" onclick="toggleMenu()">How It Works</a>
-      <a href="index.html#reviews" onclick="toggleMenu()">Reviews</a>
-      <a href="areas.html" onclick="toggleMenu()">Areas</a>
-      <a href="tel:016917151" onclick="toggleMenu()">Call: 01 691 7151</a>
-      <a href="get-a-quote.html" onclick="toggleMenu()" style="color:var(--orange);">Get a Quote &rarr;</a>
+      <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
+<div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+<div class="mobile-panel" id="mobilePanel">
+  <div class="mobile-panel-header">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+      <span class="nav-logo-text">Any<span>Trade</span></span>
+    </a>
+    <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="mobile-panel-links">
+    <div class="mobile-accordion" id="servicesAccordion">
+      <button class="mobile-accordion-trigger" onclick="toggleServicesAccordion()">
+        Services
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-accordion-content">
+        <a href="electrical.html"><i class="fa-solid fa-bolt"></i>Electrical</a>
+        <a href="plumbing.html"><i class="fa-solid fa-droplet"></i>Plumbing</a>
+        <a href="bathroom-renovations.html"><i class="fa-solid fa-bath"></i>Bathroom Renovations</a>
+        <a href="carpentry.html"><i class="fa-solid fa-hammer"></i>Carpentry</a>
+        <a href="painting-tiling.html"><i class="fa-solid fa-paint-roller"></i>Painting &amp; Tiling</a>
+        <a href="media-walls.html"><i class="fa-solid fa-tv"></i>Media Walls</a>
+        <a href="smart-home.html"><i class="fa-solid fa-house-signal"></i>Smart Home</a>
+        <a href="commercial.html"><i class="fa-solid fa-building"></i>Commercial</a>
+      </div>
+    </div>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="areas.html">Areas</a>
+    <a href="index.html#reviews">Reviews</a>
+  </div>
+  <div class="mobile-panel-footer">
+    <a href="tel:016917151" class="mobile-phone-link"><i class="fa-solid fa-phone"></i>01 691 7151</a>
+    <a href="get-a-quote.html" class="btn btn-primary" style="display:flex;justify-content:center;width:100%;padding:14px 28px;">Get a Free Quote</a>
+  </div>
+</div>
 
 <!-- 1. HERO -->
 <section class="page-hero">
@@ -717,7 +818,6 @@
 </a>
 
 <script>
-  function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
   const observer=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
   function handleSubmit(e){
@@ -728,6 +828,26 @@
     btn.disabled=true;
     // TODO: connect to Jobber/webhook
   }
-</script>
+
+  // Mobile slide-out menu
+  function toggleMobileMenu() {
+    var panel = document.getElementById('mobilePanel');
+    var overlay = document.getElementById('mobileOverlay');
+    var isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open');
+    overlay.classList.toggle('open');
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+  }
+  function toggleServicesAccordion() {
+    document.getElementById('servicesAccordion').classList.toggle('open');
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('mobilePanel').classList.remove('open');
+      document.getElementById('mobileOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+  </script>
 </body>
 </html>
