@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Bathroom Renovations North Dublin — AnyTrade</title>
+  <meta name="description" content="Full bathroom renovation service in North Dublin. Design, strip out, plumbing, tiling and fitting. Free quotes, clear pricing. AnyTrade."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden;line-height:1.6}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    :root{--orange:#F56E0F;--orange-h:#d45e0a;--orange-light:#fff4ed;--dark:#111827;--dark2:#1f2937;--mid:#6b7280;--light:#f3f4f6;--border:#e5e7eb;--radius-sm:6px;--radius:10px;--radius-lg:16px;--shadow-lg:0 12px 40px rgba(0,0,0,.14);--transition:0.25s ease}
+    .container{width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
+    .section-label{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+    .section-label::before{content:'';display:block;width:20px;height:2px;background:var(--orange);border-radius:2px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--radius-sm);font-size:15px;font-weight:600;cursor:pointer;border:none;transition:all var(--transition);white-space:nowrap;font-family:'Inter',sans-serif}
+    .btn-primary{background:var(--orange);color:#fff}
+    .btn-primary:hover{background:var(--orange-h);transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,110,15,.35)}
+    .btn-secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+    .btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,.97);backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo-icon{width:36px;height:36px;background:var(--orange);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center}
+    .nav-logo-icon svg{width:20px;height:20px;fill:#fff}
+    .nav-logo-text{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em}
+    .nav-logo-text span{color:var(--orange)}
+    .nav-links{display:flex;align-items:center;gap:32px}
+    .nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);transition:color var(--transition)}
+    .nav-links a:hover{color:#fff}
+    .nav-cta{display:flex;align-items:center;gap:16px}
+    .nav-phone{font-size:14px;font-weight:600;color:rgba(255,255,255,.9);display:flex;align-items:center;gap:6px}
+    .nav-phone svg{width:15px;height:15px}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .nav-hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+    .mobile-menu{display:none;flex-direction:column;background:var(--dark);border-top:1px solid rgba(255,255,255,.08)}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{padding:16px 24px;font-size:15px;font-weight:500;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06)}
+    .mobile-menu a:hover{color:var(--orange)}
+    .page-hero{position:relative;background:var(--dark);padding:140px 0 80px;overflow:hidden}
+    .page-hero-bg{position:absolute;inset:0}
+    .page-hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 15% 50%,rgba(245,110,15,.1) 0%,transparent 65%)}
+    .page-hero-content{position:relative;z-index:2}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,110,15,.15);border:1px solid rgba(245,110,15,.3);padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;color:var(--orange);letter-spacing:.04em;margin-bottom:24px}
+    .hero-badge::before{content:'';width:7px;height:7px;background:var(--orange);border-radius:50%;animation:pulse-dot 2s infinite}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+    .page-hero h1{font-size:clamp(32px,4.5vw,54px);font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1.1;margin-bottom:16px}
+    .page-hero h1 em{font-style:normal;color:var(--orange)}
+    .page-hero .hero-sub{font-size:17px;color:rgba(255,255,255,.62);line-height:1.65;max-width:560px;margin-bottom:32px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+    .hero-actions .btn{font-size:15px;padding:14px 28px}
+    .svc-cta{padding:96px 0;background:var(--dark);position:relative;overflow:hidden}
+    .svc-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(245,110,15,.1) 0%,transparent 60%)}
+    .cta-inner{position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto}
+    .cta-inner h2{font-size:clamp(26px,4vw,42px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:16px;line-height:1.15}
+    .cta-inner>p{font-size:16px;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:1.65}
+    .cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+    .cta-note{margin-top:18px;font-size:13px;color:rgba(255,255,255,.3)}
+    footer{background:#0d1117;border-top:1px solid rgba(255,255,255,.06);padding:48px 0 28px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:36px}
+    .footer-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+    .footer-links a{font-size:13px;color:rgba(255,255,255,.45);font-weight:500;transition:color var(--transition)}
+    .footer-links a:hover{color:rgba(255,255,255,.8)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;text-align:center;font-size:12.5px;color:rgba(255,255,255,.25)}
+    .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform var(--transition)}
+    .wa-float:hover{transform:scale(1.1)}
+    .wa-float svg{width:28px;height:28px;fill:#fff}
+    .wa-tooltip{position:absolute;right:68px;background:var(--dark);color:#fff;font-size:13px;font-weight:600;padding:8px 14px;border-radius:var(--radius-sm);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--transition)}
+    .wa-tooltip::after{content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-right:none;border-left-color:var(--dark)}
+    .wa-float:hover .wa-tooltip{opacity:1}
+    .jobs-section{padding:80px 0;background:#fff}
+    .jobs-section.grey{background:var(--light)}
+    .section-intro{text-align:center;max-width:640px;margin:0 auto 52px}
+    .section-intro h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.03em;color:var(--dark);margin-bottom:12px}
+    .section-intro p{font-size:16px;color:var(--mid);line-height:1.65}
+    .jobs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .job-item{display:flex;align-items:flex-start;gap:16px;padding:22px;background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);transition:all var(--transition)}
+    .jobs-section.grey .job-item{background:#fff}
+    .job-item:hover{box-shadow:var(--shadow-lg);border-color:rgba(245,110,15,.2);transform:translateY(-2px)}
+    .job-icon{width:44px;height:44px;border-radius:var(--radius);background:var(--orange-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .job-icon svg{width:20px;height:20px;color:var(--orange)}
+    .job-text h3{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:5px}
+    .job-text p{font-size:13.5px;color:var(--mid);line-height:1.55}
+    .why-section{padding:80px 0;background:var(--dark)}
+    .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
+    .why-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);padding:28px;transition:border-color var(--transition),background var(--transition)}
+    .why-card:hover{background:rgba(245,110,15,.06);border-color:rgba(245,110,15,.25)}
+    .why-card-icon{width:40px;height:40px;background:rgba(245,110,15,.15);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+    .why-card-icon svg{width:20px;height:20px;color:var(--orange)}
+    .why-card h3{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
+    .why-card p{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.55}
+    .why-header h2{font-size:clamp(24px,3.5vw,38px);font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:10px}
+    .why-header p{font-size:15px;color:rgba(255,255,255,.5);max-width:520px;line-height:1.65}
+    .photos-section{padding:80px 0;background:var(--light)}
+    .photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:48px}
+    .photo-placeholder{aspect-ratio:4/3;background:linear-gradient(145deg,#e5e7eb,#d1d5db);border-radius:var(--radius-lg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#9ca3af;border:2px dashed #d1d5db}
+    .photo-placeholder svg{width:36px;height:36px}
+    .photo-placeholder span{font-size:13px;font-weight:500}
+    .process-section{padding:80px 0;background:#fff}
+    .process-steps{display:flex;flex-direction:column;gap:0;max-width:720px;margin:0 auto;margin-top:48px}
+    .process-step{display:flex;gap:24px;padding-bottom:36px;position:relative}
+    .process-step:not(:last-child)::after{content:'';position:absolute;left:19px;top:48px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--border),transparent)}
+    .step-num{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;margin-top:2px}
+    .step-content h3{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:6px;letter-spacing:-.01em}
+    .step-content p{font-size:14px;color:var(--mid);line-height:1.6}
+    .pricing-section{padding:80px 0;background:var(--light)}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+    .pricing-card{background:#fff;border-radius:var(--radius-lg);padding:32px 28px;border:1px solid var(--border);transition:all var(--transition)}
+    .pricing-card:hover{box-shadow:var(--shadow-lg);border-color:rgba(245,110,15,.2)}
+    .pricing-card.featured{border-color:var(--orange);position:relative}
+    .pricing-card.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange);color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:100px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+    .pricing-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mid);margin-bottom:8px}
+    .pricing-price{font-size:36px;font-weight:900;letter-spacing:-.03em;color:var(--dark);margin-bottom:4px}
+    .pricing-price span{font-size:14px;font-weight:500;color:var(--mid)}
+    .pricing-desc{font-size:14px;color:var(--mid);line-height:1.6;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+    .pricing-list{display:flex;flex-direction:column;gap:8px}
+    .pricing-list li{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--mid)}
+    .pricing-list li svg{width:14px;height:14px;color:var(--orange);flex-shrink:0}
+    @media(max-width:768px){.nav-links,.nav-phone{display:none}.nav-hamburger{display:flex}.nav-cta .btn{display:none}.page-hero{padding:100px 0 56px}.hero-actions{flex-direction:column;gap:12px}.hero-actions .btn{width:100%;justify-content:center}.jobs-section,.why-section,.photos-section,.process-section,.pricing-section{padding:56px 0}.jobs-grid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr}.pricing-grid{grid-template-columns:1fr}.svc-cta{padding:60px 0}.cta-btns{flex-direction:column;align-items:stretch}.cta-btns .btn{justify-content:center}.footer-inner{flex-direction:column;align-items:flex-start;gap:20px}.footer-links{flex-direction:column;gap:12px}}
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+        <span class="nav-logo-text">Any<span>Trade</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="services.html" class="active" style="color:#fff;">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="areas.html">Areas</a>
+      </div>
+      <div class="nav-cta">
+        <a href="tel:016917151" class="nav-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>01 691 7151</a>
+        <a href="get-a-quote.html" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Get a Quote</a>
+      </div>
+      <div class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="services.html" onclick="toggleMenu()">Services</a>
+      <a href="how-it-works.html" onclick="toggleMenu()">How It Works</a>
+      <a href="index.html#reviews" onclick="toggleMenu()">Reviews</a>
+      <a href="areas.html" onclick="toggleMenu()">Areas</a>
+      <a href="tel:016917151" onclick="toggleMenu()">Call: 01 691 7151</a>
+      <a href="get-a-quote.html" onclick="toggleMenu()" style="color:var(--orange);">Get a Quote →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1600&q=80" alt="Bathroom renovation North Dublin" style="width:100%;height:100%;object-fit:cover;opacity:.22;"/>
+  </div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="hero-badge">Full Fit-Out Service</div>
+      <h1>Bathroom Renovations in <em>North Dublin</em></h1>
+      <p class="hero-sub">From design to final clean — we handle every stage of your bathroom renovation with one team, one quote, and a guaranteed finish.</p>
+      <div class="hero-actions">
+        <a href="get-a-quote.html" class="btn btn-primary">Get a Free Quote</a>
+        <a href="tel:016917151" class="btn btn-secondary">Call 01 691 7151</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="section-label">How It Works</div>
+      <h2>Our renovation process</h2>
+      <p>A bathroom renovation involves more trades than most jobs. We coordinate every step so you don't have to manage multiple contractors.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Initial Survey &amp; Design</h3>
+          <p>We visit the property, take measurements and discuss your vision. We advise on layout, materials and realistic costs.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Strip Out &amp; Preparation</h3>
+          <p>Old sanitaryware, tiles and floor coverings are removed. Walls and floors are prepared and any damp issues addressed.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>First Fix Plumbing</h3>
+          <p>All waste and supply pipework is moved or installed before walls and floors are finished.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Tiling</h3>
+          <p>Floor and wall tiles are laid to a high standard. We work with tiles you supply or source them for you.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3>Second Fix &amp; Fitting</h3>
+          <p>Sanitaryware, shower, baths, vanity units and accessories are installed and connected.</p>
+        </div>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <h3>Final Snagging &amp; Clean</h3>
+          <p>We do a final walkthrough, fix any snags, and leave the bathroom spotless and ready to use.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="section-label">Pricing Guide</div>
+      <h2>How much does a bathroom renovation cost?</h2>
+      <p>Prices depend on size, spec and the amount of work involved. Here's a rough guide — all prices include labour and standard materials.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-label">Small Bathroom</div>
+        <div class="pricing-price">From €1,800</div>
+        <p class="pricing-desc">Suitable for a small bathroom or shower room (up to 4m²). Strip out, retile and refit.</p>
+        <ul class="pricing-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Strip out &amp; disposal</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>New tiling (walls + floor)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Sanitaryware installation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Basic fixtures included</li>
+        </ul>
+      </div>
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <div class="pricing-label">Standard Bathroom</div>
+        <div class="pricing-price">From €3,200</div>
+        <p class="pricing-desc">Full renovation of a standard family bathroom (4–8m²) including all trades.</p>
+        <ul class="pricing-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Full design consultation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Strip out &amp; preparation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Plumbing first + second fix</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Floor &amp; wall tiling</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Full sanitaryware fit-out</li>
+        </ul>
+      </div>
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="pricing-label">Luxury / Large</div>
+        <div class="pricing-price">From €5,500</div>
+        <p class="pricing-desc">Large or premium bathrooms, wet rooms, or high-spec finishes with bespoke elements.</p>
+        <ul class="pricing-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Everything in Standard</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Premium tile selection</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Wet room or freestanding bath</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Feature lighting</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Custom vanity units</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOS -->
+<section class="photos-section">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="section-label">Our Work</div>
+      <h2>Recent bathroom renovations</h2>
+      <p>A sample of bathrooms we've renovated for customers across North Dublin.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-placeholder reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Full Renovation — Malahide</span>
+      </div>
+      <div class="photo-placeholder reveal reveal-delay-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Wet Room — Clontarf</span>
+      </div>
+      <div class="photo-placeholder reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>En-Suite — Swords</span>
+      </div>
+      <div class="photo-placeholder reveal reveal-delay-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Family Bathroom — Artane</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="svc-cta">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="section-label" style="justify-content:center;">Get Started</div>
+      <h2>Ready to transform your bathroom?</h2>
+      <p>Send us photos of your current bathroom and we'll give you a clear, itemised quote — usually within 24 hours.</p>
+      <div class="cta-btns">
+        <a href="get-a-quote.html" class="btn btn-primary">Get a Free Quote</a>
+        <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp Photos</a>
+      </div>
+      <p class="cta-note">Free quotes &middot; One team, one quote &middot; Guaranteed finish</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="index.html" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="nav-logo-text">Any<span>Trade</span></span></a>
+      <div class="footer-links">
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="areas.html">Areas</a>
+        <a href="tel:016917151">01 691 7151</a>
+        <a href="mailto:hello@anytradesman.ie">hello@anytradesman.ie</a>
+      </div>
+      <a href="get-a-quote.html" class="btn btn-primary" style="padding:11px 22px;font-size:14px;">Get a Quote</a>
+    </div>
+    <div class="footer-bottom">&copy; 2025 AnyTrade. All rights reserved. North Dublin's multi-trade specialists.</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+  <div class="wa-tooltip">Chat with us</div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+  const observer=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

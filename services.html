@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Our Services — AnyTrade North Dublin</title>
+  <meta name="description" content="AnyTrade covers every trade in North Dublin — electrical, plumbing, bathroom renovations, carpentry, painting, tiling, media walls, smart home and commercial."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden;line-height:1.6}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    :root{--orange:#F56E0F;--orange-h:#d45e0a;--orange-light:#fff4ed;--dark:#111827;--dark2:#1f2937;--mid:#6b7280;--light:#f3f4f6;--border:#e5e7eb;--radius-sm:6px;--radius:10px;--radius-lg:16px;--shadow-lg:0 12px 40px rgba(0,0,0,.14);--transition:0.25s ease}
+    .container{width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
+    .section-label{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+    .section-label::before{content:'';display:block;width:20px;height:2px;background:var(--orange);border-radius:2px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--radius-sm);font-size:15px;font-weight:600;cursor:pointer;border:none;transition:all var(--transition);white-space:nowrap;font-family:'Inter',sans-serif}
+    .btn-primary{background:var(--orange);color:#fff}
+    .btn-primary:hover{background:var(--orange-h);transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,110,15,.35)}
+    .btn-secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+    .btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}
+    /* NAV */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,.97);backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .nav-logo{display:flex;align-items:center;gap:10px}
+    .nav-logo-icon{width:36px;height:36px;background:var(--orange);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center}
+    .nav-logo-icon svg{width:20px;height:20px;fill:#fff}
+    .nav-logo-text{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em}
+    .nav-logo-text span{color:var(--orange)}
+    .nav-links{display:flex;align-items:center;gap:32px}
+    .nav-links a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);transition:color var(--transition)}
+    .nav-links a:hover,.nav-links a.active{color:#fff}
+    .nav-cta{display:flex;align-items:center;gap:16px}
+    .nav-phone{font-size:14px;font-weight:600;color:rgba(255,255,255,.9);display:flex;align-items:center;gap:6px}
+    .nav-phone svg{width:15px;height:15px}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .nav-hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+    .mobile-menu{display:none;flex-direction:column;background:var(--dark);border-top:1px solid rgba(255,255,255,.08)}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{padding:16px 24px;font-size:15px;font-weight:500;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06)}
+    .mobile-menu a:hover{color:var(--orange)}
+    /* PAGE HERO */
+    .page-hero{position:relative;background:var(--dark);padding:140px 0 80px;overflow:hidden}
+    .page-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(17,24,39,.96) 0%,rgba(17,24,39,.78) 55%,rgba(17,24,39,.92) 100%),url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80') center/cover no-repeat}
+    .page-hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 15% 50%,rgba(245,110,15,.1) 0%,transparent 65%)}
+    .page-hero-content{position:relative;z-index:2}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,110,15,.15);border:1px solid rgba(245,110,15,.3);padding:8px 16px;border-radius:100px;font-size:13px;font-weight:600;color:var(--orange);letter-spacing:.04em;margin-bottom:24px}
+    .hero-badge::before{content:'';width:7px;height:7px;background:var(--orange);border-radius:50%;animation:pulse-dot 2s infinite}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+    .page-hero h1{font-size:clamp(34px,5vw,60px);font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1.08;margin-bottom:16px}
+    .page-hero h1 em{font-style:normal;color:var(--orange)}
+    .page-hero .hero-sub{font-size:18px;color:rgba(255,255,255,.62);line-height:1.65;max-width:560px;margin-bottom:32px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+    .hero-actions .btn{font-size:16px;padding:15px 30px}
+    /* SERVICES GRID */
+    #services-overview{padding:96px 0;background:var(--light)}
+    .services-header{text-align:center;margin-bottom:56px}
+    .services-header h2{font-size:clamp(26px,3.5vw,40px);font-weight:800;letter-spacing:-.03em;color:var(--dark);margin-bottom:12px}
+    .services-header p{font-size:16px;color:var(--mid);max-width:520px;margin:0 auto;line-height:1.65}
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .svc-card{background:#fff;border-radius:var(--radius-lg);padding:32px 24px;border:1px solid var(--border);transition:all var(--transition);position:relative;overflow:hidden;display:flex;flex-direction:column}
+    .svc-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+    .svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+    .svc-card:hover::before{transform:scaleX(1)}
+    .svc-icon{width:52px;height:52px;background:var(--orange-light);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+    .svc-icon svg{width:26px;height:26px;color:var(--orange)}
+    .svc-card h3{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:8px;letter-spacing:-.01em}
+    .svc-card p{font-size:13.5px;color:var(--mid);line-height:1.55;flex:1}
+    .svc-link{display:inline-flex;align-items:center;gap:5px;margin-top:18px;font-size:13px;font-weight:600;color:var(--orange);transition:gap var(--transition)}
+    .svc-card:hover .svc-link{gap:9px}
+    /* CTA */
+    .svc-cta{padding:96px 0;background:var(--dark);position:relative;overflow:hidden}
+    .svc-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(245,110,15,.1) 0%,transparent 60%)}
+    .cta-inner{position:relative;z-index:1;text-align:center;max-width:640px;margin:0 auto}
+    .cta-inner h2{font-size:clamp(26px,4vw,42px);font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:16px;line-height:1.15}
+    .cta-inner>p{font-size:16px;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:1.65}
+    .cta-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+    .cta-note{margin-top:18px;font-size:13px;color:rgba(255,255,255,.3)}
+    /* FOOTER */
+    footer{background:#0d1117;border-top:1px solid rgba(255,255,255,.06);padding:48px 0 28px}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:36px}
+    .footer-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+    .footer-links a{font-size:13px;color:rgba(255,255,255,.45);font-weight:500;transition:color var(--transition)}
+    .footer-links a:hover{color:rgba(255,255,255,.8)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;text-align:center;font-size:12.5px;color:rgba(255,255,255,.25)}
+    /* WA */
+    .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform var(--transition)}
+    .wa-float:hover{transform:scale(1.1)}
+    .wa-float svg{width:28px;height:28px;fill:#fff}
+    .wa-tooltip{position:absolute;right:68px;background:var(--dark);color:#fff;font-size:13px;font-weight:600;padding:8px 14px;border-radius:var(--radius-sm);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity var(--transition)}
+    .wa-tooltip::after{content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%);border:6px solid transparent;border-right:none;border-left-color:var(--dark)}
+    .wa-float:hover .wa-tooltip{opacity:1}
+    /* RESPONSIVE */
+    @media(max-width:1024px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:768px){.nav-links,.nav-phone{display:none}.nav-hamburger{display:flex}.nav-cta .btn{display:none}.page-hero{padding:100px 0 56px}.page-hero h1{font-size:34px}.hero-actions{flex-direction:column;gap:12px}.hero-actions .btn{width:100%;justify-content:center}#services-overview{padding:60px 0}.svc-cta{padding:60px 0}.cta-btns{flex-direction:column;align-items:stretch}.cta-btns .btn{justify-content:center}.footer-inner{flex-direction:column;align-items:flex-start;gap:20px}.footer-links{flex-direction:column;gap:12px}}
+    @media(max-width:480px){.services-grid{grid-template-columns:1fr}.page-hero h1{font-size:28px}}
+  </style>
+</head>
+<body>
+  <nav id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <span class="nav-logo-text">Any<span>Trade</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="services.html" class="active" style="color:#fff;">Services</a>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="index.html#reviews">Reviews</a>
+          <a href="areas.html">Areas</a>
+        </div>
+        <div class="nav-cta">
+          <a href="tel:016917151" class="nav-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>01 691 7151</a>
+          <a href="get-a-quote.html" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Get a Quote</a>
+        </div>
+        <div class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></div>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="services.html" onclick="toggleMenu()">Services</a>
+        <a href="how-it-works.html" onclick="toggleMenu()">How It Works</a>
+        <a href="index.html#reviews" onclick="toggleMenu()">Reviews</a>
+        <a href="areas.html" onclick="toggleMenu()">Areas</a>
+        <a href="tel:016917151" onclick="toggleMenu()">Call: 01 691 7151</a>
+        <a href="get-a-quote.html" onclick="toggleMenu()" style="color:var(--orange);">Get a Quote →</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <div class="page-hero-content reveal">
+        <div class="hero-badge">North Dublin Trades</div>
+        <h1>Our Services</h1>
+        <p class="hero-sub">Every trade. One team. We handle everything from a leaking tap to a full bathroom renovation — qualified, insured tradespeople across North Dublin.</p>
+        <div class="hero-actions">
+          <a href="get-a-quote.html" class="btn btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Get a Free Quote</a>
+          <a href="tel:016917151" class="btn btn-secondary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>Call 01 691 7151</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services-overview">
+    <div class="container">
+      <div class="services-header reveal">
+        <div class="section-label" style="justify-content:center;">What We Do</div>
+        <h2>Every Trade. One Call.</h2>
+        <p>We cover the full range of home and commercial trade services across North Dublin — no job too big or too small.</p>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card reveal">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <h3>Electrical</h3>
+          <p>Consumer unit upgrades, rewiring, sockets, lighting circuits, EV charger installation and RECI certification.</p>
+          <a href="electrical.html" class="svc-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-card reveal reveal-delay-1">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Plumbing</h3>
+          <p>Leak repairs, tap replacement, pipe fitting, boiler servicing, radiator installation and emergency plumbing.</p>
+          <a href="plumbing.html" class="svc-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-card reveal reveal-delay-2">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <h3>Bathroom Renovations</h3>
+          <p>Full design and fit-out, wet rooms, en-suite conversions, tiling, sanitaryware supply and installation.</p>
+          <a href="bathroom-renovations.html" class="svc-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-card reveal reveal-delay-3">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>
+          <h3>Carpentry</h3>
+          <p>Fitted wardrobes, doors, skirting boards, shelving, flat pack assembly, curtain rails and bespoke joinery.</p>
+          <a href="carpentry.html" class="svc-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+          <h3>Painting &amp; Tiling</h3>
+          <p>Interior and exterior painting, feature walls, floor and wall tiling, grouting and professional finishing.</p>
+          <a href="painting-tiling.html" class="svc-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-card reveal reveal-delay-1">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3>Media Walls</h3>
+          <p>Custom TV feature walls with integrated storage, LED lighting and fully concealed cable management.</p>
+          <a href="media-walls.html" class="svc-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-card reveal reveal-delay-2">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+          <h3>Smart Home</h3>
+          <p>Smart lighting, heating controls, security cameras, alarm systems and full home automation setup.</p>
+          <a href="smart-home.html" class="svc-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="svc-card reveal reveal-delay-3">
+          <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+          <h3>Commercial</h3>
+          <p>Office fit-outs, retail refurbishments, pub refurbishments, landlord maintenance packages and more.</p>
+          <a href="commercial.html" class="svc-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="svc-cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="section-label reveal" style="justify-content:center;">Get Started</div>
+        <h2 class="reveal">Not sure which service<br>you need?</h2>
+        <p class="reveal">Just describe the job and we'll figure out the rest. One call, one team, every trade.</p>
+        <div class="cta-btns reveal">
+          <a href="get-a-quote.html" class="btn btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Request a Free Quote</a>
+          <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="btn btn-secondary"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp Us</a>
+        </div>
+        <p class="cta-note reveal">No call-out fee · Same-day response · All work guaranteed</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="nav-logo"><div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><span class="nav-logo-text">Any<span>Trade</span></span></a>
+        <div class="footer-links">
+          <a href="services.html">Services</a>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="index.html#reviews">Reviews</a>
+          <a href="areas.html">Areas</a>
+          <a href="tel:016917151">01 691 7151</a>
+          <a href="mailto:hello@anytradesman.ie">hello@anytradesman.ie</a>
+        </div>
+        <a href="get-a-quote.html" class="btn btn-primary" style="padding:11px 22px;font-size:14px;">Get a Quote</a>
+      </div>
+      <div class="footer-bottom">&copy; 2025 AnyTrade. All rights reserved. North Dublin's multi-trade specialists.</div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+    <div class="wa-tooltip">Chat with us</div>
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <script>
+    function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+    const observer=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');observer.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
