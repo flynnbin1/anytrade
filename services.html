@@ -171,6 +171,32 @@
     .nav-dropdown-wrap.open .nav-dropdown{opacity:1!important;pointer-events:all!important;transform:translateY(0)!important}
     .nav-dropdown-wrap.open .nav-dropdown-trigger svg{transform:rotate(180deg)!important}
     .nav-dropdown-wrap.open .nav-dropdown-trigger{color:#fff!important}
+  
+    /* === DROPDOWN HOVER FIX (final) ===
+       Invisible ::after bridge on the wrapper fills the gap between the
+       trigger button and the dropdown card so the hover chain is never
+       broken when the mouse travels downward into the menu. */
+    .nav-dropdown-wrap{position:relative}
+    /* Bridge: 20px invisible area between trigger and card */
+    .nav-dropdown-wrap::after{
+      content:'';position:absolute;
+      bottom:-20px;left:-10px;right:-10px;
+      height:20px;z-index:98;
+    }
+    /* Dropdown positioned 20px below wrapper bottom (= bridge height) */
+    .nav-dropdown{top:calc(100% + 20px)!important}
+    /* Always hidden unless wrapper is hovered */
+    .nav-dropdown{opacity:0!important;pointer-events:none!important;transform:translateY(-8px)!important}
+    .nav-dropdown-wrap:hover .nav-dropdown{opacity:1!important;pointer-events:all!important;transform:translateY(0)!important}
+    /* Chevron rotation */
+    .nav-dropdown-trigger svg{transform:none!important;transition:transform .25s}
+    .nav-dropdown-wrap:hover .nav-dropdown-trigger svg{transform:rotate(180deg)!important}
+    /* Trigger colour */
+    .nav-dropdown-trigger{color:rgba(255,255,255,.8)!important}
+    .nav-dropdown-wrap:hover .nav-dropdown-trigger{color:#fff!important}
+    /* Disable any .open class from old click-based JS */
+    .nav-dropdown-wrap.open .nav-dropdown{opacity:0!important;pointer-events:none!important}
+
   </style>
 </head>
 <body>
@@ -385,18 +411,7 @@
   });
   
   // Services desktop dropdown — click to open/close
-  function toggleServicesDropdown(e) {
-    e.stopPropagation();
-    document.querySelector('.nav-dropdown-wrap').classList.toggle('open');
-  }
-  // Close dropdown when clicking anywhere outside
-  document.addEventListener('click', function() {
-    var wrap = document.querySelector('.nav-dropdown-wrap');
-    if (wrap) wrap.classList.remove('open');
-  });
-  // Prevent clicks inside dropdown from bubbling and closing it immediately
-  var dd = document.querySelector('.nav-dropdown');
-  if (dd) dd.addEventListener('click', function(e) { e.stopPropagation(); });
+  function toggleServicesDropdown(e) { if(e) e.stopPropagation(); }
 
   </script>
 </body>
