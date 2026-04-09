@@ -131,7 +131,7 @@
       transition: background 0.35s ease, box-shadow 0.35s ease;
     }
     #nav.scrolled {
-      background: rgba(17,24,39,0.97);
+      background: #151c2e;
       backdrop-filter: blur(14px);
       box-shadow: 0 2px 20px rgba(0,0,0,0.25);
     }
@@ -171,7 +171,7 @@
     .nav-links a {
       font-size: 14px;
       font-weight: 500;
-      color: rgba(255,255,255,0.8);
+      color: #fff;
       transition: color var(--transition);
     }
     .nav-links a:hover { color: #fff; }
@@ -183,7 +183,7 @@
     .nav-phone {
       font-size: 14px;
       font-weight: 600;
-      color: rgba(255,255,255,0.9);
+      color: #fff;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -235,21 +235,19 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(135deg, rgba(17,24,39,0.96) 0%, rgba(17,24,39,0.75) 50%, rgba(17,24,39,0.88) 100%),
-        url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&q=80') center/cover no-repeat;
+      background: url('assets/at-01-homepage-hero.png') center/cover no-repeat;
     }
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(245,110,15,0.12) 0%, transparent 60%);
+      background: linear-gradient(to right, rgba(0,0,0,0.90) 0%, rgba(0,0,0,0.70) 35%, rgba(0,0,0,0.30) 65%, rgba(0,0,0,0.05) 100%);
     }
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 680px;
-      padding: 120px 0 80px;
+      padding: 200px 0 160px;
       margin-left: 0;
     }
     .hero-badge {
@@ -336,7 +334,7 @@
        STATS BAR
     ═══════════════════════════════════════ */
     #stats {
-      background: #0d1117;
+      background: #151c2e;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .stats-inner {
@@ -396,72 +394,64 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 24px;
     }
     .service-card {
       background: #fff;
-      border-radius: var(--radius-lg);
-      padding: 32px 24px;
-      border: 1px solid var(--border);
-      transition: all var(--transition);
-      cursor: default;
-      position: relative;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--orange);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      text-decoration: none;
+      cursor: pointer;
     }
     .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: transparent;
+      box-shadow: 0 8px 32px rgba(0,0,0,.09);
+      border-color: #d1d5db;
     }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      background: var(--orange-light);
-      border-radius: var(--radius);
+    .service-card-img-wrap {
+      overflow: hidden;
+      flex-shrink: 0;
+      aspect-ratio: 4/3;
+    }
+    .service-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover .service-card-img { transform: scale(1.05); }
+    .service-card-body {
+      padding: 20px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .service-icon svg {
-      width: 26px;
-      height: 26px;
-      color: var(--orange);
+      flex-direction: column;
+      flex: 1;
     }
     .service-card h3 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      color: var(--dark);
+      color: #1f2937;
       margin-bottom: 8px;
       letter-spacing: -0.01em;
     }
     .service-card p {
       font-size: 13.5px;
-      color: var(--mid);
+      color: #6b7280;
       line-height: 1.55;
+      flex: 1;
+      margin: 0;
     }
-    .service-card .service-link {
+    .service-link {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
       margin-top: 16px;
       font-size: 13px;
       font-weight: 600;
-      color: var(--orange);
-      transition: gap var(--transition);
+      color: #F56E0F;
     }
-    .service-card:hover .service-link { gap: 8px; }
 
     /* ═══════════════════════════════════════
        HOW IT WORKS
@@ -649,20 +639,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center center;
     }
-    .why-img-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      color: rgba(255,255,255,0.2);
-      background: linear-gradient(145deg, #1f2937, #111827);
-    }
-    .why-img-placeholder svg { width: 48px; height: 48px; }
-    .why-img-placeholder span { font-size: 13px; }
+    .trust-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+    .trust-photo{border-radius:12px;overflow:hidden;aspect-ratio:1}
+    .trust-photo img{width:100%;height:100%;object-fit:cover;display:block}
     .why-badge-float {
       position: absolute;
       bottom: -16px;
@@ -1154,9 +1135,9 @@
        FOOTER
     ═══════════════════════════════════════ */
     footer {
-      background: #0d1117;
+      background: #151c2e;
       border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 48px 0 28px;
+      padding: 24px 0;
     }
     .footer-inner {
       display: flex;
@@ -1174,74 +1155,29 @@
     }
     .footer-links a {
       font-size: 13px;
-      color: rgba(255,255,255,0.45);
+      color: #fff;
       font-weight: 500;
       transition: color var(--transition);
     }
-    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-links a:hover { color: #fff; }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.06);
       padding-top: 24px;
       text-align: center;
       font-size: 12.5px;
-      color: rgba(255,255,255,0.25);
+      color: #fff;
     }
 
     /* ═══════════════════════════════════════
        WHATSAPP FLOAT
     ═══════════════════════════════════════ */
-    .wa-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 999;
-      width: 56px;
-      height: 56px;
-      background: #25d366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .wa-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 28px rgba(37,211,102,0.55);
-    }
-    .wa-float svg { width: 28px; height: 28px; fill: #fff; }
-    .wa-tooltip {
-      position: absolute;
-      right: 68px;
-      background: var(--dark);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px 14px;
-      border-radius: var(--radius-sm);
-      white-space: nowrap;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity var(--transition);
-    }
-    .wa-tooltip::after {
-      content: '';
-      position: absolute;
-      right: -6px;
-      top: 50%;
-      transform: translateY(-50%);
-      border: 6px solid transparent;
-      border-right: none;
-      border-left-color: var(--dark);
-    }
-    .wa-float:hover .wa-tooltip { opacity: 1; }
 
     /* ═══════════════════════════════════════
        RESPONSIVE — TABLET (≤1024px)
     ═══════════════════════════════════════ */
     @media (max-width: 1024px) {
       /* Services: 2 columns */
-      .services-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
 
       /* How It Works: stack vertically, chat below steps */
       .how-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -1258,6 +1194,9 @@
       /* Quote form: stack left/right */
       .quote-grid { grid-template-columns: 1fr; gap: 48px; }
 
+      /* Reviews: 2 columns at tablet */
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+
       /* Reduce section padding */
       #services, #how, #why, #reviews, #areas, #quote { padding: 72px 0; }
     }
@@ -1272,7 +1211,7 @@
       .nav-cta .btn { display: none; }
 
       /* Hero */
-      .hero-content { padding: 96px 0 56px; }
+      .hero-content { padding: 140px 0 60px; }
       .hero-h1 { font-size: 36px; }
       .hero-sub { font-size: 16px; }
       .hero-badge { font-size: 12px; }
@@ -1289,8 +1228,7 @@
       .stat-number { font-size: 30px; }
 
       /* Services: 1 column */
-      .services-grid { grid-template-columns: 1fr; gap: 12px; }
-      .service-card { padding: 24px 20px; }
+      .services-grid { grid-template-columns: 1fr; }
 
       /* Section headings */
       .section-header { margin-bottom: 36px; }
@@ -1299,7 +1237,11 @@
       /* How It Works */
       .how-grid { gap: 36px; }
 
-      /* Why */
+      /* Why: restore image on top, single column */
+      .why-image { display: block; }
+      .why-img-box { aspect-ratio: 16/9; margin-bottom: 24px; }
+      .why-badge-float { display: none; }
+      .trust-photos { grid-template-columns: repeat(2, 1fr); }
       .why-points { grid-template-columns: 1fr; gap: 12px; }
       .why-content h2 { font-size: 28px; }
 
@@ -1320,8 +1262,8 @@
       .quote-promises { gap: 14px; }
 
       /* Footer */
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .footer-links { flex-direction: column; gap: 12px; }
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+      .footer-links { flex-direction: column; gap: 12px; align-items: center; }
 
       /* Reduce section padding */
       #services, #how, #why, #reviews, #areas, #quote { padding: 56px 0; }
@@ -1338,29 +1280,28 @@
       .area-pills { gap: 8px; }
       .area-pill { font-size: 12.5px; padding: 7px 13px; }
       .quote-form-wrap { border-radius: var(--radius); }
-      .wa-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
-      .wa-float svg { width: 24px; height: 24px; }
     }
   
     /* ═══ NAV — DROPDOWN + SLIDE-OUT REBUILD ═══ */
-    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,.97)!important;backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
-    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#151c2e!important;backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25)}#nav .container{padding:0 60px}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px;padding:0}
+    .nav-logo{display:flex;align-items:center;align-self:center;text-decoration:none;background:none;border:none;padding:0;margin-left:0}
     .nav-logo-icon{width:36px;height:36px;background:#F56E0F;border-radius:6px;display:flex;align-items:center;justify-content:center}
     .nav-logo-icon svg{width:20px;height:20px;fill:#fff}
     .nav-logo-text{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em}
     .nav-logo-text span{color:#F56E0F}
-    .nav-links{display:flex;align-items:center;gap:32px}
-    .nav-links>a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);transition:color .25s;text-decoration:none}
+    .nav-links{display:flex;align-items:center;gap:40px}
+    .nav-links>a{font-size:14px;font-weight:500;color:#fff;transition:color .25s;text-decoration:none}
     .nav-links>a:hover{color:#fff}
     /* Dropdown */
     .nav-dropdown-wrap{position:relative}
-    .nav-dropdown-trigger{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;font-family:inherit;padding:0;transition:color .25s}
+    .nav-dropdown-trigger{font-size:14px;font-weight:500;color:#fff;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;font-family:inherit;padding:0;transition:color .25s}
     .nav-dropdown-trigger:hover,.nav-dropdown-wrap:hover .nav-dropdown-trigger{color:#fff}
     .nav-dropdown-trigger svg{transition:transform .25s}
     .nav-dropdown-wrap:hover .nav-dropdown-trigger svg{transform:rotate(180deg)}
     .nav-dropdown{position:absolute;top:calc(100% + 18px);left:-16px;background:#fff;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.18);min-width:248px;padding:6px 0;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .2s,transform .2s;z-index:100}
     .nav-dropdown-wrap:hover .nav-dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+    .nav-dropdown-wrap::after{content:'';position:absolute;bottom:-18px;left:0;right:0;height:18px;z-index:98}
     .nav-dropdown::before{content:'';position:absolute;top:-6px;left:28px;width:12px;height:12px;background:#fff;transform:rotate(45deg);box-shadow:-2px -2px 5px rgba(0,0,0,.04)}
     .nav-dropdown a{display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:13.5px;font-weight:500;color:#111827;transition:all .18s;border-left:3px solid transparent;text-decoration:none}
     .nav-dropdown a:hover{background:#f9fafb;border-left-color:#F56E0F;color:#F56E0F}
@@ -1368,7 +1309,7 @@
     .nav-dropdown a:hover .nd-icon{background:#F56E0F;color:#fff}
     /* CTA */
     .nav-cta{display:flex;align-items:center;gap:16px}
-    .nav-phone{font-size:14px;font-weight:600;color:rgba(255,255,255,.9);display:flex;align-items:center;gap:6px;text-decoration:none}
+    .nav-phone{font-size:14px;font-weight:600;color:#fff;display:flex;align-items:center;gap:6px;text-decoration:none}
     .nav-phone svg{width:15px;height:15px}
     /* Hamburger */
     .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
@@ -1377,7 +1318,7 @@
     .mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1001;cursor:pointer}
     .mobile-overlay.open{display:block}
     /* MOBILE PANEL */
-    .mobile-panel{position:fixed;top:0;right:0;bottom:0;width:min(340px,100vw);background:#111827;z-index:1002;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+    .mobile-panel{position:fixed;top:0;right:0;bottom:0;width:min(340px,100vw);background:#151c2e;z-index:1002;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
     .mobile-panel.open{transform:translateX(0)}
     .mobile-panel-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
     .mobile-close{width:36px;height:36px;background:rgba(255,255,255,.08);border:none;border-radius:50%;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1;font-family:inherit}
@@ -1399,23 +1340,23 @@
     .mobile-phone-link{display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px;font-weight:700;color:#fff;text-decoration:none;padding:12px;background:rgba(255,255,255,.06);border-radius:8px}
     .mobile-phone-link i{color:#F56E0F}
     .mobile-phone-link:hover{background:rgba(255,255,255,.1)}
-    @media(max-width:768px){.nav-links,.nav-phone{display:none!important}.nav-hamburger{display:flex!important}.nav-cta .btn{display:none!important}}
+    @media(max-width:768px){.nav-links,.nav-phone{display:none!important}.nav-hamburger{display:flex!important}.nav-cta{display:none!important}#nav .container{padding:0 20px!important}.nav-inner{justify-content:space-between!important;align-items:center!important}}
     @media(min-width:769px){.mobile-overlay,.mobile-panel{display:none!important}.mobile-overlay.open,.mobile-panel.open{display:none!important}}
   
     /* ═══ NAV — DROPDOWN + SLIDE-OUT REBUILD ═══ */
-    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(17,24,39,.97)!important;backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
-    .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#151c2e!important;backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25)}#nav .container{padding:0 60px}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px;padding:0}
+    .nav-logo{display:flex;align-items:center;align-self:center;text-decoration:none;background:none;border:none;padding:0;margin-left:0}
     .nav-logo-icon{width:36px;height:36px;background:#F56E0F;border-radius:6px;display:flex;align-items:center;justify-content:center}
     .nav-logo-icon svg{width:20px;height:20px;fill:#fff}
     .nav-logo-text{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em}
     .nav-logo-text span{color:#F56E0F}
-    .nav-links{display:flex;align-items:center;gap:32px}
-    .nav-links>a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);transition:color .25s;text-decoration:none}
+    .nav-links{display:flex;align-items:center;gap:40px}
+    .nav-links>a{font-size:14px;font-weight:500;color:#fff;transition:color .25s;text-decoration:none}
     .nav-links>a:hover{color:#fff}
     /* Dropdown */
     .nav-dropdown-wrap{position:relative}
-    .nav-dropdown-trigger{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;font-family:inherit;padding:0;transition:color .25s}
+    .nav-dropdown-trigger{font-size:14px;font-weight:500;color:#fff;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;font-family:inherit;padding:0;transition:color .25s}
     .nav-dropdown-trigger:hover,.nav-dropdown-wrap:hover .nav-dropdown-trigger{color:#fff}
     .nav-dropdown-trigger svg{transition:transform .25s}
     .nav-dropdown-wrap:hover .nav-dropdown-trigger svg{transform:rotate(180deg)}
@@ -1428,7 +1369,7 @@
     .nav-dropdown a:hover .nd-icon{background:#F56E0F;color:#fff}
     /* CTA */
     .nav-cta{display:flex;align-items:center;gap:16px}
-    .nav-phone{font-size:14px;font-weight:600;color:rgba(255,255,255,.9);display:flex;align-items:center;gap:6px;text-decoration:none}
+    .nav-phone{font-size:14px;font-weight:600;color:#fff;display:flex;align-items:center;gap:6px;text-decoration:none}
     .nav-phone svg{width:15px;height:15px}
     /* Hamburger */
     .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
@@ -1437,7 +1378,7 @@
     .mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1001;cursor:pointer}
     .mobile-overlay.open{display:block}
     /* MOBILE PANEL */
-    .mobile-panel{position:fixed;top:0;right:0;bottom:0;width:min(340px,100vw);background:#111827;z-index:1002;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+    .mobile-panel{position:fixed;top:0;right:0;bottom:0;width:min(340px,100vw);background:#151c2e;z-index:1002;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
     .mobile-panel.open{transform:translateX(0)}
     .mobile-panel-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
     .mobile-close{width:36px;height:36px;background:rgba(255,255,255,.08);border:none;border-radius:50%;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1;font-family:inherit}
@@ -1459,41 +1400,8 @@
     .mobile-phone-link{display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px;font-weight:700;color:#fff;text-decoration:none;padding:12px;background:rgba(255,255,255,.06);border-radius:8px}
     .mobile-phone-link i{color:#F56E0F}
     .mobile-phone-link:hover{background:rgba(255,255,255,.1)}
-    @media(max-width:768px){.nav-links,.nav-phone{display:none!important}.nav-hamburger{display:flex!important}.nav-cta .btn{display:none!important}}
+    @media(max-width:768px){.nav-links,.nav-phone{display:none!important}.nav-hamburger{display:flex!important}.nav-cta{display:none!important}#nav .container{padding:0 20px!important}.nav-inner{justify-content:space-between!important;align-items:center!important}}
     @media(min-width:769px){.mobile-overlay,.mobile-panel{display:none!important}.mobile-overlay.open,.mobile-panel.open{display:none!important}}
-  
-    /* === DROPDOWN: click-based (overrides hover rules) === */
-    .nav-dropdown-wrap:hover .nav-dropdown{opacity:0!important;pointer-events:none!important;transform:translateY(-8px)!important}
-    .nav-dropdown-wrap:hover .nav-dropdown-trigger svg{transform:none!important}
-    .nav-dropdown-wrap:hover .nav-dropdown-trigger{color:rgba(255,255,255,.8)!important}
-    .nav-dropdown-wrap.open .nav-dropdown{opacity:1!important;pointer-events:all!important;transform:translateY(0)!important}
-    .nav-dropdown-wrap.open .nav-dropdown-trigger svg{transform:rotate(180deg)!important}
-    .nav-dropdown-wrap.open .nav-dropdown-trigger{color:#fff!important}
-  
-    /* === DROPDOWN HOVER FIX (final) ===
-       Invisible ::after bridge on the wrapper fills the gap between the
-       trigger button and the dropdown card so the hover chain is never
-       broken when the mouse travels downward into the menu. */
-    .nav-dropdown-wrap{position:relative}
-    /* Bridge: 20px invisible area between trigger and card */
-    .nav-dropdown-wrap::after{
-      content:'';position:absolute;
-      bottom:-20px;left:-10px;right:-10px;
-      height:20px;z-index:98;
-    }
-    /* Dropdown positioned 20px below wrapper bottom (= bridge height) */
-    .nav-dropdown{top:calc(100% + 20px)!important}
-    /* Always hidden unless wrapper is hovered */
-    .nav-dropdown{opacity:0!important;pointer-events:none!important;transform:translateY(-8px)!important}
-    .nav-dropdown-wrap:hover .nav-dropdown{opacity:1!important;pointer-events:all!important;transform:translateY(0)!important}
-    /* Chevron rotation */
-    .nav-dropdown-trigger svg{transform:none!important;transition:transform .25s}
-    .nav-dropdown-wrap:hover .nav-dropdown-trigger svg{transform:rotate(180deg)!important}
-    /* Trigger colour */
-    .nav-dropdown-trigger{color:rgba(255,255,255,.8)!important}
-    .nav-dropdown-wrap:hover .nav-dropdown-trigger{color:#fff!important}
-    /* Disable any .open class from old click-based JS */
-    .nav-dropdown-wrap.open .nav-dropdown{opacity:0!important;pointer-events:none!important}
 
   </style>
 </head>
@@ -1504,12 +1412,11 @@
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-        <span class="nav-logo-text">Any<span>Trade</span></span>
+        <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:120px;width:auto;vertical-align:middle;display:block;">
       </a>
       <div class="nav-links">
         <div class="nav-dropdown-wrap">
-          <button class="nav-dropdown-trigger" onclick="toggleServicesDropdown(event)">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+          <a href="services.html" class="nav-dropdown-trigger">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
           <div class="nav-dropdown">
             <a href="electrical.html"><span class="nd-icon"><i class="fa-solid fa-bolt"></i></span>Electrical</a>
             <a href="plumbing.html"><span class="nd-icon"><i class="fa-solid fa-droplet"></i></span>Plumbing</a>
@@ -1523,7 +1430,7 @@
         </div>
         <a href="how-it-works.html">How It Works</a>
         <a href="areas.html">Areas</a>
-        <a href="index.html#reviews">Reviews</a>
+        <a href="reviews.html">Reviews</a>
       </div>
       <div class="nav-cta">
         <a href="tel:016917151" class="nav-phone">
@@ -1542,8 +1449,7 @@
 <div class="mobile-panel" id="mobilePanel">
   <div class="mobile-panel-header">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-      <span class="nav-logo-text">Any<span>Trade</span></span>
+      <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:120px;width:auto;vertical-align:middle;display:block;">
     </a>
     <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">&times;</button>
   </div>
@@ -1566,7 +1472,7 @@
     </div>
     <a href="how-it-works.html">How It Works</a>
     <a href="areas.html">Areas</a>
-    <a href="index.html#reviews">Reviews</a>
+    <a href="reviews.html">Reviews</a>
   </div>
   <div class="mobile-panel-footer">
     <a href="tel:016917151" class="mobile-phone-link"><i class="fa-solid fa-phone"></i>01 691 7151</a>
@@ -1577,8 +1483,7 @@
 <div class="mobile-panel" id="mobilePanel">
   <div class="mobile-panel-header">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-      <span class="nav-logo-text">Any<span>Trade</span></span>
+      <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:120px;width:auto;vertical-align:middle;display:block;">
     </a>
     <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">&times;</button>
   </div>
@@ -1601,7 +1506,7 @@
     </div>
     <a href="how-it-works.html">How It Works</a>
     <a href="areas.html">Areas</a>
-    <a href="index.html#reviews">Reviews</a>
+    <a href="reviews.html">Reviews</a>
   </div>
   <div class="mobile-panel-footer">
     <a href="tel:016917151" class="mobile-phone-link"><i class="fa-solid fa-phone"></i>01 691 7151</a>
@@ -1614,8 +1519,7 @@
     <div class="hero-bg"></div>
     <div class="container">
       <div class="hero-content reveal">
-        <div class="hero-badge">North Dublin's Trusted Trade Team</div>
-        <p class="hero-tagline">All Skills. One Number.</p>
+<p class="hero-tagline">All Skills. One Number.</p>
         <h1 class="hero-h1">Trusted Tradespeople<br>in <em>North Dublin</em></h1>
         <p class="hero-sub">From a dripping tap to a full bathroom renovation — we have the right tradesperson for every job, with guaranteed quality and same-week availability.</p>
         <div class="hero-actions">
@@ -1623,9 +1527,9 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             Get a Free Quote
           </a>
-          <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="btn btn-secondary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp Us
+          <a href="tel:016917151" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82 19.79 19.79 0 01.1 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.2 7.78a16 16 0 006.02 6.02l1.14-1.14a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 14.92z"/></svg>
+            Call Us
           </a>
         </div>
         <div class="hero-checks">
@@ -1680,77 +1584,93 @@
       </div>
       <div class="services-grid">
 
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <a href="electrical.html" class="service-card reveal">
+          <div class="service-card-img-wrap">
+            <img src="assets/at-14-electrical-card.png" alt="Any Tradesman electrical services in North Dublin" class="service-card-img">
           </div>
-          <h3>Electrical</h3>
-          <p>Consumer unit upgrades, rewiring, sockets, lighting circuits, EV charger installation and certification.</p>
-          <a href="electrical.html" class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+          <div class="service-card-body">
+            <h3>Electrical</h3>
+            <p>Consumer unit upgrades, rewiring, sockets, lighting circuits, EV charger installation and certification.</p>
+            <span class="service-link">Learn more &rarr;</span>
+          </div>
+        </a>
 
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <a href="plumbing.html" class="service-card reveal reveal-delay-1">
+          <div class="service-card-img-wrap">
+            <img src="assets/at-15-plumbing-card.png" alt="Any Tradesman plumbing services in North Dublin" class="service-card-img">
           </div>
-          <h3>Plumbing</h3>
-          <p>Leak repairs, pipe fitting, boiler servicing, radiator installation, bathroom and kitchen plumbing.</p>
-          <a href="plumbing.html" class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+          <div class="service-card-body">
+            <h3>Plumbing</h3>
+            <p>Leak repairs, pipe fitting, boiler servicing, radiator installation, bathroom and kitchen plumbing.</p>
+            <span class="service-link">Learn more &rarr;</span>
+          </div>
+        </a>
 
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <a href="bathroom-renovations.html" class="service-card reveal reveal-delay-2">
+          <div class="service-card-img-wrap">
+            <img src="assets/at-16-bathroom-card.png" alt="Any Tradesman bathroom renovation services in North Dublin" class="service-card-img">
           </div>
-          <h3>Bathroom Renovations</h3>
-          <p>Full design and fit-out, wet rooms, en-suite conversions, tiling, sanitaryware supply and fit.</p>
-          <a href="bathroom-renovations.html" class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+          <div class="service-card-body">
+            <h3>Bathroom Renovations</h3>
+            <p>Full design and fit-out, wet rooms, en-suite conversions, tiling, sanitaryware supply and fit.</p>
+            <span class="service-link">Learn more &rarr;</span>
+          </div>
+        </a>
 
-        <div class="service-card reveal reveal-delay-3">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <a href="carpentry.html" class="service-card reveal reveal-delay-3">
+          <div class="service-card-img-wrap">
+            <img src="assets/at-17-carpentry-card.png" alt="Any Tradesman carpentry services in North Dublin" class="service-card-img">
           </div>
-          <h3>Carpentry</h3>
-          <p>Fitted wardrobes, kitchen fitting, skirting boards, doors, staircases, bespoke joinery and shelving.</p>
-          <a href="carpentry.html" class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+          <div class="service-card-body">
+            <h3>Carpentry</h3>
+            <p>Fitted wardrobes, kitchen fitting, skirting boards, doors, staircases, bespoke joinery and shelving.</p>
+            <span class="service-link">Learn more &rarr;</span>
+          </div>
+        </a>
 
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        <a href="painting-tiling.html" class="service-card reveal">
+          <div class="service-card-img-wrap">
+            <img src="assets/at-18-painting-tiling-card.png" alt="Any Tradesman painting and tiling services in North Dublin" class="service-card-img">
           </div>
-          <h3>Painting &amp; Tiling</h3>
-          <p>Interior and exterior painting, floor and wall tiling, feature walls, professional finishes guaranteed.</p>
-          <a href="painting-tiling.html" class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+          <div class="service-card-body">
+            <h3>Painting &amp; Tiling</h3>
+            <p>Interior and exterior painting, floor and wall tiling, feature walls, professional finishes guaranteed.</p>
+            <span class="service-link">Learn more &rarr;</span>
+          </div>
+        </a>
 
-        <div class="service-card reveal reveal-delay-1">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <a href="media-walls.html" class="service-card reveal reveal-delay-1">
+          <div class="service-card-img-wrap">
+            <img src="assets/at-19-media-wall-card.png" alt="Any Tradesman media wall installation in North Dublin" class="service-card-img">
           </div>
-          <h3>Media Walls</h3>
-          <p>Custom TV feature walls with integrated storage, lighting, and concealed cable management systems.</p>
-          <a href="media-walls.html" class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+          <div class="service-card-body">
+            <h3>Media Walls</h3>
+            <p>Custom TV feature walls with integrated storage, lighting, and concealed cable management systems.</p>
+            <span class="service-link">Learn more &rarr;</span>
+          </div>
+        </a>
 
-        <div class="service-card reveal reveal-delay-2">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        <a href="smart-home.html" class="service-card reveal reveal-delay-2">
+          <div class="service-card-img-wrap">
+            <img src="assets/at-20-smart-home-card.png" alt="Any Tradesman smart home installation in North Dublin" class="service-card-img">
           </div>
-          <h3>Smart Home</h3>
-          <p>Smart lighting, heating controls, security cameras, alarm systems and home automation setup.</p>
-          <a href="smart-home.html" class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+          <div class="service-card-body">
+            <h3>Smart Home</h3>
+            <p>Smart lighting, heating controls, security cameras, alarm systems and home automation setup.</p>
+            <span class="service-link">Learn more &rarr;</span>
+          </div>
+        </a>
 
-        <div class="service-card reveal reveal-delay-3">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        <a href="commercial.html" class="service-card reveal reveal-delay-3">
+          <div class="service-card-img-wrap">
+            <img src="assets/at-21-commercial-card.png" alt="Any Tradesman commercial services in North Dublin" class="service-card-img">
           </div>
-          <h3>Commercial</h3>
-          <p>Office fit-outs, retail refurbishments, landlord maintenance packages and commercial property upkeep.</p>
-          <a href="commercial.html" class="service-link">Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
+          <div class="service-card-body">
+            <h3>Commercial</h3>
+            <p>Office fit-outs, retail refurbishments, landlord maintenance packages and commercial property upkeep.</p>
+            <span class="service-link">Learn more &rarr;</span>
+          </div>
+        </a>
 
       </div>
     </div>
@@ -1845,10 +1765,7 @@
       <div class="why-grid">
         <div class="why-image reveal">
           <div class="why-img-box">
-            <div class="why-img-placeholder">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              <span>Team Photo</span>
-            </div>
+            <img src="assets/at-why-choose-us.png" alt="Any Tradesman team — qualified tradespeople in North Dublin">
           </div>
           <div class="why-badge-float">
             <div class="num">36+</div>
@@ -1889,6 +1806,17 @@
               <p>All work is guaranteed. Not happy? We'll make it right.</p>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="trust-photos">
+        <div class="trust-photo reveal">
+          <img src="assets/at-28-team-shot.png" alt="Any Tradesman team — qualified tradespeople in North Dublin">
+        </div>
+        <div class="trust-photo reveal reveal-delay-1">
+          <img src="assets/at-29-customer-handshake.png" alt="Any Tradesman tradesman with satisfied North Dublin homeowner">
+        </div>
+        <div class="trust-photo reveal reveal-delay-2">
+          <img src="assets/at-30-hands-close-up.png" alt="Any Tradesman close-up of precise professional trade work">
         </div>
       </div>
     </div>
@@ -2012,13 +1940,13 @@
           </div>
         </div>
         <div class="contact-cards reveal reveal-delay-1">
-          <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="contact-card wa-card">
+          <a href="tel:016917151" class="contact-card wa-card">
             <div class="contact-card-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <i class="fa-solid fa-phone" style="font-size:20px;"></i>
             </div>
             <div class="contact-card-info">
               <div class="contact-card-label">Fastest Response</div>
-              <div class="contact-card-value">WhatsApp Us</div>
+              <div class="contact-card-value">Call Us</div>
               <div class="contact-card-sub">Typically reply within the hour</div>
             </div>
           </a>
@@ -2189,15 +2117,12 @@
     <div class="container">
       <div class="footer-inner">
         <a href="index.html" class="nav-logo">
-          <div class="nav-logo-icon">
-            <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <span class="nav-logo-text">Any<span>Trade</span></span>
+          <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:100px;width:auto;display:block;">
         </a>
         <div class="footer-links">
-          <a href="#services">Services</a>
+          <a href="services.html">Services</a>
           <a href="how-it-works.html">How It Works</a>
-          <a href="#reviews">Reviews</a>
+          <a href="reviews.html">Reviews</a>
           <a href="areas.html">Areas</a>
           <a href="tel:016917151">01 691 7151</a>
           <a href="mailto:hello@anytradesman.ie">hello@anytradesman.ie</a>
@@ -2210,11 +2135,7 @@
     </div>
   </footer>
 
-  <!-- ═══ WHATSAPP FLOAT ═══ -->
-  <a href="https://wa.me/353XXXXXXXXX" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
-    <div class="wa-tooltip">Chat with us</div>
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
+  <!-- GHL Chat Widget -->
 
   <!-- ═══ JAVASCRIPT ═══ -->
   <script>
