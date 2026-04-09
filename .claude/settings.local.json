@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth:*)",
+      "Bash(git --version)",
+      "Bash(where git:*)",
+      "Bash(where gh:*)",
+      "Bash(curl --version)",
+      "Bash(sed:*)",
+      "Bash(sed -i 's|<a href=\"#\" class=\"nav-logo\">|<a href=\"index.html\" class=\"nav-logo\">|g' index.html)",
+      "Bash(sed -i '1395s|href=\"#quote\"|href=\"get-a-quote.html\"|' index.html)",
+      "Bash(python update_nav.py)",
+      "Bash(del update_nav.py)",
+      "Bash(python fix_dropdown.py)",
+      "Bash(python fix_hover_dropdown.py)",
+      "Bash(python3:*)",
+      "Bash(mv:*)",
+      "Bash(grep -n \"rgba\\(17,24,39\\\\|#0d1117\\\\|#0D1B2A\\\\|mobile-menu{\\\\|mobile-panel{\" C:/Users/niall/Desktop/anytrade/electrical.html C:/Users/niall/Desktop/anytrade/index.html)",
+      "Bash(mv \"at-28-team-shot.png.png\" \"at-28-team-shot.png\")",
+      "Bash(mv \"at-29-customer-handshake.png.png\" \"at-29-customer-handshake.png\")",
+      "Bash(mv \"at-30-hands-close-up.png.png\" \"at-30-hands-close-up.png\")",
+      "Bash(ls at-2*.png)",
+      "Bash(ls /c/Users/niall/Desktop/anytrade/assets/at-2*.png)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(python -c ':*)"
+    ]
+  }
+}
