@@ -108,34 +108,21 @@
     .hero-actions .btn { font-size: 16px; padding: 15px 30px; }
 
     /* ── STEPS SECTION ── */
-    #steps { padding: 96px 0; background: #fff; }
-    .steps-intro { text-align: center; margin-bottom: 72px; }
+    #steps { padding: 96px 0; background: var(--light); }
+    .steps-intro { text-align: center; margin-bottom: 56px; }
     .steps-intro h2 { font-size: clamp(28px,4vw,42px); font-weight: 800; letter-spacing: -0.03em; color: var(--dark); margin-bottom: 14px; }
     .steps-intro p { font-size: 17px; color: var(--mid); max-width: 520px; margin: 0 auto; }
 
-    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
-    .steps-grid::before {
-      content: ''; position: absolute; top: 56px; left: 12.5%; right: 12.5%; height: 2px;
-      background: linear-gradient(90deg, var(--orange), var(--orange-light)); z-index: 0;
-    }
-    .step-card { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
-    .step-circle {
-      width: 72px; height: 120px; border-radius: 50%; background: var(--orange);
-      display: flex; align-items: center; justify-content: center; margin: 0 auto 28px;
-      font-size: 26px; font-weight: 900; color: #fff; box-shadow: 0 6px 24px rgba(245,110,15,0.35);
-      position: relative;
-    }
-    .step-circle::after {
-      content: ''; position: absolute; inset: -5px; border-radius: 50%;
-      border: 2px solid rgba(245,110,15,0.25);
-    }
-    .step-card h3 { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 10px; letter-spacing: -0.01em; }
-    .step-card p { font-size: 14px; color: var(--mid); line-height: 1.6; }
+    .steps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .step-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 32px; position: relative; }
+    .step-number { font-size: 52px; font-weight: 900; color: var(--orange); line-height: 1; margin-bottom: 16px; letter-spacing: -0.04em; }
+    .step-card h3 { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 12px; letter-spacing: -0.02em; }
+    .step-card p { font-size: 15px; color: var(--mid); line-height: 1.65; }
     .step-card .step-icon {
-      width: 40px; height: 40px; border-radius: var(--radius); background: var(--orange-light);
-      display: flex; align-items: center; justify-content: center; margin: 16px auto 0;
+      width: 44px; height: 44px; border-radius: var(--radius); background: var(--orange-light);
+      display: flex; align-items: center; justify-content: center; margin-top: 24px;
     }
-    .step-card .step-icon svg { width: 20px; height: 20px; color: var(--orange); }
+    .step-card .step-icon i { font-size: 18px; color: var(--orange); }
 
     /* ── CHAT SECTION ── */
     #chat-demo { padding: 96px 0; background: var(--light); }
@@ -226,8 +213,7 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-      .steps-grid::before { display: none; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
       .chat-demo-grid { grid-template-columns: 1fr; gap: 48px; }
       .faq-grid { grid-template-columns: 1fr; gap: 40px; }
       .chat-phone { max-width: 420px; }
@@ -239,10 +225,9 @@
       .hero-actions { flex-direction: column; gap: 12px; }
       .hero-actions .btn { width: 100%; justify-content: center; }
       #steps, #chat-demo, #faq, #cta { padding: 56px 0; }
-      .steps-grid { grid-template-columns: 1fr; gap: 36px; }
-      .step-card { text-align: left; display: flex; gap: 20px; align-items: flex-start; }
-      .step-circle { margin: 0; flex-shrink: 0; width: 52px; height: 52px; font-size: 20px; }
-      .step-card .step-icon { margin: 12px 0 0; }
+      .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+      .step-card { padding: 28px 24px; }
+      .step-number { font-size: 40px; margin-bottom: 12px; }
       .faq-grid { gap: 32px; }
       .cta-actions { flex-direction: column; }
       .cta-actions .btn { width: 100%; justify-content: center; }
@@ -398,8 +383,8 @@
     <div class="container">
       <div class="page-hero-content reveal">
         <div class="hero-badge">Simple. Fast. Guaranteed.</div>
-        <h1>A Quote in <em>Minutes</em>,<br>Not Days</h1>
-        <p>No waiting around for call-backs. Send us a WhatsApp or fill in the form and we'll have a clear price back to you the same day — usually within 24 hours.</p>
+        <h1>An Estimate in <em>Minutes</em>,<br>Not Days</h1>
+        <p>Fill in our quick form and we'll have a clear price back to you within 24 hours. No call-out fees, no surprises.</p>
         <div class="hero-actions">
           <a href="get-a-quote.html" class="btn btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
@@ -425,41 +410,58 @@
       <div class="steps-grid">
 
         <div class="step-card reveal">
-          <div class="step-circle">1</div>
-          <h3>Send photos &amp; details</h3>
-          <p>WhatsApp us or fill in our online form. Attach a photo of the job if you can — it helps us give you an accurate price first time, without a site visit.</p>
+          <div class="step-number">1</div>
+          <h3>Fill in the form</h3>
+          <p>Fill in our quick online form with your job details and area. It takes under two minutes and you don't need to know exact measurements — just describe what needs doing.</p>
           <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <i class="fa-solid fa-pen-to-square"></i>
           </div>
         </div>
 
         <div class="step-card reveal reveal-delay-1">
-          <div class="step-circle">2</div>
+          <div class="step-number">2</div>
           <h3>Get your estimate fast</h3>
-          <p>We review your request and send back a clear, itemised estimate — typically within 24 hours during business hours. No vague price ranges, no surprises.</p>
+          <p>We review your request and send back a clear, itemised estimate within 24 hours during business hours. No vague price ranges, no surprises.</p>
           <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            <i class="fa-solid fa-file-invoice"></i>
           </div>
         </div>
 
         <div class="step-card reveal reveal-delay-2">
-          <div class="step-circle">3</div>
+          <div class="step-number">3</div>
           <h3>Book your slot</h3>
           <p>Happy with the price? Just say yes. We'll confirm a time that suits you — most jobs are booked within the same week, often sooner.</p>
           <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <i class="fa-solid fa-calendar-check"></i>
           </div>
         </div>
 
         <div class="step-card reveal reveal-delay-3">
-          <div class="step-circle">4</div>
+          <div class="step-number">4</div>
           <h3>Job done, guaranteed</h3>
           <p>Your tradesperson arrives on time, does the work to a high standard, and tidies up after themselves. All work is fully guaranteed — if something isn't right, we fix it.</p>
           <div class="step-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <i class="fa-solid fa-circle-check"></i>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- MID-PAGE CTA -->
+  <section style="background:#111827;padding:56px 0;">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+        <h2 style="font-size:clamp(22px,3vw,32px);font-weight:800;color:#fff;letter-spacing:-0.02em;margin:0;">Ready to get your estimate?</h2>
+        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+          <a href="get-a-quote.html" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> Get a Free Estimate
+          </a>
+          <a href="tel:016917151" style="font-size:17px;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px;">
+            <i class="fa-solid fa-phone" style="color:var(--orange);"></i> 01 691 7151
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -471,8 +473,8 @@
         <div>
           <div class="section-label reveal">See It In Action</div>
           <div class="chat-demo-text">
-            <h2 class="reveal">A real quote conversation,<br>start to finish</h2>
-            <p class="reveal">This is a typical WhatsApp exchange with one of our customers. From first message to confirmed booking — under 30 minutes.</p>
+            <h2 class="reveal">A real estimate conversation,<br>start to finish</h2>
+            <p class="reveal">This is a typical exchange with one of our customers. From first message to confirmed booking — under 30 minutes.</p>
           </div>
           <div class="chat-perks">
             <div class="chat-perk reveal">
@@ -480,26 +482,17 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
               <div class="chat-perk-text">
-                <h4>Replies within hours</h4>
-                <p>Not days. We're available Mon–Fri 9am–6pm and monitor WhatsApp throughout.</p>
+                <h4>Replies within 24 hours</h4>
+                <p>We're available Mon–Fri 9am–6pm and aim to respond to all enquiries within 24 hours.</p>
               </div>
             </div>
             <div class="chat-perk reveal reveal-delay-1">
               <div class="chat-perk-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-              </div>
-              <div class="chat-perk-text">
-                <h4>No hidden fees</h4>
-                <p>The estimate you receive is what you pay — no surprises on the final invoice.</p>
-              </div>
-            </div>
-            <div class="chat-perk reveal reveal-delay-2">
-              <div class="chat-perk-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
               </div>
               <div class="chat-perk-text">
-                <h4>Qualified tradespeople</h4>
-                <p>Everyone we send is vetted, insured and experienced — no cowboys.</p>
+                <h4>Qualified tradespeople — experienced and fully insured</h4>
+                <p>Everyone we send is vetted, qualified in their trade, and carries full public liability insurance.</p>
               </div>
             </div>
           </div>
@@ -577,10 +570,10 @@
 
           <div class="faq-item">
             <div class="faq-question" onclick="toggleFaq(this)">
-              <h3>Do you charge for quotes?</h3>
+              <h3>Do you charge for estimates?</h3>
               <div class="faq-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
             </div>
-            <div class="faq-answer">No — quotes are always completely free and there's no obligation to proceed. We don't charge a call-out fee either. We only charge once the work is agreed and completed.</div>
+            <div class="faq-answer">No — estimates are always completely free and there's no obligation to proceed. We don't charge a call-out fee either. We only charge once the work is agreed and completed.</div>
           </div>
 
           <div class="faq-item">
@@ -617,19 +610,19 @@
     <div class="container">
       <div class="cta-inner">
         <div class="section-label reveal" style="justify-content:center;">Ready to Start?</div>
-        <h2 class="reveal">Get your free quote<br>in minutes</h2>
-        <p class="reveal">Fill in the form or send us a WhatsApp with a photo of the job. No obligation, no call-out fee.</p>
+        <h2 class="reveal">Get your free estimate<br>in minutes</h2>
+        <p class="reveal">Fill in the form and we'll have a clear price back to you within 24 hours. No obligation, no call-out fee.</p>
         <div class="cta-actions reveal">
           <a href="get-a-quote.html" class="btn btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Request a Free Estimate
+            Get a Free Estimate
           </a>
           <a href="tel:016917151" class="btn btn-secondary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <i class="fa-solid fa-phone"></i>
             Call Us
           </a>
         </div>
-        <p class="cta-note reveal">No call-out fee · Same-day response · All work guaranteed</p>
+        <p class="cta-note reveal">No obligation. No spam. Just a straight answer on price.</p>
       </div>
     </div>
   </section>
