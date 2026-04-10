@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Get a Free Estimate — Any Tradesman</title>
-  <meta name="description" content="Get a free, no-obligation quote from Any Tradesman. Fill in the form and we'll respond the same day. No call-out fee, qualified tradespeople across North Dublin." />
+  <meta name="description" content="Get a free, no-obligation estimate from Any Tradesman. Fill in the form and we'll get back to you within 24 hours. Qualified tradespeople across North Dublin." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -121,44 +121,19 @@
     .alt-btn-value { font-size: 14px; font-weight: 700; color: var(--dark); }
 
     /* Form card */
-    .form-card { background: #fff; border-radius: var(--radius-lg); padding: 44px; box-shadow: 0 2px 20px rgba(0,0,0,0.06), 0 0 0 1px var(--border); }
-    .form-card-header { margin-bottom: 32px; }
-    .form-card-header h3 { font-size: 22px; font-weight: 800; color: var(--dark); margin-bottom: 6px; letter-spacing: -0.02em; }
-    .form-card-header p { font-size: 14px; color: var(--mid); }
-    .form-progress { display: flex; align-items: center; gap: 0; margin-bottom: 32px; }
-    .form-progress-step { display: flex; align-items: center; }
-    .form-progress-dot { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
-    .form-progress-dot.active { background: var(--orange); color: #fff; }
-    .form-progress-dot.done { background: #22c55e; color: #fff; }
-    .form-progress-dot.pending { background: var(--light); color: var(--mid); border: 1.5px solid var(--border); }
-    .form-progress-label { font-size: 11px; font-weight: 600; color: var(--mid); margin-left: 6px; }
-    .form-progress-label.active { color: var(--dark); }
-    .form-progress-line { flex: 1; height: 2px; background: var(--border); margin: 0 10px; min-width: 20px; }
-    .form-divider { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); margin: 24px 0 16px; display: flex; align-items: center; gap: 12px; }
-    .form-divider::before, .form-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--mid); margin-bottom: 7px; }
+    .quote-form-card { background: #fff; border-radius: 16px; padding: 36px; box-shadow: 0 20px 60px rgba(0,0,0,.25); }
+    .quote-form-card h3 { font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 24px; letter-spacing: -.02em; }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 6px; }
     .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
-      font-size: 14px; font-family: 'Inter', sans-serif; color: var(--dark); background: #fff;
-      transition: border-color var(--transition), box-shadow var(--transition); outline: none; appearance: none;
+      width: 100%; padding: 12px 14px; border: 1.5px solid #e5e7eb; border-radius: 8px;
+      font-size: 14px; font-family: 'Inter', sans-serif; color: #111827; background: #fff;
+      transition: border-color .25s ease; outline: none;
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(245,110,15,0.1); }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: #b0b7c3; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #F56E0F; box-shadow: 0 0 0 3px rgba(245,110,15,.1); }
     .form-group textarea { resize: vertical; min-height: 100px; }
-    .form-group select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
-    .upload-area { border: 2px dashed var(--border); border-radius: var(--radius); padding: 28px; text-align: center; cursor: pointer; transition: border-color var(--transition), background var(--transition); }
-    .upload-area:hover, .upload-area.drag-over { border-color: var(--orange); background: var(--orange-light); }
-    .upload-area svg { width: 32px; height: 32px; color: var(--mid); margin: 0 auto 10px; }
-    .upload-area p { font-size: 14px; color: var(--mid); }
-    .upload-area strong { color: var(--orange); }
-    .upload-area span { font-size: 12px; color: var(--mid); opacity: 0.7; display: block; margin-top: 4px; }
-    .upload-filenames { margin-top: 8px; font-size: 12px; color: var(--orange); font-weight: 500; }
-    .form-submit { width: 100%; padding: 16px; background: var(--orange); color: #fff; border: none; border-radius: var(--radius-sm); font-size: 16px; font-weight: 700; font-family: 'Inter', sans-serif; cursor: pointer; transition: all var(--transition); display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 24px; }
-    .form-submit:hover { background: var(--orange-h); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,110,15,0.35); }
-    .form-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
-    .form-privacy { font-size: 12px; color: var(--mid); text-align: center; margin-top: 12px; line-height: 1.5; }
+    .btn-submit { width: 100%; padding: 16px; background: #F56E0F; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all .25s ease; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-submit:hover { background: #d45e0a; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,110,15,.35); }
 
     /* Success state */
     .form-success { display: none; text-align: center; padding: 48px 20px; }
@@ -218,7 +193,7 @@
     @media (max-width: 1024px) {
       .form-layout { grid-template-columns: 1fr; gap: 48px; }
       .trust-panel { order: 1; }
-      .form-card { order: 0; }
+      .quote-form-card { order: 0; }
       .trust-points { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
       .alt-contact-section { grid-template-columns: 1fr; gap: 40px; }
       .next-grid { grid-template-columns: 1fr; }
@@ -229,8 +204,7 @@
       .page-hero h1 { font-size: 30px; }
       .page-hero p { font-size: 15px; }
       #form-section, #next-steps, #alt-contact { padding: 56px 0; }
-      .form-card { padding: 28px 20px; }
-      .form-row { grid-template-columns: 1fr; }
+      .quote-form-card { padding: 28px 20px; }
       .trust-points { grid-template-columns: 1fr; }
       .next-grid { gap: 16px; }
       .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
@@ -238,7 +212,6 @@
     }
     @media (max-width: 480px) {
       .page-hero h1 { font-size: 26px; }
-      .form-progress { display: none; }
     }
   
     /* ═══ NAV — DROPDOWN + SLIDE-OUT REBUILD ═══ */
@@ -385,20 +358,20 @@
     <div class="container">
       <div class="page-hero-content reveal">
         <div class="hero-badge">Free &amp; No Obligation</div>
-        <h1>Get a <em>Free Quote</em><br>Today</h1>
-        <p>Fill in the form below and we'll send you a clear, itemised estimate — usually within 24 hours during business hours. No call-out fee, no obligation.</p>
+        <h1>Get a <em>Free Estimate</em><br>Today</h1>
+        <p>Fill in the form and we'll get back to you within 24 hours with a clear, no-obligation estimate.</p>
         <div class="hero-trust">
           <div class="hero-trust-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            Same-day response
-          </div>
-          <div class="hero-trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            No call-out fee
+            Response within 24 hours
           </div>
           <div class="hero-trust-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
             Qualified &amp; insured
+          </div>
+          <div class="hero-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            One Team. All Trades.
           </div>
           <div class="hero-trust-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -422,29 +395,20 @@
           <div class="trust-points">
             <div class="trust-point">
               <div class="trust-point-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-              </div>
-              <div class="trust-point-text">
-                <h4>No call-out fee</h4>
-                <p>Quotes are always free. We only charge when the work is agreed and done.</p>
-              </div>
-            </div>
-            <div class="trust-point">
-              <div class="trust-point-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               </div>
               <div class="trust-point-text">
-                <h4>Same-day response</h4>
-                <p>We review every request and respond the same business day — usually within hours.</p>
+                <h4>Response within 24 hours</h4>
+                <p>We review every request and get back to you within 24 hours during business hours.</p>
               </div>
             </div>
             <div class="trust-point">
               <div class="trust-point-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
               </div>
               <div class="trust-point-text">
-                <h4>Qualified tradespeople</h4>
-                <p>Every person we send is vetted, qualified and carries full public liability insurance.</p>
+                <h4>One Team. All Trades.</h4>
+                <p>Electrical, plumbing, carpentry, tiling and more — all under one roof, one team.</p>
               </div>
             </div>
             <div class="trust-point">
@@ -486,88 +450,55 @@
 
         <!-- Form card -->
         <div class="reveal reveal-delay-1">
-          <div class="form-card">
+          <div class="quote-form-card">
             <div id="formContent">
-              <div class="form-card-header">
-                <h3>Request a Free Estimate</h3>
-                <p>We'll get back to you with a clear estimate — usually within 24 hours</p>
-              </div>
-              <div class="form-progress">
-                <div class="form-progress-step">
-                  <div class="form-progress-dot active">1</div>
-                  <span class="form-progress-label active">Your Details</span>
-                </div>
-                <div class="form-progress-line"></div>
-                <div class="form-progress-step">
-                  <div class="form-progress-dot pending">2</div>
-                  <span class="form-progress-label">The Job</span>
-                </div>
-                <div class="form-progress-line"></div>
-                <div class="form-progress-step">
-                  <div class="form-progress-dot pending">3</div>
-                  <span class="form-progress-label">Done</span>
-                </div>
-              </div>
-
-              <form id="quoteForm" onsubmit="handleSubmit(event)" novalidate>
-                <div class="form-divider">Your contact details</div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="fname">Full Name *</label>
-                    <input type="text" id="fname" name="name" placeholder="e.g. John Murphy" required />
-                  </div>
-                  <div class="form-group">
-                    <label for="fphone">Phone Number *</label>
-                    <input type="tel" id="fphone" name="phone" placeholder="e.g. 085 123 4567" required />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="farea">Area / Eircode *</label>
-                    <input type="text" id="farea" name="area" placeholder="e.g. Malahide / D9" required />
-                  </div>
-                </div>
-
-                <div class="form-divider">About the job</div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="fjob">Type of Job *</label>
-                    <select id="fjob" name="jobType" required>
-                      <option value="" disabled selected>Select a service...</option>
-                      <option>Electrical</option>
-                      <option>Plumbing</option>
-                      <option>Bathroom Renovation</option>
-                      <option>Carpentry</option>
-                      <option>Painting &amp; Tiling</option>
-                      <option>Media Wall</option>
-                      <option>Smart Home</option>
-                      <option>Commercial</option>
-                      <option>Multiple Jobs</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="ftime">Preferred Timeframe</label>
-                    <select id="ftime" name="timeframe">
-                      <option value="" disabled selected>When do you need it?</option>
-                      <option>ASAP</option>
-                      <option>Within 2 weeks</option>
-                      <option>This month</option>
-                      <option>Next month</option>
-                      <option>Just getting prices</option>
-                    </select>
-                  </div>
+              <h3>Get a Free Estimate</h3>
+              <form onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                  <label for="fname">Your Name *</label>
+                  <input type="text" id="fname" name="name" placeholder="e.g. John Murphy" required/>
                 </div>
                 <div class="form-group">
-                  <label for="fdesc">Describe the Job *</label>
-                  <textarea id="fdesc" name="description" rows="4" placeholder="Tell us what needs doing — the more detail, the more accurate your estimate will be." required></textarea>
+                  <label for="fphone">Phone Number *</label>
+                  <input type="tel" id="fphone" name="phone" placeholder="e.g. 085 123 4567" required/>
                 </div>
-
-                <button type="submit" class="form-submit" id="submitBtn">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                  Send My Estimate Request
-                </button>
-                <p class="form-privacy">We'll only use your details to respond to your enquiry. No spam, ever.</p>
+                <div class="form-group">
+                  <label for="farea">Area / Eircode *</label>
+                  <input type="text" id="farea" name="area" placeholder="e.g. Malahide / D9" required/>
+                </div>
+                <div class="form-group">
+                  <label for="fjob">Type of Job *</label>
+                  <select id="fjob" name="jobType" required>
+                    <option value="" disabled selected>Select a service...</option>
+                    <option>Electrical</option>
+                    <option>Plumbing</option>
+                    <option>Bathroom Renovation</option>
+                    <option>Carpentry</option>
+                    <option>Painting &amp; Tiling</option>
+                    <option>Media Wall</option>
+                    <option>Smart Home</option>
+                    <option>Commercial</option>
+                    <option>Multiple Jobs</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="fdesc">Job Description *</label>
+                  <textarea id="fdesc" name="description" placeholder="Tell us what needs doing — the more detail, the more accurate your estimate will be." required></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="ftime">Preferred Timeframe</label>
+                  <select id="ftime" name="timeframe">
+                    <option value="" disabled selected>When do you need it?</option>
+                    <option>ASAP</option>
+                    <option>Within 2 weeks</option>
+                    <option>This month</option>
+                    <option>Next month</option>
+                    <option>Just getting prices</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn-submit" id="submitBtn"><i class="fa-solid fa-paper-plane"></i> Send My Estimate Request</button>
+                <p style="font-size:12px;color:#6b7280;text-align:center;margin-top:12px;">We'll only use your details to respond to your enquiry. No spam, ever.</p>
               </form>
             </div>
 
@@ -636,7 +567,7 @@
         <div class="alt-contact-left reveal">
           <div class="section-label">Prefer to Call?</div>
           <h2>Get in touch<br>your way</h2>
-          <p>Not a form person? No problem. WhatsApp is our fastest channel — just send a photo of the job and we'll quote from that. Or pick up the phone during business hours.</p>
+          <p>Not a form person? No problem. Just give us a call during business hours and we'll take your details over the phone.</p>
         </div>
         <div class="alt-contact-right reveal reveal-delay-1">
           <a href="tel:016917151" class="contact-option">
