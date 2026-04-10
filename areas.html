@@ -106,6 +106,9 @@
     .area-pill svg { width: 14px; height: 14px; color: var(--orange); flex-shrink: 0; }
     .area-pill:hover { background: var(--orange-light); border-color: var(--orange); color: var(--orange); transform: translateY(-1px); }
     .area-pill.primary { background: var(--orange-light); border-color: var(--orange); color: var(--dark2); }
+    .eircode-row { margin-top: 24px; }
+    .eircode-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mid); margin-bottom: 12px; }
+    .area-pill.eircode-pill { color: var(--orange); font-weight: 700; }
     .area-note {
       display: flex; align-items: flex-start; gap: 14px; background: var(--light);
       border-left: 3px solid var(--orange); border-radius: 0 var(--radius) var(--radius) 0;
@@ -129,30 +132,15 @@
     .response-card .areas-list { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
     .response-card .areas-list span { font-size: 12px; font-weight: 500; color: var(--mid); background: var(--light); padding: 3px 10px; border-radius: 100px; }
 
-    /* ── MAP PLACEHOLDER ── */
+    /* ── MAP SECTION ── */
     #map-section { padding: 96px 0; background: #fff; }
-    .map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
-    .map-placeholder {
-      background: var(--light); border-radius: var(--radius-lg); border: 2px dashed var(--border);
-      aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 14px; color: var(--mid); position: relative; overflow: hidden;
-    }
-    .map-placeholder svg { width: 48px; height: 48px; }
-    .map-placeholder p { font-size: 14px; font-weight: 500; }
-    .map-placeholder .map-pin {
-      position: absolute; width: 24px; height: 24px; background: var(--orange); border-radius: 50% 50% 50% 0;
-      transform: rotate(-45deg); box-shadow: 0 2px 8px rgba(245,110,15,0.4);
-    }
-    .map-placeholder .map-pin::after { content: ''; position: absolute; width: 10px; height: 10px; background: #fff; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-    .map-pin-1 { top: 30%; left: 55%; }
-    .map-pin-2 { top: 20%; left: 35%; }
-    .map-pin-3 { top: 50%; left: 65%; }
-    .map-pin-4 { top: 60%; left: 40%; }
-    .map-pin-5 { top: 38%; left: 45%; }
+    .map-embed-wrap { margin-bottom: 48px; }
+    .map-embed-wrap h2 { font-size: clamp(22px,2.5vw,30px); font-weight: 800; letter-spacing: -0.03em; color: var(--dark); margin-bottom: 20px; }
+    .map-embed-wrap iframe { width: 100%; height: 450px; border-radius: 8px; display: block; }
     .map-content h2 { font-size: clamp(24px,3vw,36px); font-weight: 800; letter-spacing: -0.03em; color: var(--dark); margin-bottom: 14px; line-height: 1.2; }
     .map-content > p { font-size: 16px; color: var(--mid); line-height: 1.7; margin-bottom: 28px; }
-    .postcodes-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 28px; }
-    .postcode-tag { background: var(--dark); color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 700; padding: 10px; border-radius: var(--radius-sm); text-align: center; letter-spacing: 0.02em; }
+    .postcodes-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 28px; }
+    .postcode-tag { background: var(--dark); color: var(--orange); font-size: 13px; font-weight: 700; padding: 10px; border-radius: var(--radius-sm); text-align: center; letter-spacing: 0.02em; }
     .map-note { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--mid); background: var(--light); border-radius: var(--radius); padding: 14px 18px; border-left: 3px solid var(--orange); }
     .map-note svg { width: 16px; height: 16px; color: var(--orange); flex-shrink: 0; margin-top: 2px; }
 
@@ -172,6 +160,7 @@
     .phone-icon svg { color: var(--orange); fill: none; stroke: currentColor; stroke-width: 2; }
     .hours-icon { background: rgba(255,255,255,0.08); }
     .hours-icon svg { color: rgba(255,255,255,0.6); fill: none; stroke: currentColor; stroke-width: 2; }
+    .email-icon { background: rgba(255,255,255,0.08); }
     .contact-card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); margin-bottom: 2px; }
     .contact-card-value { font-size: 18px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
     .contact-card-sub { font-size: 13px; color: rgba(255,255,255,0.4); }
@@ -204,7 +193,7 @@
       .hero-actions .btn { width: 100%; justify-content: center; }
       #area-pills-section, #response, #map-section, #contact { padding: 56px 0; }
       .response-grid { grid-template-columns: 1fr; }
-      .postcodes-grid { grid-template-columns: repeat(3, 1fr); }
+      .postcodes-grid { grid-template-columns: repeat(4, 1fr); }
       .contact-cta-btns { flex-direction: column; align-items: stretch; }
       .contact-cta-btns .btn { justify-content: center; }
       .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
@@ -212,7 +201,7 @@
     }
     @media (max-width: 480px) {
       .page-hero h1 { font-size: 28px; }
-      .postcodes-grid { grid-template-columns: repeat(2, 1fr); }
+      .postcodes-grid { grid-template-columns: repeat(4, 1fr); }
     }
   
     /* ═══ NAV — DROPDOWN + SLIDE-OUT REBUILD ═══ */
@@ -364,7 +353,7 @@
         <div class="hero-actions">
           <a href="get-a-quote.html" class="btn btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            Get a Free Estimate
+            Get an Estimate
           </a>
           <a href="tel:016917151" class="btn btn-secondary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
@@ -465,9 +454,23 @@
           Howth
         </div>
       </div>
+      <div class="eircode-row reveal">
+        <p class="eircode-label">Dublin Eircodes:</p>
+        <div class="area-pills-grid">
+          <div class="area-pill eircode-pill">D1</div>
+          <div class="area-pill eircode-pill">D3</div>
+          <div class="area-pill eircode-pill">D5</div>
+          <div class="area-pill eircode-pill">D7</div>
+          <div class="area-pill eircode-pill">D9</div>
+          <div class="area-pill eircode-pill">D11</div>
+          <div class="area-pill eircode-pill">D13</div>
+          <div class="area-pill eircode-pill">D15</div>
+          <div class="area-pill eircode-pill">D17</div>
+        </div>
+      </div>
       <div class="area-note reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <span><strong>Not on the list?</strong> We cover many surrounding northside areas not listed above. Give us a call on <strong>01 691 7151</strong> or send a WhatsApp and we'll confirm whether we can come to you.</span>
+        <span><strong>Not on the list?</strong> We cover many surrounding northside areas not listed above. Give us a call on <strong>01 691 7151</strong> and we'll confirm whether we can come to you.</span>
       </div>
     </div>
   </section>
@@ -478,45 +481,7 @@
       <div class="response-header reveal">
         <div class="section-label" style="justify-content:center;">Response Times</div>
         <h2>How quickly can we get to you?</h2>
-        <p>Our tradespeople are based across North Dublin, so response times are fast across the whole area.</p>
-      </div>
-      <div class="response-grid">
-        <div class="response-card reveal">
-          <div class="response-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Fastest
-          </div>
-          <h3>Core North Dublin</h3>
-          <div class="response-time">Same day</div>
-          <p>For many jobs in our busiest areas we can often arrange a same-day or next-day visit.</p>
-          <div class="areas-list">
-            <span>Clontarf</span><span>Drumcondra</span><span>Artane</span><span>Beaumont</span><span>Coolock</span><span>Santry</span>
-          </div>
-        </div>
-        <div class="response-card reveal reveal-delay-1">
-          <div class="response-badge" style="background:#e0f2fe;color:#0284c7;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Typical
-          </div>
-          <h3>Coastal &amp; North</h3>
-          <div class="response-time" style="color:#0284c7;">1–2 days</div>
-          <p>Most requests in these areas are booked within one to two business days of receiving your quote approval.</p>
-          <div class="areas-list">
-            <span>Malahide</span><span>Portmarnock</span><span>Sutton</span><span>Raheny</span><span>Baldoyle</span><span>Howth</span>
-          </div>
-        </div>
-        <div class="response-card reveal reveal-delay-2">
-          <div class="response-badge" style="background:#f0fdf4;color:#16a34a;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Extended
-          </div>
-          <h3>Outer Areas</h3>
-          <div class="response-time" style="color:#16a34a;">2–4 days</div>
-          <p>For areas on the outer edge of our coverage zone we typically schedule within 2–4 days of quote acceptance.</p>
-          <div class="areas-list">
-            <span>Swords</span><span>Finglas</span><span>Donabate</span><span>Rush</span><span>Lusk</span><span>Kinsealy</span>
-          </div>
-        </div>
+        <p>We aim to respond to all enquiries within 24 hours. Our tradespeople are based across north Dublin so we can get to you fast.</p>
       </div>
     </div>
   </section>
@@ -524,38 +489,28 @@
   <!-- MAP -->
   <section id="map-section">
     <div class="container">
-      <div class="map-grid">
-        <div class="map-placeholder reveal">
-          <div class="map-pin map-pin-1"></div>
-          <div class="map-pin map-pin-2"></div>
-          <div class="map-pin map-pin-3"></div>
-          <div class="map-pin map-pin-4"></div>
-          <div class="map-pin map-pin-5"></div>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <p style="opacity:0.5;">Map — North Dublin Coverage</p>
+      <div class="map-embed-wrap reveal">
+        <h2>Our Coverage Area</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d152298.57347621143!2d-6.4105114980282165!3d53.38503946103068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670fb725a444bd%3A0x94312d31fcf75c9!2sNorthside%2C%20Dublin!5e0!3m2!1sen!2sie!4v1775813342690!5m2!1sen!2sie" width="100%" height="450" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="map-content reveal">
+        <div class="section-label">Eircodes</div>
+        <h2>Eircodes We Cover</h2>
+        <p>We cover all northside Dublin Eircodes, from the city centre out to the coastal and outer north Dublin areas.</p>
+        <div class="postcodes-grid">
+          <div class="postcode-tag">D1</div>
+          <div class="postcode-tag">D3</div>
+          <div class="postcode-tag">D5</div>
+          <div class="postcode-tag">D7</div>
+          <div class="postcode-tag">D9</div>
+          <div class="postcode-tag">D11</div>
+          <div class="postcode-tag">D13</div>
+          <div class="postcode-tag">D15</div>
+          <div class="postcode-tag">D17</div>
         </div>
-        <div class="map-content reveal reveal-delay-1">
-          <div class="section-label">Postcodes</div>
-          <h2>All northside Dublin postcodes covered</h2>
-          <p>We cover every northside Dublin postcode from D1 through D17, plus the surrounding County Dublin areas of Fingal.</p>
-          <div class="postcodes-grid">
-            <div class="postcode-tag">D1</div>
-            <div class="postcode-tag">D3</div>
-            <div class="postcode-tag">D5</div>
-            <div class="postcode-tag">D7</div>
-            <div class="postcode-tag">D9</div>
-            <div class="postcode-tag">D11</div>
-            <div class="postcode-tag">D13</div>
-            <div class="postcode-tag">D15</div>
-            <div class="postcode-tag">D17</div>
-            <div class="postcode-tag">K36</div>
-            <div class="postcode-tag">K67</div>
-            <div class="postcode-tag">K78</div>
-          </div>
-          <div class="map-note">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            <span>Not sure about your postcode? Call <strong>01 691 7151</strong> and we'll confirm coverage within minutes.</span>
-          </div>
+        <div class="map-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Not sure about your Eircode? Call <strong>01 691 7151</strong> and we'll confirm coverage within minutes.</span>
         </div>
       </div>
     </div>
@@ -566,20 +521,10 @@
     <div class="container">
       <div class="contact-header reveal">
         <div class="section-label" style="justify-content:center;">Get In Touch</div>
-        <h2>Ready to book?</h2>
-        <p>Contact us via WhatsApp, phone or our online form — we're here Mon–Fri 9am–6pm.</p>
+        <h2>Ready to Get Started?</h2>
+        <p>Contact us by phone or our online form — we're here Mon–Fri 9am–6pm.</p>
       </div>
       <div class="contact-grid">
-        <a href="tel:016917151" class="contact-card reveal">
-          <div class="contact-card-icon wa-icon">
-            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </div>
-          <div>
-            <div class="contact-card-label">Fastest Response</div>
-            <div class="contact-card-value">WhatsApp</div>
-            <div class="contact-card-sub">Typically reply within the hour</div>
-          </div>
-        </a>
         <a href="tel:016917151" class="contact-card reveal reveal-delay-1">
           <div class="contact-card-icon phone-icon">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.28 2 2 0 012.05 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
@@ -597,18 +542,29 @@
           <div>
             <div class="contact-card-label">Business Hours</div>
             <div class="contact-card-value">Mon–Fri 9am–6pm</div>
-            <div class="contact-card-sub">Emergency call-outs available</div>
+            <div class="contact-card-sub">Mon–Fri 9am–6pm</div>
           </div>
         </div>
+        <a href="mailto:hello@anytradesman.ie" class="contact-card reveal reveal-delay-3">
+          <div class="contact-card-icon email-icon">
+            <i class="fa-solid fa-envelope" style="font-size:20px;color:#fff;"></i>
+          </div>
+          <div>
+            <div class="contact-card-label">Email</div>
+            <div class="contact-card-value">hello@anytradesman.ie</div>
+            <div class="contact-card-sub">We reply same business day</div>
+          </div>
+        </a>
       </div>
       <div class="contact-cta reveal">
-        <p>Or fill in the form and we'll get back to you with a free estimate</p>
+        <p>Or fill in the form and we'll get back to you within 24 hours</p>
         <div class="contact-cta-btns">
           <a href="get-a-quote.html" class="btn btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            Request a Free Estimate
+            Get a Free Estimate
           </a>
         </div>
+        <p style="font-size:13px;color:rgba(255,255,255,0.35);margin-top:14px;margin-bottom:0;">No spam. No sales calls. Just a straight answer on price.</p>
       </div>
     </div>
   </section>
