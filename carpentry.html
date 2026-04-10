@@ -713,59 +713,52 @@
       <div class="reveal reveal-delay-1">
         <div class="quote-form-card">
           <h3>Get a Free Carpentry Quote</h3>
-          <form>
+          <form onsubmit="handleSubmit(event)">
             <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required/>
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" placeholder="e.g. John Murphy" required/>
             </div>
             <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="08X XXX XXXX" required/>
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="e.g. 085 123 4567" required/>
             </div>
             <div class="form-group">
-              <label for="area">Area / Eircode</label>
-              <input type="text" id="area" name="area" placeholder="e.g. Clontarf, D03"/>
+              <label for="area">Area / Eircode *</label>
+              <input type="text" id="area" name="area" placeholder="e.g. Malahide / D9" required/>
             </div>
             <div class="form-group">
-              <label for="jobtype">Job Type</label>
-              <select id="jobtype" name="jobtype">
-                <option value="flat-pack" selected>Flat Pack Assembly</option>
-                <option value="fitted-wardrobes">Fitted Wardrobes</option>
-                <option value="door-hanging">Door Hanging</option>
-                <option value="skirting">Skirting Boards</option>
-                <option value="shelving">Shelving &amp; Storage</option>
-                <option value="stud-wall">Stud Wall</option>
-                <option value="staircase">Staircase Repair</option>
-                <option value="under-stairs">Under-Stairs Storage</option>
-                <option value="kitchen">Kitchen Fitting</option>
-                <option value="other">Other</option>
+              <label for="jobtype">Type of Job *</label>
+              <select id="jobtype" name="jobType" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option>Electrical</option>
+                <option>Plumbing</option>
+                <option>Bathroom Renovation</option>
+                <option>Carpentry</option>
+                <option>Painting &amp; Tiling</option>
+                <option>Media Wall</option>
+                <option>Smart Home</option>
+                <option>Commercial</option>
+                <option>Multiple Jobs</option>
+                <option>Other</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="description">Describe the job</label>
-              <textarea id="description" name="description" placeholder="Tell us what you need — include dimensions if you have them…"></textarea>
+              <label for="description">Job Description *</label>
+              <textarea id="description" name="description" placeholder="Tell us what needs doing — the more detail, the more accurate your estimate will be." required></textarea>
             </div>
             <div class="form-group">
-              <label for="timeframe">Timeframe</label>
+              <label for="timeframe">Preferred Timeframe</label>
               <select id="timeframe" name="timeframe">
-                <option value="asap">ASAP</option>
-                <option value="this-week">This week</option>
-                <option value="this-month">This month</option>
-                <option value="planning">Just planning</option>
+                <option value="" disabled selected>When do you need it?</option>
+                <option>ASAP</option>
+                <option>Within 2 weeks</option>
+                <option>This month</option>
+                <option>Next month</option>
+                <option>Just getting prices</option>
               </select>
             </div>
-            <div class="form-group">
-              <label>Photos (optional but helpful)</label>
-              <label class="file-upload-area" for="photos">
-                <i class="fa-solid fa-camera"></i>
-                <p>Click to upload photos</p>
-                <span>JPG, PNG or HEIC — max 10MB each</span>
-                <input type="file" id="photos" name="photos" accept="image/*" multiple style="display:none"/>
-              </label>
-            </div>
-            <button type="submit" class="btn-submit">
-              <i class="fa-solid fa-paper-plane"></i> Send My Estimate Request
-            </button>
+            <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Send My Estimate Request</button>
+            <p style="font-size:12px;color:#6b7280;text-align:center;margin-top:12px;">We'll only use your details to respond to your enquiry. No spam, ever.</p>
           </form>
         </div>
       </div>

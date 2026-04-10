@@ -729,53 +729,50 @@
           <h3>Get a Free Smart Home Quote</h3>
           <form onsubmit="handleSubmit(event)">
             <div class="form-group">
-              <label for="sh-name">Your Name</label>
-              <input type="text" id="sh-name" name="name" placeholder="John Murphy" required/>
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" placeholder="e.g. John Murphy" required/>
             </div>
             <div class="form-group">
-              <label for="sh-phone">Phone Number</label>
-              <input type="tel" id="sh-phone" name="phone" placeholder="087 123 4567" required/>
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" placeholder="e.g. 085 123 4567" required/>
             </div>
             <div class="form-group">
-              <label for="sh-email">Email Address</label>
-              <input type="email" id="sh-email" name="email" placeholder="john@example.com"/>
+              <label for="area">Area / Eircode *</label>
+              <input type="text" id="area" name="area" placeholder="e.g. Malahide / D9" required/>
             </div>
             <div class="form-group">
-              <label for="sh-area">Area / Town</label>
-              <input type="text" id="sh-area" name="area" placeholder="e.g. Swords, Clontarf, Malahide"/>
-            </div>
-            <div class="form-group">
-              <label for="sh-job">Job Type</label>
-              <select id="sh-job" name="job-type">
-                <option value="">Select a service...</option>
-                <option>Smart Lighting</option>
-                <option>Smart Heating (Thermostat)</option>
-                <option>Security Cameras</option>
-                <option>Video Doorbell</option>
-                <option>Smart Locks</option>
-                <option>Home Automation</option>
-                <option>Mesh Wi-Fi</option>
-                <option>Multi-Room Audio</option>
-                <option>Full Smart Home System</option>
+              <label for="jobtype">Type of Job *</label>
+              <select id="jobtype" name="jobType" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option>Electrical</option>
+                <option>Plumbing</option>
+                <option>Bathroom Renovation</option>
+                <option>Carpentry</option>
+                <option>Painting &amp; Tiling</option>
+                <option>Media Wall</option>
+                <option>Smart Home</option>
+                <option>Commercial</option>
+                <option>Multiple Jobs</option>
                 <option>Other</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="sh-details">Tell us more</label>
-              <textarea id="sh-details" name="details" placeholder="Describe what you'd like to install or achieve. Which rooms? Any specific brands in mind?"></textarea>
+              <label for="description">Job Description *</label>
+              <textarea id="description" name="description" placeholder="Tell us what needs doing — the more detail, the more accurate your estimate will be." required></textarea>
             </div>
             <div class="form-group">
-              <label>Photos (optional)</label>
-              <div class="file-upload-area" onclick="document.getElementById('sh-photos').click()">
-                <i class="fa-solid fa-camera"></i>
-                <p>Tap to add photos of your current setup</p>
-                <span>JPG, PNG or HEIC &#8212; up to 10MB each</span>
-                <input type="file" id="sh-photos" name="photos" multiple accept="image/*" style="display:none"/>
-              </div>
+              <label for="timeframe">Preferred Timeframe</label>
+              <select id="timeframe" name="timeframe">
+                <option value="" disabled selected>When do you need it?</option>
+                <option>ASAP</option>
+                <option>Within 2 weeks</option>
+                <option>This month</option>
+                <option>Next month</option>
+                <option>Just getting prices</option>
+              </select>
             </div>
-            <button type="submit" class="btn-submit">
-              <i class="fa-solid fa-paper-plane"></i> Send My Enquiry
-            </button>
+            <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Send My Estimate Request</button>
+            <p style="font-size:12px;color:#6b7280;text-align:center;margin-top:12px;">We'll only use your details to respond to your enquiry. No spam, ever.</p>
           </form>
         </div>
       </div>
