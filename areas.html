@@ -54,7 +54,7 @@
 
     /* ── NAV ── */
     #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: #151c2e; backdrop-filter: blur(14px); box-shadow: 0 2px 20px rgba(0,0,0,0.25); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 120px; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; }
     .nav-logo-icon { width: 36px; height: 36px; background: var(--orange); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
     .nav-logo-icon svg { width: 20px; height: 20px; fill: #fff; }
@@ -194,6 +194,8 @@
       #area-pills-section, #response, #map-section, #contact { padding: 56px 0; }
       .response-grid { grid-template-columns: 1fr; }
       .postcodes-grid { grid-template-columns: repeat(4, 1fr); }
+      .trust-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .trust-bar-inner > div { padding: 16px 8px; }
       .contact-cta-btns { flex-direction: column; align-items: stretch; }
       .contact-cta-btns .btn { justify-content: center; }
       .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
@@ -201,7 +203,7 @@
     }
     @media (max-width: 480px) {
       .page-hero h1 { font-size: 28px; }
-      .postcodes-grid { grid-template-columns: repeat(4, 1fr); }
+      .postcodes-grid { grid-template-columns: repeat(3, 1fr); }
     }
   
     /* ═══ NAV — DROPDOWN + SLIDE-OUT REBUILD ═══ */
@@ -270,6 +272,7 @@
     .trust-stat-value{font-size:32px;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1}
     .trust-stat-value span{color:#F56E0F}
     .trust-stat-label{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px;font-weight:500}
+    @media(max-width:768px){.trust-bar-inner{grid-template-columns:repeat(2,1fr);gap:16px}.trust-bar-inner>div{padding:16px 8px}}
   </style>
 </head>
 <body>

@@ -1186,7 +1186,9 @@
       .nav-cta .btn { display: none; }
 
       /* Hero */
-      .hero-content { padding: 140px 0 60px; }
+      #hero { min-height: auto; }
+      .hero-bg { background-image: url('assets/at-04-get-a-quote-hero.png'); background-position: 60% center; }
+      .hero-content { padding: 140px 0 100px; }
       .hero-h1 { font-size: 36px; }
       .hero-sub { font-size: 16px; }
       .hero-badge { font-size: 12px; }
@@ -1195,7 +1197,8 @@
       .hero-checks { flex-wrap: wrap; gap: 12px; }
 
       /* Stats: 2×2 grid */
-      .trust-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .trust-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .trust-bar-inner > div { padding: 16px 8px; }
 
       /* Services: 1 column */
       .services-grid { grid-template-columns: 1fr; }
