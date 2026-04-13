@@ -689,8 +689,7 @@
       btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg> Sending...';
       // Placeholder — connect to Jobber / webhook / EmailJS
       setTimeout(() => {
-        document.getElementById('formContent').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
+        window.location.href = 'thank-you.html';
       }, 1200);
     }
 

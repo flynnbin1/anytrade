@@ -871,10 +871,9 @@
   function handleSubmit(e){
     e.preventDefault();
     const btn=e.target.querySelector('.btn-submit');
-    btn.innerHTML='<i class="fa-solid fa-circle-check"></i> Request Sent!';
-    btn.style.background='#16a34a';
+    btn.innerHTML='<i class="fa-solid fa-circle-check"></i> Sending...';
     btn.disabled=true;
-    // TODO: connect to Jobber/webhook
+    setTimeout(()=>{ window.location.href='thank-you.html'; },1200);
   }
 
   // Mobile slide-out menu
