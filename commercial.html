@@ -714,56 +714,26 @@
         </div>
       </div>
       <div class="reveal reveal-delay-2">
-        <div class="quote-form-card">
-          <h3>Get a Free Commercial Quote</h3>
-          <form onsubmit="handleSubmit(event)">
-            <div class="form-group">
-              <label for="name">Your Name *</label>
-              <input type="text" id="name" name="name" placeholder="e.g. John Murphy" required/>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" name="phone" placeholder="e.g. 085 123 4567" required/>
-            </div>
-            <div class="form-group">
-              <label for="area">Area / Eircode *</label>
-              <input type="text" id="area" name="area" placeholder="e.g. Malahide / D9" required/>
-            </div>
-            <div class="form-group">
-              <label for="jobtype">Type of Job *</label>
-              <select id="jobtype" name="jobType" required>
-                <option value="" disabled selected>Select a service...</option>
-                <option>Electrical</option>
-                <option>Plumbing</option>
-                <option>Bathroom Renovation</option>
-                <option>Carpentry</option>
-                <option>Painting &amp; Tiling</option>
-                <option>Media Wall</option>
-                <option>Smart Home</option>
-                <option>Commercial</option>
-                <option>Multiple Jobs</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="description">Job Description *</label>
-              <textarea id="description" name="description" placeholder="Tell us what needs doing — the more detail, the more accurate your estimate will be." required></textarea>
-            </div>
-            <div class="form-group">
-              <label for="timeframe">Preferred Timeframe</label>
-              <select id="timeframe" name="timeframe">
-                <option value="" disabled selected>When do you need it?</option>
-                <option>ASAP</option>
-                <option>Within 2 weeks</option>
-                <option>This month</option>
-                <option>Next month</option>
-                <option>Just getting prices</option>
-              </select>
-            </div>
-            <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Send My Estimate Request</button>
-            <p style="font-size:12px;color:#6b7280;text-align:center;margin-top:12px;">We'll only use your details to respond to your enquiry. No spam, ever.</p>
-          </form>
+        <div style="width:100%; min-height:903px;">
+          <iframe
+              src="https://link.flowdagency.ai/widget/form/WSKZpiLu1gGbq8RZUQiU"
+              style="width:100%;height:903px;border:none;border-radius:20px"
+              id="inline-WSKZpiLu1gGbq8RZUQiU"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Website Lead Form"
+              data-height="903"
+              data-layout-iframe-id="inline-WSKZpiLu1gGbq8RZUQiU"
+              data-form-id="WSKZpiLu1gGbq8RZUQiU"
+              title="Website Lead Form">
+          </iframe>
         </div>
+        <script src="https://link.flowdagency.ai/js/form_embed.js"></script>
       </div>
     </div>
   </div>
@@ -808,7 +778,6 @@
 <!-- GHL Chat Widget -->
 
 <script>
-  function handleSubmit(e){e.preventDefault();const btn=e.target.querySelector('.btn-submit');if(btn){btn.innerHTML='<i class="fa-solid fa-circle-check"></i> Sending...';btn.disabled=true;}setTimeout(()=>{window.location.href='thank-you.html';},1200);}
   const observer=new IntersectionObserver((entries)=>{entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');observer.unobserve(el.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 

@@ -2051,71 +2051,26 @@
           </div>
         </div>
         <div class="reveal reveal-delay-1">
-          <div class="quote-form-wrap">
-            <div id="formContent">
-              <div class="form-title">Request a Free Estimate</div>
-              <div class="form-sub">We'll get back to you within 24 hours</div>
-              <form id="quoteForm" onsubmit="handleSubmit(event)" novalidate>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="fname">Your Name *</label>
-                    <input type="text" id="fname" name="name" placeholder="e.g. John Murphy" required />
-                  </div>
-                  <div class="form-group">
-                    <label for="fphone">Phone Number *</label>
-                    <input type="tel" id="fphone" name="phone" placeholder="e.g. 085 123 4567" required />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="farea">Area / Eircode *</label>
-                    <input type="text" id="farea" name="area" placeholder="e.g. Malahide / K36" required />
-                  </div>
-                  <div class="form-group">
-                    <label for="fjob">Type of Job *</label>
-                    <select id="fjob" name="jobType" required>
-                      <option value="" disabled selected>Select a service...</option>
-                      <option>Electrical</option>
-                      <option>Plumbing</option>
-                      <option>Bathroom Renovation</option>
-                      <option>Carpentry</option>
-                      <option>Painting &amp; Tiling</option>
-                      <option>Media Wall</option>
-                      <option>Smart Home</option>
-                      <option>Commercial</option>
-                      <option>Multiple Jobs</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="fdesc">Job Description *</label>
-                  <textarea id="fdesc" name="description" rows="3" placeholder="Tell us what needs doing — the more detail, the more accurate your estimate will be." required></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="ftime">Preferred Timeframe</label>
-                  <select id="ftime" name="timeframe">
-                    <option value="" disabled selected>When do you need it?</option>
-                    <option>ASAP</option>
-                    <option>Within 2 weeks</option>
-                    <option>This month</option>
-                    <option>Next month</option>
-                    <option>Just getting prices</option>
-                  </select>
-                </div>
-                <button type="submit" class="form-submit" id="submitBtn">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                  Send My Estimate Request
-                </button>
-                <p class="form-privacy">We'll only use your details to respond to your enquiry. No spam, ever.</p>
-              </form>
-            </div>
-            <div class="form-success" id="formSuccess">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              <h3>Estimate request sent!</h3>
-              <p>Thanks! We've received your request and will be in touch within 24 hours during business hours.</p>
-            </div>
+          <div style="width:100%; min-height:903px;">
+            <iframe
+                src="https://link.flowdagency.ai/widget/form/WSKZpiLu1gGbq8RZUQiU"
+                style="width:100%;height:903px;border:none;border-radius:20px"
+                id="inline-WSKZpiLu1gGbq8RZUQiU"
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="Website Lead Form"
+                data-height="903"
+                data-layout-iframe-id="inline-WSKZpiLu1gGbq8RZUQiU"
+                data-form-id="WSKZpiLu1gGbq8RZUQiU"
+                title="Website Lead Form">
+            </iframe>
           </div>
+          <script src="https://link.flowdagency.ai/js/form_embed.js"></script>
         </div>
       </div>
     </div>
@@ -2183,38 +2138,6 @@
       });
     }
 
-    // ── Form submission ──
-    function handleSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const btn = document.getElementById('submitBtn');
-
-      // Basic validation
-      const required = form.querySelectorAll('[required]');
-      let valid = true;
-      required.forEach(el => {
-        if (!el.value.trim()) {
-          el.style.borderColor = '#ef4444';
-          valid = false;
-          el.addEventListener('input', () => el.style.borderColor = '', { once: true });
-        }
-      });
-      if (!valid) return;
-
-      btn.disabled = true;
-      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation:spin 1s linear infinite"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg> Sending...';
-
-      // Placeholder — connect to Jobber / webhook / EmailJS
-      setTimeout(() => {
-        window.location.href = 'thank-you.html';
-      }, 1200);
-    }
-
-    // Spin keyframe for loading icon
-    const style = document.createElement('style');
-    style.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
-    document.head.appendChild(style);
-  
   // Mobile slide-out menu
   function toggleMobileMenu() {
     var panel = document.getElementById('mobilePanel');
