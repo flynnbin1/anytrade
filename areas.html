@@ -16,7 +16,9 @@
   <meta property="og:image" content="https://www.anytradesman.ie/assets/anytradesman-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -87,6 +89,8 @@
     .page-hero-bg {
       position: absolute; inset: 0;
       background: url('assets/at-03-areas-hero.png') center/cover no-repeat;
+      background-attachment: scroll;
+      will-change: auto;
     }
     .page-hero-bg::after { content: ''; position: absolute; inset: 0; background:linear-gradient(to right,rgba(0,0,0,0.90) 0%,rgba(0,0,0,0.70) 35%,rgba(0,0,0,0.30) 65%,rgba(0,0,0,0.05) 100%); }
     .page-hero-content { position: relative; z-index: 2; }
@@ -302,7 +306,7 @@
   <div class="container">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:140px;width:auto;vertical-align:middle;display:block;">
+        <img width="500" height="500" loading="lazy" src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:140px;width:auto;vertical-align:middle;display:block;">
       </a>
       <div class="nav-links">
         <div class="nav-dropdown-wrap">
@@ -339,7 +343,7 @@
 <div class="mobile-panel" id="mobilePanel">
   <div class="mobile-panel-header">
     <a href="index.html" class="nav-logo">
-      <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:140px;width:auto;vertical-align:middle;display:block;">
+      <img width="500" height="500" loading="lazy" src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:140px;width:auto;vertical-align:middle;display:block;">
     </a>
     <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">&times;</button>
   </div>
@@ -624,7 +628,7 @@
     <div class="container">
       <div class="footer-inner">
         <a href="index.html" class="nav-logo">
-          <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:120px;width:auto;display:block;">
+          <img width="500" height="500" loading="lazy" src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:120px;width:auto;display:block;">
         </a>
         <div class="footer-links">
           <a href="services.html">Services</a>
