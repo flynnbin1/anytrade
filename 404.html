@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Page Not Found | Any Tradesman</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Return to Any Tradesman — North Dublin's multi-trade home services team.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="author" content="Any Tradesman">
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden;line-height:1.6}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    :root{--orange:#F56E0F;--orange-h:#d45e0a;--orange-light:#fff4ed;--dark:#111827;--dark2:#1f2937;--mid:#6b7280;--light:#f3f4f6;--border:#e5e7eb;--radius-sm:6px;--radius:10px;--radius-lg:16px;--shadow-lg:0 12px 40px rgba(0,0,0,.14);--transition:0.25s ease}
+    .container{width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--radius-sm);font-size:15px;font-weight:600;cursor:pointer;border:none;transition:all var(--transition);white-space:nowrap;font-family:'Inter',sans-serif}
+    .btn-primary{background:var(--orange);color:#fff}
+    .btn-primary:hover{background:var(--orange-h);transform:translateY(-1px);box-shadow:0 6px 20px rgba(245,110,15,.35)}
+    .btn-secondary{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+    .btn-secondary:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+    /* NAV */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#151c2e!important;backdrop-filter:blur(14px);box-shadow:0 2px 20px rgba(0,0,0,.25)}
+    #nav .container{padding:0 60px}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;padding:0}
+    .nav-logo{display:flex;align-items:center;align-self:center;text-decoration:none;background:none;border:none;padding:0;margin-left:0}
+    .nav-links{display:flex;align-items:center;gap:40px}
+    .nav-links>a{font-size:14px;font-weight:500;color:#fff;transition:color .25s;text-decoration:none}
+    .nav-links>a:hover{color:var(--orange)}
+    .nav-dropdown-wrap{position:relative}
+    .nav-dropdown-trigger{font-size:14px;font-weight:500;color:#fff;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;font-family:inherit;padding:0;transition:color .25s}
+    .nav-dropdown-trigger svg{transition:transform .25s}
+    .nav-dropdown-wrap:hover .nav-dropdown-trigger svg{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:calc(100% + 18px);left:-16px;background:#fff;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.18);min-width:248px;padding:6px 0;opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .2s,transform .2s;z-index:100}
+    .nav-dropdown-wrap:hover .nav-dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+    .nav-dropdown-wrap::after{content:'';position:absolute;bottom:-18px;left:0;right:0;height:18px;z-index:98}
+    .nav-dropdown::before{content:'';position:absolute;top:-6px;left:28px;width:12px;height:12px;background:#fff;transform:rotate(45deg);box-shadow:-2px -2px 5px rgba(0,0,0,.04)}
+    .nav-dropdown a{display:flex;align-items:center;gap:10px;padding:10px 16px;font-size:13.5px;font-weight:500;color:#111827;transition:all .18s;border-left:3px solid transparent;text-decoration:none}
+    .nav-dropdown a:hover{background:#f9fafb;border-left-color:var(--orange);color:var(--orange)}
+    .nd-icon{width:26px;height:26px;background:#fff4ed;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;color:var(--orange);transition:all .18s}
+    .nav-dropdown a:hover .nd-icon{background:var(--orange);color:#fff}
+    .nav-cta{display:flex;align-items:center;gap:16px}
+    .nav-phone{font-size:14px;font-weight:600;color:#fff;display:flex;align-items:center;gap:6px;text-decoration:none}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+    .nav-hamburger span{display:block;width:24px;height:2px;background:#F56E0F;border-radius:2px;transition:all .3s}
+    .mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1001;cursor:pointer}
+    .mobile-overlay.open{display:block}
+    .mobile-panel{position:fixed;top:0;right:0;bottom:0;width:min(340px,100vw);background:#151c2e;z-index:1002;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto}
+    .mobile-panel.open{transform:translateX(0)}
+    .mobile-panel-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+    .mobile-close{width:36px;height:36px;background:rgba(255,255,255,.08);border:none;border-radius:50%;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1;font-family:inherit}
+    .mobile-close:hover{background:rgba(255,255,255,.16)}
+    .mobile-panel-links{flex:1;padding:8px 0;overflow-y:auto}
+    .mobile-panel-links>a{display:block;padding:14px 24px;font-size:15px;font-weight:500;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none;transition:color .2s}
+    .mobile-panel-links>a:hover{color:var(--orange)}
+    .mobile-accordion{border-bottom:1px solid rgba(255,255,255,.06)}
+    .mobile-accordion-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;font-size:15px;font-weight:500;color:rgba(255,255,255,.8);background:none;border:none;font-family:inherit;cursor:pointer;text-align:left;transition:color .2s}
+    .mobile-accordion-trigger:hover{color:#fff}
+    .mobile-accordion-trigger svg{transition:transform .3s;flex-shrink:0;color:rgba(255,255,255,.4)}
+    .mobile-accordion.open .mobile-accordion-trigger svg{transform:rotate(180deg)}
+    .mobile-accordion-content{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1);background:rgba(0,0,0,.2)}
+    .mobile-accordion.open .mobile-accordion-content{max-height:600px}
+    .mobile-accordion-content a{display:flex;align-items:center;gap:10px;padding:11px 24px 11px 28px;font-size:14px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;border-bottom:1px solid rgba(255,255,255,.04)}
+    .mobile-accordion-content a:hover{color:var(--orange)}
+    .mobile-accordion-content a i{color:var(--orange);width:14px;font-size:12px}
+    .mobile-panel-footer{padding:20px 24px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;gap:12px;flex-shrink:0}
+    .mobile-phone-link{display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px;font-weight:700;color:#fff;text-decoration:none;padding:12px;background:rgba(255,255,255,.06);border-radius:8px}
+    .mobile-phone-link i{color:var(--orange)}
+    .mobile-phone-link:hover{background:rgba(255,255,255,.1)}
+    @media(max-width:768px){.nav-links,.nav-phone{display:none!important}.nav-hamburger{display:flex!important}.nav-cta{display:none!important}#nav .container{padding:0 20px!important}.nav-inner{justify-content:space-between!important;align-items:center!important}}
+    @media(min-width:769px){.mobile-overlay,.mobile-panel{display:none!important}.mobile-overlay.open,.mobile-panel.open{display:none!important}}
+
+    /* 404 HERO */
+    .hero-404{background:#111827;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+    .hero-404::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(245,110,15,.07) 0%,transparent 70%)}
+    .hero-404-inner{position:relative;z-index:1;max-width:560px;margin:0 auto}
+    .logo-wrap{margin-bottom:40px}
+    .logo-wrap img{height:100px;width:auto;margin:0 auto}
+    .error-num{font-size:clamp(100px,18vw,160px);font-weight:900;color:var(--orange);letter-spacing:-.05em;line-height:1;display:block;margin-bottom:8px}
+    .hero-404 h1{font-size:clamp(26px,4vw,38px);font-weight:800;color:#fff;letter-spacing:-.03em;margin-bottom:16px}
+    .hero-404 p{font-size:16px;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:40px;max-width:420px;margin-left:auto;margin-right:auto}
+    .hero-404-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    @media(max-width:480px){.hero-404-actions{flex-direction:column;align-items:stretch}.hero-404-actions .btn{justify-content:center}}
+
+    /* FOOTER */
+    footer{background:#151c2e;border-top:1px solid rgba(255,255,255,.06);padding:24px 0}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;margin-bottom:36px}
+    .footer-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+    .footer-links a{font-size:13px;color:#fff;font-weight:500;transition:color var(--transition)}
+    .footer-links a:hover{color:var(--orange)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;text-align:center;font-size:12.5px;color:rgba(255,255,255,.45)}
+    @media(max-width:768px){.footer-inner{flex-direction:column;align-items:center;text-align:center;gap:20px}.footer-links{flex-direction:column;gap:12px;align-items:center}}
+
+    /* COOKIE BAR */
+    #cookie-bar{position:fixed;bottom:0;left:0;right:0;background:#151c2e;border-top:1px solid rgba(255,255,255,.1);padding:16px 24px;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    #cookie-bar p{font-size:13.5px;color:rgba(255,255,255,.8);line-height:1.5;margin:0;flex:1;min-width:200px}
+    #cookie-bar a{color:var(--orange);text-decoration:underline}
+    .cookie-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+    .cookie-btn-accept{background:var(--orange);color:#fff;border:none;padding:10px 20px;border-radius:6px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s}
+    .cookie-btn-accept:hover{background:var(--orange-h)}
+    .cookie-btn-essential{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);padding:8px 18px;border-radius:6px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:border-color .2s}
+    .cookie-btn-essential:hover{border-color:#fff}
+    @media(max-width:600px){#cookie-bar{flex-direction:column;align-items:flex-start}.cookie-btns{width:100%}.cookie-btn-accept,.cookie-btn-essential{flex:1;text-align:center}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:140px;width:auto;vertical-align:middle;display:block;">
+      </a>
+      <div class="nav-links">
+        <div class="nav-dropdown-wrap">
+          <a href="services.html" class="nav-dropdown-trigger">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="nav-dropdown">
+            <a href="electrical.html"><span class="nd-icon"><i class="fa-solid fa-bolt"></i></span>Electrical</a>
+            <a href="plumbing.html"><span class="nd-icon"><i class="fa-solid fa-droplet"></i></span>Plumbing</a>
+            <a href="bathroom-renovations.html"><span class="nd-icon"><i class="fa-solid fa-bath"></i></span>Bathroom Renovations</a>
+            <a href="carpentry.html"><span class="nd-icon"><i class="fa-solid fa-hammer"></i></span>Carpentry</a>
+            <a href="painting-tiling.html"><span class="nd-icon"><i class="fa-solid fa-paint-roller"></i></span>Painting &amp; Tiling</a>
+            <a href="media-walls.html"><span class="nd-icon"><i class="fa-solid fa-tv"></i></span>Media Walls</a>
+            <a href="smart-home.html"><span class="nd-icon"><i class="fa-solid fa-house-signal"></i></span>Smart Home</a>
+            <a href="commercial.html"><span class="nd-icon"><i class="fa-solid fa-building"></i></span>Commercial</a>
+          </div>
+        </div>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="areas.html">Areas</a>
+        <a href="reviews.html">Reviews</a>
+      </div>
+      <div class="nav-cta">
+        <a href="tel:016917151" class="nav-phone">
+          <i class="fa-solid fa-phone"></i>
+          01 691 7151
+        </a>
+        <a href="get-a-quote.html" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Get an Estimate</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+<div class="mobile-panel" id="mobilePanel">
+  <div class="mobile-panel-header">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:140px;width:auto;vertical-align:middle;display:block;">
+    </a>
+    <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="mobile-panel-links">
+    <div class="mobile-accordion" id="servicesAccordion">
+      <button class="mobile-accordion-trigger" onclick="toggleServicesAccordion()">
+        Services
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="mobile-accordion-content">
+        <a href="electrical.html"><i class="fa-solid fa-bolt"></i>Electrical</a>
+        <a href="plumbing.html"><i class="fa-solid fa-droplet"></i>Plumbing</a>
+        <a href="bathroom-renovations.html"><i class="fa-solid fa-bath"></i>Bathroom Renovations</a>
+        <a href="carpentry.html"><i class="fa-solid fa-hammer"></i>Carpentry</a>
+        <a href="painting-tiling.html"><i class="fa-solid fa-paint-roller"></i>Painting &amp; Tiling</a>
+        <a href="media-walls.html"><i class="fa-solid fa-tv"></i>Media Walls</a>
+        <a href="smart-home.html"><i class="fa-solid fa-house-signal"></i>Smart Home</a>
+        <a href="commercial.html"><i class="fa-solid fa-building"></i>Commercial</a>
+      </div>
+    </div>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="areas.html">Areas</a>
+    <a href="reviews.html">Reviews</a>
+  </div>
+  <div class="mobile-panel-footer">
+    <a href="tel:016917151" class="mobile-phone-link"><i class="fa-solid fa-phone"></i>01 691 7151</a>
+    <a href="get-a-quote.html" class="btn btn-primary" style="display:flex;justify-content:center;width:100%;padding:14px 28px;">Get a Free Estimate</a>
+  </div>
+</div>
+
+<!-- 404 HERO -->
+<section class="hero-404">
+  <div class="hero-404-inner">
+    <div class="logo-wrap">
+      <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman">
+    </div>
+    <span class="error-num">404</span>
+    <h1>Page Not Found</h1>
+    <p>Sorry, the page you're looking for doesn't exist or may have moved.</p>
+    <div class="hero-404-actions">
+      <a href="index.html" class="btn btn-primary">
+        <i class="fa-solid fa-house"></i> Back to Homepage
+      </a>
+      <a href="get-a-quote.html" class="btn btn-secondary">
+        <i class="fa-solid fa-paper-plane"></i> Get a Free Estimate
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/anytradesman-logo-1.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:120px;width:auto;display:block;"><span style="display:block;color:#fff;font-size:11px;font-weight:700;margin-top:5px;letter-spacing:0.1em;text-transform:uppercase;">One Team. All Trades.</span>
+      </a>
+      <div class="footer-links">
+        <a href="services.html">Services</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="areas.html">Areas</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="tel:016917151">01 691 7151</a>
+        <a href="mailto:hello@anytradesman.ie">hello@anytradesman.ie</a>
+      </div>
+      <a href="get-a-quote.html" class="btn btn-primary" style="padding:11px 22px;font-size:14px;">Get an Estimate</a>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Any Tradesman. All rights reserved. North Dublin&rsquo;s multi-trade specialists.</div>
+  </div>
+</footer>
+
+<!-- COOKIE BAR -->
+<div id="cookie-bar">
+  <p>We use cookies to ensure you get the best experience on our website. <a href="privacy-policy.html">Learn more</a></p>
+  <div class="cookie-btns">
+    <button class="cookie-btn-accept" onclick="acceptCookies('all')">Accept All</button>
+    <button class="cookie-btn-essential" onclick="acceptCookies('essential')">Essential Only</button>
+  </div>
+</div>
+
+<script>
+  // Cookie consent
+  (function(){
+    if(localStorage.getItem('at_cookie_consent')){
+      document.getElementById('cookie-bar').style.display='none';
+    }
+  })();
+  function acceptCookies(type){
+    localStorage.setItem('at_cookie_consent', type);
+    document.getElementById('cookie-bar').style.display='none';
+  }
+
+  // Mobile menu
+  function toggleMobileMenu(){
+    var panel=document.getElementById('mobilePanel');
+    var overlay=document.getElementById('mobileOverlay');
+    var isOpen=panel.classList.contains('open');
+    panel.classList.toggle('open');
+    overlay.classList.toggle('open');
+    document.body.style.overflow=isOpen?'':'hidden';
+  }
+  function toggleServicesAccordion(){
+    document.getElementById('servicesAccordion').classList.toggle('open');
+  }
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      document.getElementById('mobilePanel').classList.remove('open');
+      document.getElementById('mobileOverlay').classList.remove('open');
+      document.body.style.overflow='';
+    }
+  });
+</script>
+</body>
+</html>

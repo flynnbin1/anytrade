@@ -292,6 +292,17 @@
     .trust-stat-value span{color:#F56E0F}
     .trust-stat-label{font-size:13px;color:rgba(255,255,255,.5);margin-top:6px;font-weight:500}
     @media(max-width:768px){.trust-bar-inner{grid-template-columns:repeat(2,1fr);gap:16px}.trust-bar-inner>div{padding:16px 8px}}
+  
+    /* COOKIE BAR */
+    #cookie-bar{position:fixed;bottom:0;left:0;right:0;background:#151c2e;border-top:1px solid rgba(255,255,255,.1);padding:16px 24px;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    #cookie-bar p{font-size:13.5px;color:rgba(255,255,255,.8);line-height:1.5;margin:0;flex:1;min-width:200px}
+    #cookie-bar a{color:#F56E0F;text-decoration:underline}
+    .cookie-btns{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+    .cookie-btn-accept{background:#F56E0F;color:#fff;border:none;padding:10px 20px;border-radius:6px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s}
+    .cookie-btn-accept:hover{background:#d45e0a}
+    .cookie-btn-essential{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35);padding:8px 18px;border-radius:6px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:border-color .2s}
+    .cookie-btn-essential:hover{border-color:#fff}
+    @media(max-width:600px){#cookie-bar{flex-direction:column;align-items:flex-start}.cookie-btns{width:100%}.cookie-btn-accept,.cookie-btn-essential{flex:1;text-align:center}}
   </style>
 </head>
 <body>
@@ -639,5 +650,14 @@
   function toggleServicesDropdown(e) { if(e) e.stopPropagation(); }
 
   </script>
+
+<!-- COOKIE BAR -->
+<div id="cookie-bar">
+  <p>We use cookies to ensure you get the best experience on our website. <a href="privacy-policy.html">Learn more</a></p>
+  <div class="cookie-btns">
+    <button class="cookie-btn-accept" onclick="acceptCookies('all')">Accept All</button>
+    <button class="cookie-btn-essential" onclick="acceptCookies('essential')">Essential Only</button>
+  </div>
+</div>
 </body>
 </html>
