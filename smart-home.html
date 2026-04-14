@@ -835,9 +835,25 @@
 <div id="cookie-bar">
   <p>We use cookies to ensure you get the best experience on our website. <a href="privacy-policy.html">Learn more</a></p>
   <div class="cookie-btns">
-    <button class="cookie-btn-accept" onclick="acceptCookies('all')">Accept All</button>
+    <button class="cookie-btn-accept" onclick="acceptCookies('accepted')">Accept All</button>
     <button class="cookie-btn-essential" onclick="acceptCookies('essential')">Essential Only</button>
   </div>
 </div>
+
+<!-- Cookie Consent Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var bar = document.getElementById('cookie-bar');
+  if (!bar) return;
+  if (localStorage.getItem('cookieConsent')) {
+    bar.style.display = 'none';
+  }
+});
+function acceptCookies(value) {
+  localStorage.setItem('cookieConsent', value);
+  var bar = document.getElementById('cookie-bar');
+  if (bar) bar.style.display = 'none';
+}
+</script>
 </body>
 </html>
