@@ -1,14 +1,9 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
   "redirects": [
-    { "source": "/electrical", "destination": "/services/electrical", "permanent": true },
-    { "source": "/plumbing", "destination": "/services/plumbing", "permanent": true },
-    { "source": "/bathroom-renovations", "destination": "/services/bathroom-renovations", "permanent": true },
-    { "source": "/carpentry", "destination": "/services/carpentry", "permanent": true },
-    { "source": "/painting-tiling", "destination": "/services/painting-tiling", "permanent": true },
-    { "source": "/media-walls", "destination": "/services/media-walls", "permanent": true },
-    { "source": "/smart-home", "destination": "/services/smart-home", "permanent": true },
-    { "source": "/commercial", "destination": "/services/commercial", "permanent": true }
+    {
+      "source": "/multi-trade",
+      "destination": "/services/multi-trade",
+      "permanent": true
+    }
   ]
 }
