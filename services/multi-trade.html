@@ -177,6 +177,16 @@
     .why-dark-content h4{font-size:15px;font-weight:700;color:#fff;margin-bottom:6px}
     .why-dark-content p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.55}
 
+    /* GALLERY */
+    .gallery-section{padding:80px 0;background:#f3f4f6}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+    .gallery-item{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1/1}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+    .gallery-item:hover img{transform:scale(1.06)}
+    .gallery-label{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 100%);color:#fff;font-size:13px;font-weight:600;letter-spacing:.01em}
+    @media(max-width:1024px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){.gallery-grid{grid-template-columns:1fr}}
+
     /* QUOTE FORM */
     .quote-section{padding:80px 0;background:#111827;position:relative;overflow:hidden}
     .quote-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 20% 50%,rgba(245,110,15,.08) 0%,transparent 60%)}
@@ -519,7 +529,52 @@
   </div>
 </section>
 
-<!-- 6. FORM SECTION -->
+<!-- 6. OUR WORK GALLERY -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div class="section-label">Our Work</div>
+      <h2>Recent Jobs Across North Dublin</h2>
+      <p>A sample of recent work completed by our team across electrical, plumbing, bathroom renovations, carpentry and more.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <img src="../assets/at-electrical-01.webp" alt="Electrical work by Any Tradesman" loading="lazy" width="600" height="600">
+        <div class="gallery-label">Electrical</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="../assets/at-plumbing-work-1.webp" alt="Plumbing work by Any Tradesman" loading="lazy" width="600" height="600">
+        <div class="gallery-label">Plumbing</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <img src="../assets/at-bathroom-01.webp" alt="Bathroom renovation by Any Tradesman" loading="lazy" width="600" height="600">
+        <div class="gallery-label">Bathroom Renovation</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3">
+        <img src="../assets/at-carpentry-01.webp" alt="Carpentry work by Any Tradesman" loading="lazy" width="600" height="600">
+        <div class="gallery-label">Carpentry</div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="../assets/at-painting-01.webp" alt="Painting and tiling by Any Tradesman" loading="lazy" width="600" height="600">
+        <div class="gallery-label">Painting &amp; Tiling</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="../assets/at-media-wall-01.webp" alt="Media wall by Any Tradesman" loading="lazy" width="600" height="600">
+        <div class="gallery-label">Media Wall</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <img src="../assets/at-smart-home-01.webp" alt="Smart home installation by Any Tradesman" loading="lazy" width="600" height="600">
+        <div class="gallery-label">Smart Home</div>
+      </div>
+      <div class="gallery-item reveal reveal-delay-3">
+        <img src="../assets/at-commercial-work-1.webp" alt="Commercial work by Any Tradesman" loading="lazy" width="600" height="600">
+        <div class="gallery-label">Commercial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FORM SECTION -->
 <section class="quote-section" id="quote">
   <div class="container">
     <div class="quote-grid">
