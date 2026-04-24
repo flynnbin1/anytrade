@@ -35,11 +35,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://www.anytradesman.ie/services/media-walls</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+
   <url>
     <loc>https://www.anytradesman.ie/services/smart-home</loc>
     <changefreq>monthly</changefreq>

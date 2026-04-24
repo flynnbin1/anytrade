@@ -6,6 +6,11 @@
       "source": "/multi-trade",
       "destination": "/services/multi-trade",
       "permanent": true
+    },
+    {
+      "source": "/services/media-walls",
+      "destination": "/services",
+      "permanent": true
     }
   ]
 }
