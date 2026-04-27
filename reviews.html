@@ -98,7 +98,7 @@
     .mobile-phone-link{display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px;font-weight:700;color:#fff;text-decoration:none;padding:12px;background:rgba(255,255,255,.06);border-radius:8px}
     .mobile-phone-link i{color:#F56E0F}
     .mobile-phone-link:hover{background:rgba(255,255,255,.1)}
-    @media(max-width:768px){.page-hero-bg img{object-position:center top}.nav-links,.nav-phone{display:none!important}.nav-hamburger{display:flex!important}.nav-cta{display:none!important}#nav .container{padding:0 20px!important}.nav-inner{justify-content:space-between!important;align-items:center!important}}
+    @media(max-width:768px){.nav-links,.nav-phone{display:none!important}.nav-hamburger{display:flex!important}.nav-cta{display:none!important}#nav .container{padding:0 20px!important}.nav-inner{justify-content:space-between!important;align-items:center!important}}
     @media(min-width:769px){.mobile-overlay,.mobile-panel{display:none!important}.mobile-overlay.open,.mobile-panel.open{display:none!important}}
 
     /* HERO */
@@ -140,12 +140,6 @@
     .review-name{font-size:14px;font-weight:700;color:var(--dark)}
     .review-meta{font-size:12px;color:var(--mid);display:flex;align-items:center;gap:6px;margin-top:2px}
     .review-source{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--mid);border:1px solid var(--border);padding:2px 7px;border-radius:100px}
-    .review-card-header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:4px}
-    .review-plat{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 8px;border-radius:100px;white-space:nowrap;flex-shrink:0}
-    .review-plat-fb{background:#e7f0fd;color:#1877f2}
-    .review-plat-bark{background:#e8f5f0;color:#0d8a5f}
-    .verified-badge{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;font-weight:600;color:#059669;margin-left:4px;white-space:nowrap;vertical-align:middle}
-    .verified-badge i{font-size:10px}
 
     /* PLATFORM TRUST */
     .platform-section{padding:64px 0;background:#fff}
@@ -202,7 +196,7 @@
       .leave-review-visual{display:none}
     }
     @media(max-width:768px){
-      .page-hero{padding:140px 0 60px;min-height:520px}.hero-actions{flex-direction:column;gap:12px}.hero-actions .btn{width:100%;justify-content:center}
+      .page-hero{padding:140px 0 60px}.hero-actions{flex-direction:column;gap:12px}.hero-actions .btn{width:100%;justify-content:center}
       .trust-bar-inner{grid-template-columns:repeat(2,1fr);gap:16px}
       .trust-bar-inner>div{padding:16px 8px}
       .reviews-grid{grid-template-columns:1fr}
@@ -244,9 +238,83 @@
               <a href="/services/bathroom-renovations"><span class="nd-icon"><i class="fa-solid fa-bath"></i></span>Bathroom Renovations</a>
               <a href="/services/carpentry"><span class="nd-icon"><i class="fa-solid fa-hammer"></i></span>Carpentry</a>
               <a href="/services/painting-tiling"><span class="nd-icon"><i class="fa-solid fa-paint-roller"></i></span>Painting &amp; Tiling</a>
-                <a href="/services/smart-home"><span class="nd-icon"><i class="fa-solid fa-house-signal"></i></span>Smart Home</a>
+              <a href="/services/media-walls"><span class="nd-icon"><i class="fa-solid fa-tv"></i></span>Media Walls</a>
+              <a href="/services/smart-home"><span class="nd-icon"><i class="fa-solid fa-house-signal"></i></span>Smart Home</a>
               <a href="/services/commercial"><span class="nd-icon"><i class="fa-solid fa-building"></i></span>Commercial</a>
             </div>
+          </div>
+          <a href="/how-it-works">How It Works</a>
+          <a href="/areas">Areas</a>
+          <a href="/reviews">Reviews</a>
+        </div>
+        <div class="nav-cta">
+          <a href="tel:016917151" class="nav-phone">
+            <i class="fa-solid fa-phone"></i>
+            01 691 7151
+          </a>
+          <a href="/get-a-quote" class="btn btn-primary" style="padding:10px 22px;font-size:14px;">Get an Estimate</a>
+        </div>
+        <button class="nav-hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+  <div class="mobile-panel" id="mobilePanel">
+    <div class="mobile-panel-header">
+      <a href="/" class="nav-logo">
+        <img width="500" height="500" loading="lazy" src="assets/any-tradesman-new-logo-big.png" alt="Any Tradesman — North Dublin multi-trade services" style="height:140px;width:auto;vertical-align:middle;display:block;">
+      </a>
+      <button class="mobile-close" onclick="toggleMobileMenu()" aria-label="Close menu">&times;</button>
+    </div>
+    <div class="mobile-panel-links">
+      <div class="mobile-accordion" id="servicesAccordion">
+        <button class="mobile-accordion-trigger" onclick="toggleServicesAccordion()">
+          Services
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="mobile-accordion-content">
+          <a href="/services/electrical"><i class="fa-solid fa-bolt"></i>Electrical</a>
+          <a href="/services/plumbing"><i class="fa-solid fa-droplet"></i>Plumbing</a>
+          <a href="/services/bathroom-renovations"><i class="fa-solid fa-bath"></i>Bathroom Renovations</a>
+          <a href="/services/carpentry"><i class="fa-solid fa-hammer"></i>Carpentry</a>
+          <a href="/services/painting-tiling"><i class="fa-solid fa-paint-roller"></i>Painting &amp; Tiling</a>
+          <a href="/services/media-walls"><i class="fa-solid fa-tv"></i>Media Walls</a>
+          <a href="/services/smart-home"><i class="fa-solid fa-house-signal"></i>Smart Home</a>
+          <a href="/services/commercial"><i class="fa-solid fa-building"></i>Commercial</a>
+        </div>
+      </div>
+      <a href="/how-it-works">How It Works</a>
+      <a href="/areas">Areas</a>
+      <a href="/reviews">Reviews</a>
+    </div>
+    <div class="mobile-panel-footer">
+      <a href="tel:016917151" class="mobile-phone-link"><i class="fa-solid fa-phone"></i>01 691 7151</a>
+      <a href="/get-a-quote" class="btn btn-primary" style="display:flex;justify-content:center;width:100%;padding:14px 28px;">Get a Free Estimate</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <img width="2048" height="2048" loading="lazy" src="assets/at-29-customer-handshake.webp" alt="Happy Any Tradesman customer in North Dublin">
+    </div>
+    <div class="container">
+      <div class="page-hero-content reveal">
+        <div class="hero-badge">Customer Reviews</div>
+        <h1>What Our Customers<br><em>Say About Us</em></h1>
+        <p class="hero-sub">Trusted locally across North Dublin. 5-star rated service — 100% recommended by our customers.</p>
+        <div class="hero-actions">
+          <a href="/get-a-quote" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Get a Free Estimate
+          </a>
+          <a href="tel:016917151" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82 19.79 19.79 0 01.1 1.18 2 2 0 012.1 0h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L6.2 7.78a16 16 0 006.02 6.02l1.14-1.14a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 14.92z"/></svg>
+            Call Us
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -286,413 +354,145 @@
       <div class="reviews-grid">
 
         <div class="review-card reveal">
-          <div class="review-card-header">
-            <div class="review-stars">
+          <div class="review-stars">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-fb"><i class="fa-brands fa-facebook-f"></i> Facebook</span>
           </div>
           <p class="review-text">I would highly recommend Andy. I found him to be reliable, professional &amp; excellent at his job.</p>
           <div class="review-author">
             <div class="review-avatar" style="background:#6366f1;">AB</div>
             <div>
               <div class="review-name">Amy Byrne</div>
+              <div class="review-meta">Facebook</div>
             </div>
           </div>
         </div>
 
         <div class="review-card reveal reveal-delay-1">
-          <div class="review-card-header">
-            <div class="review-stars">
+          <div class="review-stars">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-fb"><i class="fa-brands fa-facebook-f"></i> Facebook</span>
           </div>
           <p class="review-text">Couldn&#39;t recommend Andy enough. He came out to change a power shower to an electric pumped shower for me. He had to take off a few bathroom tiles to replace the plumbing and wiring to suit new shower and put on new tiles. And a few other jobs around the house. Gentleman to deal with and also very neat and tidy.</p>
           <div class="review-author">
             <div class="review-avatar" style="background:#059669;">GC</div>
             <div>
               <div class="review-name">Garry Cullinan</div>
+              <div class="review-meta">Facebook</div>
             </div>
           </div>
         </div>
 
         <div class="review-card reveal reveal-delay-2">
-          <div class="review-card-header">
-            <div class="review-stars">
+          <div class="review-stars">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-fb"><i class="fa-brands fa-facebook-f"></i> Facebook</span>
           </div>
           <p class="review-text">Andy is great. Courteous, punctual, neat and thorough. Nothing is a problem. Highly recommend.</p>
           <div class="review-author">
             <div class="review-avatar" style="background:#0891b2;">SH</div>
             <div>
               <div class="review-name">Sean Hynes</div>
+              <div class="review-meta">Facebook</div>
             </div>
           </div>
         </div>
 
         <div class="review-card reveal">
-          <div class="review-card-header">
-            <div class="review-stars">
+          <div class="review-stars">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-fb"><i class="fa-brands fa-facebook-f"></i> Facebook</span>
           </div>
           <p class="review-text">Andy came out to check out a leak from the bathroom, coming through the kitchen ceiling. Called him on a Friday afternoon and he was at mine at 9am the next morning. Located and fixed the leak in an hour. Very impressed with his professionalism and efficiency, will definitely call on him again for other jobs.</p>
           <div class="review-author">
             <div class="review-avatar" style="background:#dc2626;">GG</div>
             <div>
               <div class="review-name">Georgina Garford</div>
+              <div class="review-meta">Facebook</div>
             </div>
           </div>
         </div>
 
         <div class="review-card reveal reveal-delay-1">
-          <div class="review-card-header">
-            <div class="review-stars">
+          <div class="review-stars">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-fb"><i class="fa-brands fa-facebook-f"></i> Facebook</span>
           </div>
           <p class="review-text">Andy came and took out our old countertops so we could get new ones fitted. He very kindly fitted us in the day before the new ones arrived so we weren&#39;t too long without counters! Delighted to have found Andy and will definitely use him again in the future!</p>
           <div class="review-author">
             <div class="review-avatar" style="background:#be185d;">SC</div>
             <div>
               <div class="review-name">Steph Cronin</div>
+              <div class="review-meta">Facebook</div>
             </div>
           </div>
         </div>
 
         <div class="review-card reveal reveal-delay-2">
-          <div class="review-card-header">
-            <div class="review-stars">
+          <div class="review-stars">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-fb"><i class="fa-brands fa-facebook-f"></i> Facebook</span>
           </div>
           <p class="review-text">Andy replaced my kitchen tap and the seal in the water tank in the attic. A lovely man and a pleasure to deal with. I want some electrical work done in the new year and will certainly be getting Andy to do it. I can highly recommend him.</p>
           <div class="review-author">
             <div class="review-avatar" style="background:#0f766e;">LO</div>
             <div>
               <div class="review-name">Liz O&#39;Loughlin</div>
+              <div class="review-meta">Facebook</div>
             </div>
           </div>
         </div>
 
         <div class="review-card reveal">
-          <div class="review-card-header">
-            <div class="review-stars">
+          <div class="review-stars">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-fb"><i class="fa-brands fa-facebook-f"></i> Facebook</span>
           </div>
           <p class="review-text">Highly recommend Andy for any work you need in your home. Not only is his work carried out to the highest standards but he is an absolute gentleman to deal with and leaves the area clean and tidy. Andy&#39;s been to me twice in the last week and nothings too much trouble.</p>
           <div class="review-author">
             <div class="review-avatar" style="background:#7c3aed;">IC</div>
             <div>
               <div class="review-name">Irene Clonan</div>
+              <div class="review-meta">Facebook</div>
             </div>
           </div>
         </div>
 
         <div class="review-card reveal reveal-delay-1">
-          <div class="review-card-header">
-            <div class="review-stars">
+          <div class="review-stars">
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-fb"><i class="fa-brands fa-facebook-f"></i> Facebook</span>
           </div>
           <p class="review-text">Andy has done numerous jobs for me recently which I was delighted with.</p>
           <div class="review-author">
             <div class="review-avatar" style="background:#d97706;">LC</div>
             <div>
               <div class="review-name">Linda Cahill</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-delay-2">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">Andy completed an urgent repair for me. He was professional, punctual and his work was of a high standard. Highly recommended.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#1d4ed8;">TW</div>
-            <div>
-              <div class="review-name">Tony Whelan <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Plumbing</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">Excellent service from Andy. He fitted a new consumer unit and sorted out some faulty sockets. Tidy worker, explained everything clearly and the price was very fair.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#15803d;">MQ</div>
-            <div>
-              <div class="review-name">Mark Quinlan <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Electrical</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-delay-1">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">Andy tiled our bathroom beautifully. Really happy with the finish &#8212; clean lines, no mess left behind, and he was great craic too!</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#9333ea;">P</div>
-            <div>
-              <div class="review-name">Paula <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Tiling</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-delay-2">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">We had Andy do a full bathroom renovation &#8212; new suite, tiling, plumbing, the lot. Couldn&#39;t be happier. He managed everything and kept us updated throughout.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#b45309;">BT</div>
-            <div>
-              <div class="review-name">Bree Treacy <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Bathroom Renovation</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">Had some carpentry work done &#8212; new skirting boards and door frames throughout the house. Andy was fast, precise and left the place spotless.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#0e7490;">J</div>
-            <div>
-              <div class="review-name">Julius <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Carpentry</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-delay-1">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">Good work done on some painting and plastering. Happy with the result.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#be123c;">DM</div>
-            <div>
-              <div class="review-name">Diego Mornacco</div>
-              <div class="review-meta">Painting</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-delay-2">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">Andy installed smart lighting and a video doorbell for us. He was knowledgeable, patient with our questions, and everything works perfectly. Would definitely use again.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#7c2d12;">JD</div>
-            <div>
-              <div class="review-name">Jamie Darcy <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Smart Home</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">We used Andy for commercial fit-out work in our office. Professional throughout, minimal disruption to the business, and the finish was excellent.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#1e40af;">DB</div>
-            <div>
-              <div class="review-name">Dominic Burke <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Commercial</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-delay-1">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">Andy sorted a blocked drain and replaced an outside tap at the same visit. Two jobs done in one go &#8212; exactly what I needed. Very efficient.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#065f46;">A</div>
-            <div>
-              <div class="review-name">Andrea <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Plumbing</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-delay-2">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">Had a few small jobs that other tradesmen wouldn&#39;t bother with. Andy came out, sorted everything in one visit and charged a fair price. Brilliant service.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#7e22ce;">AL</div>
-            <div>
-              <div class="review-name">Ali <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Multi-Trade</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">Andy fitted new kitchen units and worktops for us. Solid carpentry work, great attention to detail, and the kitchen looks fantastic.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#92400e;">AM</div>
-            <div>
-              <div class="review-name">Adam McCormac <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Carpentry</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card reveal reveal-delay-1">
-          <div class="review-card-header">
-            <div class="review-stars">
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
-            <span class="review-plat review-plat-bark"><i class="fa-solid fa-shield-halved"></i> Bark</span>
-          </div>
-          <p class="review-text">Used Andy for a full repaint of the sitting room and hallway. Neat, tidy, quick and a really good finish. Will be back for the bedrooms.</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#1e3a5f;">RL</div>
-            <div>
-              <div class="review-name">Ronan Lowry <span class="verified-badge"><i class="fa-solid fa-circle-check"></i> Verified</span></div>
-              <div class="review-meta">Painting</div>
+              <div class="review-meta">Facebook</div>
             </div>
           </div>
         </div>
@@ -734,7 +534,6 @@
         </div>
         <div class="footer-links">
           <a href="/services">Services</a>
-          <a href="/services/multi-trade">Multi-Trade</a>
           <a href="/how-it-works">How It Works</a>
           <a href="/reviews">Reviews</a>
           <a href="/areas">Areas</a>
